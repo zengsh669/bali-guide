@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bowral 一日游 · Easter Monday</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<style>
+:root {
+  --cream:#FAF7F2;--parchment:#F0E9D8;--warm:#E8DFC8;
+  --ink:#1C1610;--charcoal:#3A3028;--brown:#6B4E2F;
+  --rust:#A8522A;--gold:#B8892A;--sage:#5A7A5C;
+  --muted:#8A7A6A;--faint:#C4B8A8;--divider:rgba(107,78,47,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Lato',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden;}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(170deg,#1A3020 0%,#2D5038 20%,#4A7A3A 42%,#8B6A30 65%,#C49A40 85%,#E8C870 100%);}
+.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% 100%,rgba(20,16,10,0.75) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 20%,rgba(184,137,42,0.2) 0%,transparent 55%);}
+.hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--cream),transparent);}
+.hero-deco{position:absolute;pointer-events:none;opacity:0.08;font-size:180px;line-height:1;}
+.hd1{top:8%;right:4%;transform:rotate(12deg);animation:sway 9s ease-in-out infinite;}
+.hd2{bottom:18%;left:3%;font-size:120px;transform:rotate(-15deg);animation:sway 11s ease-in-out infinite reverse;}
+@keyframes sway{0%,100%{transform:rotate(12deg) translateY(0);}50%{transform:rotate(8deg) translateY(-12px);}}
+.hero-content{position:relative;z-index:2;padding:0 40px;max-width:800px;animation:heroFadeUp 1s cubic-bezier(0.16,1,0.3,1) both;}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.hero-label{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:18px;font-weight:400;}
+.hero-label::before{content:'';width:32px;height:1px;background:rgba(255,255,255,0.35);}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(46px,8vw,84px);font-weight:700;color:white;line-height:0.95;letter-spacing:-1px;margin-bottom:6px;}
+.hero-title em{font-style:italic;font-weight:400;color:#E8C870;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);margin-top:18px;letter-spacing:1px;}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
+.chip{padding:7px 16px;border:1px solid rgba(255,255,255,0.25);border-radius:24px;font-size:12px;color:rgba(255,255,255,0.8);letter-spacing:0.5px;backdrop-filter:blur(6px);background:rgba(255,255,255,0.06);}
+.info-banner{background:#EFF6EE;border-bottom:3px solid #5A7A5C;padding:16px 28px;}
+.info-inner{max-width:880px;margin:0 auto;display:flex;align-items:flex-start;gap:14px;}
+.info-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.info-text{font-size:13.5px;color:#2D5038;line-height:1.6;}
+.info-text strong{font-weight:700;}
+.container{max-width:880px;margin:0 auto;padding:0 28px;}
+.section{padding:72px 0;}
+.section.alt{background:var(--parchment);}
+.overline{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.overline::after{content:'';width:40px;height:1px;background:var(--rust);opacity:0.4;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);color:var(--charcoal);font-weight:400;line-height:1.1;margin-bottom:40px;}
+.sec-title em{font-style:italic;color:var(--rust);}
+.timeline{position:relative;}
+.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--rust),var(--gold),var(--sage),var(--brown));opacity:0.2;}
+.stop{display:grid;grid-template-columns:48px 1fr;gap:0 28px;margin-bottom:52px;opacity:0;transform:translateX(-16px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.stop.in{opacity:1;transform:translateX(0);}
+.stop-marker{display:flex;flex-direction:column;align-items:center;}
+.stop-dot{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;position:relative;z-index:1;flex-shrink:0;border:2px solid white;box-shadow:0 0 0 2px currentColor,0 4px 16px rgba(0,0,0,0.12);}
+.stop-body{padding-top:8px;padding-bottom:4px;}
+.stop-time{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);margin-bottom:4px;font-weight:700;}
+.stop-name{font-size:22px;font-weight:600;color:var(--charcoal);line-height:1.15;margin-bottom:6px;}
+.stop-tag{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+.stop-desc{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+.stop-highlights{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+.hl{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--charcoal);}
+.hl-icon{font-size:14px;flex-shrink:0;margin-top:2px;}
+.hl-text{line-height:1.55;}
+.hl-text strong{font-weight:700;}
+.tip-box{margin-top:12px;padding:10px 14px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--gold);font-size:12.5px;color:var(--brown);display:flex;gap:8px;line-height:1.6;}
+.tip-box::before{content:'💡';font-size:13px;flex-shrink:0;margin-top:1px;}
+.map-section{padding:72px 0;}
+.map-wrap{border-radius:18px;overflow:hidden;border:1px solid var(--divider);box-shadow:0 8px 40px rgba(30,22,10,0.1);margin-bottom:20px;}
+#day-map{width:100%;height:480px;}
+.map-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:600px){.map-legend{grid-template-columns:repeat(2,1fr);}#day-map{height:360px;}.timeline::before{left:20px;}.stop{grid-template-columns:40px 1fr;gap:0 18px;}}
+.leg-item{background:white;border:1px solid var(--divider);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:box-shadow 0.2s;}
+.leg-item:hover{box-shadow:0 4px 16px rgba(107,78,47,0.1);}
+.leg-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
+.leg-name{font-size:13px;font-weight:700;color:var(--charcoal);}
+.leg-time{font-size:11px;color:var(--faint);letter-spacing:0.5px;}
+.summary-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(30,22,10,0.08);}
+.summary-table thead tr{background:var(--charcoal);}
+.summary-table thead th{padding:14px 18px;text-align:left;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:500;}
+.summary-table tbody tr:nth-child(odd) td{background:white;}
+.summary-table tbody tr:nth-child(even) td{background:var(--parchment);}
+.summary-table tbody tr:hover td{background:rgba(168,82,42,0.04);}
+.summary-table td{padding:13px 18px;font-size:13px;border-top:1px solid var(--divider);vertical-align:middle;}
+.summary-table td:first-child{font-weight:700;color:var(--charcoal);}
+.time-col{color:var(--muted);font-size:12px;}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+@media(max-width:560px){.checklist{grid-template-columns:1fr;}}
+.check-item{background:white;border:1px solid var(--divider);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;transition:box-shadow 0.2s;}
+.check-item:hover{box-shadow:0 4px 16px rgba(107,78,47,0.08);}
+.check-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.check-title{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:3px;}
+.check-desc{font-size:12.5px;color:var(--muted);line-height:1.55;}
+footer{background:var(--charcoal);color:rgba(250,247,242,0.4);text-align:center;padding:44px 24px;font-size:12px;letter-spacing:1px;line-height:2.2;}
+footer strong{display:block;font-family:'Playfair Display',serif;font-size:20px;font-style:italic;font-weight:400;color:rgba(250,247,242,0.7);letter-spacing:2px;margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco hd1">🍂</div>
+  <div class="hero-deco hd2">🌿</div>
+  <div class="hero-content">
+    <div class="hero-label">Kellyville 出发 · 复活节假期</div>
+    <h1 class="hero-title">Bowral<br><em>一日游攻略</em></h1>
+    <p class="hero-sub">Easter Monday · 4月7日 · 南高地秋色之旅</p>
+    <div class="hero-chips">
+      <div class="chip">🍂 四月秋色最美</div>
+      <div class="chip">🚗 悉尼出发约1.5小时</div>
+      <div class="chip">📚 Book Barn</div>
+      <div class="chip">🍇 葡萄园午餐</div>
+      <div class="chip">🛍 Bong Bong Street</div>
+    </div>
+  </div>
+</section>
+
+<div class="info-banner">
+  <div class="info-inner">
+    <div class="info-icon">✅</div>
+    <div class="info-text">
+      <strong>Easter Monday 行程优势：</strong>
+      Bendooley 周一正常营业，Gumnut Patisserie Bowral 七天全开（8am起），Centennial Vineyards 已开放 Easter Monday Lunch 专属套餐预订。
+      <strong>唯一待办：立即致电预订 Centennial Vineyards：02 4861 8701</strong>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="itinerary">
+  <div class="container">
+    <div class="overline">行程安排</div>
+    <h2 class="sec-title">六站一日 · <em>从容不仓促</em></h2>
+    <div class="timeline">
+
+      <div class="stop" id="s1">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--rust);background:rgba(168,82,42,0.1)">🚗</div></div>
+        <div class="stop-body">
+          <div class="stop-time">早上 8:00</div>
+          <div class="stop-name">出发 · Kellyville</div>
+          <span class="stop-tag" style="background:rgba(168,82,42,0.1);color:var(--rust)">🚗 出发</span>
+          <div class="stop-desc">走 M5 接 Hume Highway 南下，车程约1.5小时直达 Bowral。建议早出发避开复活节长周末的车流高峰。</div>
+          <div class="tip-box">复活节长周末高速路会比平时多车，上午早出发是关键，回程也建议3点前上路。</div>
+        </div>
+      </div>
+
+      <div class="stop" id="s2">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--gold);background:rgba(184,137,42,0.1)">☕</div></div>
+        <div class="stop-body">
+          <div class="stop-time">早上 9:30</div>
+          <div class="stop-name">Gumnut Patisserie · Bowral</div>
+          <span class="stop-tag" style="background:rgba(184,137,42,0.1);color:var(--gold)">☕ 早餐</span>
+          <div class="stop-desc">直接到 Bowral 市区，在 Bong Bong Street 主街的 Grand Arcade 内，南高地最有名的糕点店，周一至周日 8am 起营业，无需另行确认。</div>
+          <div class="stop-highlights">
+            <div class="hl"><span class="hl-icon">🥐</span><span class="hl-text"><strong>招牌糕点</strong>：Vanilla Slice、Ham & Cheese Croissant、各式精致派，拿了可以边走边吃</span></div>
+            <div class="hl"><span class="hl-icon">🏆</span><span class="hl-text"><strong>澳洲最佳派</strong>：历届 Royal Easter Show 多次获奖，羊肉派和牛肉派是招牌</span></div>
+            <div class="hl"><span class="hl-icon">📍</span><span class="hl-text">Shop 7, Grand Arcade, Bong Bong St, Bowral · 评分 4.5 ⭐ · 2,667条评价</span></div>
+          </div>
+          <div class="tip-box">复活节当天 Bowral 游客较多，建议9:30抵达趁早，热门糕点卖完就没了。</div>
+        </div>
+      </div>
+
+      <div class="stop" id="s3">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--rust);background:rgba(168,82,42,0.1)">🛍</div></div>
+        <div class="stop-body">
+          <div class="stop-time">上午 10:00</div>
+          <div class="stop-name">Bowral 市区</div>
+          <span class="stop-tag" style="background:rgba(168,82,42,0.1);color:var(--rust)">🛍 逛街打卡</span>
+          <div class="stop-desc">早餐后趁上午人少逛完市区所有景点，停车建议选 Corbett Gardens 旁的 Merrigang Street 停车场，步行可达全部景点。</div>
+          <div class="stop-highlights">
+            <div class="hl"><span class="hl-icon">🏪</span><span class="hl-text"><strong>Dirty Janes</strong>（评分4.6 · 1,426条）：Banyette St 的古董精品集市，复古淘宝，可消磨一小时</span></div>
+            <div class="hl"><span class="hl-icon">🛍</span><span class="hl-text"><strong>Bong Bong Street</strong>：主街精品店、艺术画廊、独立小店，四月落叶街景漂亮</span></div>
+            <div class="hl"><span class="hl-icon">🌿</span><span class="hl-text"><strong>Corbett Gardens</strong>（免费）：1911年建，古老喜马拉雅松和草坪，秋天氛围宁静，拍照绝佳</span></div>
+          </div>
+          <div class="tip-box">上午光线好，Corbett Gardens 秋叶最适合拍照。Dirty Janes 建议趁早去，复活节下午人会更多。</div>
+        </div>
+      </div>
+
+      <div class="stop" id="s4">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--sage);background:rgba(90,122,92,0.1)">🍇</div></div>
+        <div class="stop-body">
+          <div class="stop-time">中午 12:00</div>
+          <div class="stop-name">Centennial Vineyards Restaurant</div>
+          <span class="stop-tag" style="background:rgba(90,122,92,0.1);color:var(--sage)">🍇 葡萄园午餐</span>
+          <div class="stop-desc">从 Bowral 市区开车约5分钟，坐落于80英亩葡萄园中，落地玻璃窗俯瞰葡萄园全景。Easter Monday 专属套餐，性价比为南高地同级餐厅中最高。</div>
+          <div class="stop-highlights">
+            <div class="hl"><span class="hl-icon">🌟</span><span class="hl-text"><strong>2026 Easter Monday Lunch 套餐</strong>：专属节日套餐，含开胃酒，已开放网上预订</span></div>
+            <div class="hl"><span class="hl-icon">💰</span><span class="hl-text"><strong>人均 $40–60</strong>：南高地同等氛围餐厅中性价比最高，比 Eschalot 便宜一半</span></div>
+            <div class="hl"><span class="hl-icon">🍷</span><span class="hl-text"><strong>自家酿造葡萄酒</strong>：Chardonnay、Pinot Noir、Riesling 等冷气候品种</span></div>
+            <div class="hl"><span class="hl-icon">🔥</span><span class="hl-text"><strong>四月开壁炉</strong>：秋凉时节壁炉配葡萄园景色，氛围极佳</span></div>
+            <div class="hl"><span class="hl-icon">📍</span><span class="hl-text">252 Centennial Rd, Bowral · 评分 4.6 ⭐ · 837条评价 · 📞 02 4861 8701</span></div>
+          </div>
+          <div class="tip-box">Easter Monday 套餐座位有限，立即致电预订：02 4861 8701，或前往 centennialvineyardsrestaurant.com.au 在线预订。</div>
+        </div>
+      </div>
+
+      <div class="stop" id="s5">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--brown);background:rgba(107,78,47,0.1)">📚</div></div>
+        <div class="stop-body">
+          <div class="stop-time">下午 13:45</div>
+          <div class="stop-name">Bendooley Estate · Book Barn</div>
+          <span class="stop-tag" style="background:rgba(107,78,47,0.1);color:var(--brown)">📚 书仓打卡</span>
+          <div class="stop-desc">从 Centennial Vineyards 开车约10分钟。吃完午餐来这里纯粹打卡逛书店——吃饱了散步、坐壁炉旁翻书、在书架间拍照，充分体验书仓氛围而不被吃饭占用时间。</div>
+          <div class="stop-highlights">
+            <div class="hl"><span class="hl-icon">📖</span><span class="hl-text"><strong>Book Barn（免费入场）</strong>：上万本新书、古书和珍本，天花板高耸、木梁古朴，南高地最具氛围打卡地</span></div>
+            <div class="hl"><span class="hl-icon">🔥</span><span class="hl-text"><strong>石头壁炉</strong>：四月秋凉壁炉烧着，坐在书架旁翻书是最治愈的体验</span></div>
+            <div class="hl"><span class="hl-icon">🌿</span><span class="hl-text"><strong>庄园散步</strong>：葡萄叶四月变红变黄，湖边草坪和玫瑰园拍照极佳</span></div>
+            <div class="hl"><span class="hl-icon">☕</span><span class="hl-text"><strong>咖啡下午茶</strong>：书仓咖啡吧点一杯边喝边逛，不需要专门吃饭</span></div>
+            <div class="hl"><span class="hl-icon">📍</span><span class="hl-text">3020 Old Hume Hwy, Berrima · 评分 4.4 ⭐ · 832条评价 · 周一 9:30am 开门</span></div>
+          </div>
+          <div class="tip-box">Bendooley 有时因婚宴私人活动提前关门，建议出发前致电确认当天下午开放时间：02 4868 8788</div>
+        </div>
+      </div>
+
+      <div class="stop" id="s6">
+        <div class="stop-marker"><div class="stop-dot" style="color:var(--charcoal);background:rgba(58,48,40,0.1)">🏠</div></div>
+        <div class="stop-body">
+          <div class="stop-time">下午 15:00</div>
+          <div class="stop-name">出发回 Kellyville</div>
+          <span class="stop-tag" style="background:rgba(58,48,40,0.1);color:var(--charcoal)">🚗 返程</span>
+          <div class="stop-desc">从 Bendooley 上 Hume Highway 北上，约1.5小时到 Kellyville，预计下午4:30到家。复活节下午车流量大，建议不要拖到4点后出发。</div>
+          <div class="tip-box">复活节回程高峰在3–5点，3点出发最理想。Hume Highway 服务区可停车休息。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="map-section alt" id="mapview">
+  <div class="container">
+    <div class="overline">路线地图</div>
+    <h2 class="sec-title">一路向南 · <em>不走回头路</em></h2>
+    <div class="map-wrap"><div id="day-map"></div></div>
+    <div class="map-legend" id="mapLegend"></div>
+  </div>
+</section>
+
+<section class="section" id="summary">
+  <div class="container">
+    <div class="overline">行程总览</div>
+    <h2 class="sec-title">一日时间表</h2>
+    <table class="summary-table">
+      <thead><tr><th>地点</th><th>时间</th><th>类型</th><th>费用参考</th></tr></thead>
+      <tbody>
+        <tr><td>🚗 出发 Kellyville</td><td class="time-col">08:00</td><td>—</td><td>—</td></tr>
+        <tr><td>☕ Gumnut Patisserie · Bowral</td><td class="time-col">09:30 · 约30分钟</td><td>早餐糕点</td><td>~$30 两人</td></tr>
+        <tr><td>🛍 Bowral 市区（Dirty Janes · Corbett Gardens）</td><td class="time-col">10:00 · 约1.5小时</td><td>逛街打卡</td><td>自选</td></tr>
+        <tr><td>🍇 Centennial Vineyards Restaurant</td><td class="time-col">12:00 · 约1.5小时</td><td>Easter Monday 午餐</td><td>~$100–120 两人</td></tr>
+        <tr><td>📚 Bendooley Estate · Book Barn</td><td class="time-col">13:45 · 约1小时</td><td>书仓打卡 · 庄园</td><td>免费入场</td></tr>
+        <tr><td>🏠 返程 Kellyville</td><td class="time-col">15:00 · 约1.5小时</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section alt" id="checklist">
+  <div class="container">
+    <div class="overline">出发前准备</div>
+    <h2 class="sec-title">这些事 · <em>现在就做</em></h2>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-icon">🍇</div>
+        <div class="check-body">
+          <div class="check-title">立即预订 Centennial Vineyards</div>
+          <div class="check-desc">Easter Monday Lunch 专属套餐座位有限。致电 02 4861 8701，或前往 centennialvineyardsrestaurant.com.au 在线预订。</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">📚</div>
+        <div class="check-body">
+          <div class="check-title">确认 Bendooley 关门时间</div>
+          <div class="check-desc">Bendooley 偶尔因婚宴私人活动提前关门。出发前致电 02 4868 8788 确认当天下午是否正常开放。</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">🧥</div>
+        <div class="check-body">
+          <div class="check-title">穿着准备</div>
+          <div class="check-desc">四月初 Bowral 白天约14–17°C，早上出发时更凉。带一件外套或薄风衣，Centennial Vineyards 可稍正式休闲。</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">💰</div>
+        <div class="check-body">
+          <div class="check-title">带现金备用</div>
+          <div class="check-desc">Dirty Janes 部分摊位只收现金，Bendooley 书店买书也可能用到。建议带 $50–100 现金。</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">🅿️</div>
+        <div class="check-body">
+          <div class="check-title">停车策略</div>
+          <div class="check-desc">复活节 Bowral 人多，建议停 Merrigang Street 停车场（Corbett Gardens 旁）或 Banyette Street，步行可达所有市区景点。</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">📱</div>
+        <div class="check-body">
+          <div class="check-title">下载离线地图</div>
+          <div class="check-desc">Bendooley 和 Berrima 附近手机信号有时不稳定，建议提前在 Google Maps 下载 Southern Highlands 离线地图。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Bowral 一日游 · Easter Monday 4月7日</strong>
+  Kellyville 出发 · 南高地秋色之旅<br>
+  所有营业时间以商家确认为准 · 复活节假日可能有变
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const STOPS = [
+  { n:1, lat:-34.2744, lng:150.9840, name:'Kellyville 出发', time:'08:00', icon:'🚗', color:'#3A3028' },
+  { n:2, lat:-34.4806, lng:150.4205, name:'Gumnut Patisserie · Bowral', time:'09:30', icon:'☕', color:'#B8892A' },
+  { n:3, lat:-34.4816, lng:150.4168, name:'Bowral 市区 · Dirty Janes', time:'10:00', icon:'🛍', color:'#A8522A' },
+  { n:4, lat:-34.4627, lng:150.4008, name:'Centennial Vineyards', time:'12:00', icon:'🍇', color:'#5A7A5C' },
+  { n:5, lat:-34.4690, lng:150.3609, name:'Bendooley Estate · Book Barn', time:'13:45', icon:'📚', color:'#6B4E2F' },
+  { n:6, lat:-34.2744, lng:150.9840, name:'返程 Kellyville', time:'15:00', icon:'🏠', color:'#3A3028' },
+];
+
+const map = L.map('day-map').setView([-34.40, 150.55], 10);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CARTO',maxZoom:18}).addTo(map);
+
+function makePin(color,emoji,num){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" viewBox="0 0 40 50">
+    <filter id="ds"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.22"/></filter>
+    <path filter="url(#ds)" d="M20 2C11.2 2 4 9.2 4 18c0 11 16 30 16 30S36 29 36 18C36 9.2 28.8 2 20 2z" fill="${color}"/>
+    <circle cx="20" cy="18" r="12" fill="white" opacity="0.93"/>
+    <text x="20" y="15" text-anchor="middle" font-size="12" dy="0.35em">${emoji}</text>
+    <text x="20" y="26" text-anchor="middle" font-size="9" font-weight="700" fill="${color}" font-family="sans-serif">${num}</text>
+  </svg>`;
+  return L.divIcon({html:svg,iconSize:[40,50],iconAnchor:[20,50],popupAnchor:[0,-50],className:''});
+}
+
+const markers=[];
+STOPS.forEach(s=>{
+  const m=L.marker([s.lat,s.lng],{icon:makePin(s.color,s.icon,s.n)})
+    .bindPopup(`<div style="font-family:sans-serif;min-width:150px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:${s.color};margin-bottom:4px">停靠 ${s.n} · ${s.time}</div>
+      <div style="font-size:15px;font-weight:700;color:#1C1610">${s.icon} ${s.name}</div>
+    </div>`,{maxWidth:200}).addTo(map);
+  markers.push(m);
+});
+
+L.polyline(STOPS.map(s=>[s.lat,s.lng]),{color:'#A8522A',weight:2.5,opacity:0.5,dashArray:'8,6'}).addTo(map);
+
+const legend=document.getElementById('mapLegend');
+legend.innerHTML=STOPS.map(s=>`
+  <div class="leg-item" onclick="focusStop(${s.n-1})">
+    <div class="leg-num" style="background:${s.color}">${s.n}</div>
+    <div class="leg-info">
+      <div class="leg-name">${s.icon} ${s.name}</div>
+      <div class="leg-time">${s.time}</div>
+    </div>
+  </div>`).join('');
+
+function focusStop(i){const s=STOPS[i];map.setView([s.lat,s.lng],14,{animate:true});markers[i].openPopup();}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.stop').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
