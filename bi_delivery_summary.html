@@ -232,9 +232,13 @@ html, body {
   padding: 4px 10px; border-radius: 20px;
   border: 1px solid var(--border);
   background: var(--bg2); font-size: 11px; color: var(--text);
-  cursor: pointer; transition: border-color 0.15s;
+  cursor: pointer; transition: border-color 0.15s, opacity 0.15s;
+  user-select: none;
 }
 .legend-item:hover { border-color: var(--border2); }
+.legend-item.legend-hidden { opacity: 0.5; }
+.legend-toggle-hint { font-size: 9px; color: var(--muted2); }
+.legend-item:hover .legend-toggle-hint { color: var(--muted); }
 .legend-edit-hint { font-size: 10px; color: var(--muted2); margin-left: 2px; }
 .legend-item:hover .legend-edit-hint { color: var(--muted); }
 .group-edit-popup {
@@ -503,31 +507,31 @@ html, body {
 
 <div class="grid-wrap">
   <div class="legend-bar" id="legend-bar">
-    <div class="legend-item" onclick="openGroupEdit('g-1775896671817', event)" title="Click to edit">
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775896671817', event)" ondblclick="openGroupEdit('g-1775896671817', event)" title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:#9ea027"></div>
       PBI Report
       <span class="legend-edit-hint">✎</span>
     </div>
   
-    <div class="legend-item" onclick="openGroupEdit('g-1775896711532', event)" title="Click to edit">
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775896711532', event)" ondblclick="openGroupEdit('g-1775896711532', event)" title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:#313cdd"></div>
       Data Engineering | Gov
       <span class="legend-edit-hint">✎</span>
     </div>
   
-    <div class="legend-item" onclick="openGroupEdit('g-1775949260021', event)" title="Click to edit">
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775949260021', event)" ondblclick="openGroupEdit('g-1775949260021', event)" title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:#8e32b8"></div>
       Qlik Migration
       <span class="legend-edit-hint">✎</span>
     </div>
   
-    <div class="legend-item" onclick="openGroupEdit('g-1775953106667', event)" title="Click to edit">
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775953106667', event)" ondblclick="openGroupEdit('g-1775953106667', event)" title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:#34cb3e"></div>
       Python | Automation
       <span class="legend-edit-hint">✎</span>
     </div>
   
-    <div class="legend-item" onclick="openGroupEdit('g-1775953122346', event)" title="Click to edit">
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775953122346', event)" ondblclick="openGroupEdit('g-1775953122346', event)" title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:#b9babb"></div>
       Other | BAU
       <span class="legend-edit-hint">✎</span>
@@ -1026,184 +1030,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-geo" draggable="true" data-index="7" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('geo')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">◈</span>
-          <span class="block-title">ABS GEO Mapping</span>
-          <span class="block-meta">1</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-geo',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-geo">
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('geo',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-geo" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-geo" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('geo')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(7)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="7" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-sec-1775953297175" draggable="true" data-index="8" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('sec-1775953297175')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">◈</span>
-          <span class="block-title">Snapshot Backup</span>
-          <span class="block-meta">1</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953297175',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-sec-1775953297175">
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('sec-1775953297175',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-sec-1775953297175" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-sec-1775953297175" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('sec-1775953297175')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(8)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="8" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-sec-1775953242632" draggable="true" data-index="9" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('sec-1775953242632')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">◈</span>
-          <span class="block-title">QVD Converter</span>
-          <span class="block-meta">1</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953242632',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-sec-1775953242632">
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('sec-1775953242632',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-sec-1775953242632" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-sec-1775953242632" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('sec-1775953242632')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(9)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="9" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-qtpm" draggable="true" data-index="10" style="box-shadow: none;">
+    </div><div class="block" id="block-qtpm" draggable="true" data-index="7" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#8e32b8"></div>
       <div class="block-header" onclick="toggleBlock('qtpm')">
         <div class="block-header-top">
@@ -1250,11 +1077,11 @@ html, body {
               </div>
             </div>
           </div>
-          <button class="edit-btn" onclick="openEditBlock(10)">edit</button>
+          <button class="edit-btn" onclick="openEditBlock(7)">edit</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="10" data-ii="0">
+      <div class="item" draggable="true" data-si="7" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Claims App for Fund</div>
@@ -1262,7 +1089,7 @@ html, body {
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="1">
+      <div class="item" draggable="true" data-si="7" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Claims Dashboard - HCS</div>
@@ -1270,7 +1097,7 @@ html, body {
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="2">
+      <div class="item" draggable="true" data-si="7" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Retained Members</div>
@@ -1278,7 +1105,7 @@ html, body {
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="3">
+      <div class="item" draggable="true" data-si="7" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Rebates</div>
@@ -1286,7 +1113,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="4">
+      <div class="item" draggable="true" data-si="7" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">LHC Snapshot QVD Generator QS-2500</div>
@@ -1294,7 +1121,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="5">
+      <div class="item" draggable="true" data-si="7" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Risk Equalisation Estimation SQ-2495</div>
@@ -1302,7 +1129,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="6">
+      <div class="item" draggable="true" data-si="7" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Deceased Members on Active Memberships QS-2460</div>
@@ -1310,7 +1137,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="7">
+      <div class="item" draggable="true" data-si="7" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Arrears Report</div>
@@ -1318,7 +1145,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="8">
+      <div class="item" draggable="true" data-si="7" data-ii="8">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Eclipse Remittances</div>
@@ -1326,7 +1153,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="9">
+      <div class="item" draggable="true" data-si="7" data-ii="9">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Member &amp; Provider Correspondence</div>
@@ -1334,7 +1161,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="10">
+      <div class="item" draggable="true" data-si="7" data-ii="10">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Groups &amp; Contributions Receipts</div>
@@ -1342,7 +1169,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="11">
+      <div class="item" draggable="true" data-si="7" data-ii="11">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Declined HICAPS report</div>
@@ -1350,7 +1177,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="12">
+      <div class="item" draggable="true" data-si="7" data-ii="12">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Invoice Payment - Vendor Group</div>
@@ -1358,7 +1185,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     </div>
-    </div><div class="block" id="block-archive" draggable="true" data-index="11" style="box-shadow: none;">
+    </div><div class="block" id="block-archive" draggable="true" data-index="8" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#8e32b8"></div>
       <div class="block-header" onclick="toggleBlock('archive')">
         <div class="block-header-top">
@@ -1405,11 +1232,11 @@ html, body {
               </div>
             </div>
           </div>
-          <button class="edit-btn" onclick="openEditBlock(11)">edit</button>
+          <button class="edit-btn" onclick="openEditBlock(8)">edit</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="11" data-ii="0">
+      <div class="item" draggable="true" data-si="8" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Churn-scikit-learn-Predict DEMO QS-2523</div>
@@ -1417,7 +1244,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="1">
+      <div class="item" draggable="true" data-si="8" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Allianz Travel Insurance (Westfund Members) QS-2524</div>
@@ -1425,7 +1252,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="2">
+      <div class="item" draggable="true" data-si="8" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental Debtors (from Oasis - Live to Nov '22) QS-2525</div>
@@ -1433,7 +1260,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="3">
+      <div class="item" draggable="true" data-si="8" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Members Returning Duplicate Payment QS-2526</div>
@@ -1441,7 +1268,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="4">
+      <div class="item" draggable="true" data-si="8" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Eye Care - Bill Template Description to Eye Talk Description Comparison QS-2527</div>
@@ -1449,7 +1276,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="5">
+      <div class="item" draggable="true" data-si="8" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Benefit Conditions (from DEV) QS-2528</div>
@@ -1457,7 +1284,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="6">
+      <div class="item" draggable="true" data-si="8" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Care Calls QS-2529</div>
@@ -1465,7 +1292,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="7">
+      <div class="item" draggable="true" data-si="8" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Product Market Comparison QS-2530</div>
@@ -1473,7 +1300,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="8">
+      <div class="item" draggable="true" data-si="8" data-ii="8">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">General Comparison QS-2531</div>
@@ -1481,7 +1308,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="9">
+      <div class="item" draggable="true" data-si="8" data-ii="9">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Jira Extractor QS-2532</div>
@@ -1489,7 +1316,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="10">
+      <div class="item" draggable="true" data-si="8" data-ii="10">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Hospital Comparison QS-2533</div>
@@ -1497,7 +1324,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="11">
+      <div class="item" draggable="true" data-si="8" data-ii="11">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Claims Transform QS-2534</div>
@@ -1505,7 +1332,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="12">
+      <div class="item" draggable="true" data-si="8" data-ii="12">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Google Analytics Extract QS-2535</div>
@@ -1513,7 +1340,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="13">
+      <div class="item" draggable="true" data-si="8" data-ii="13">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Manual Snapshot QVD Create QS-2536</div>
@@ -1521,7 +1348,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="14">
+      <div class="item" draggable="true" data-si="8" data-ii="14">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Reporting QS-2537</div>
@@ -1529,7 +1356,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="15">
+      <div class="item" draggable="true" data-si="8" data-ii="15">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Exit Survey App QS-2540</div>
@@ -1537,7 +1364,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="16">
+      <div class="item" draggable="true" data-si="8" data-ii="16">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Verified Claims (Optical Westfund Providers) QS-2541</div>
@@ -1545,7 +1372,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="17">
+      <div class="item" draggable="true" data-si="8" data-ii="17">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">MindStep QS-2542</div>
@@ -1553,7 +1380,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="18">
+      <div class="item" draggable="true" data-si="8" data-ii="18">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">HICAPS &amp; IBA Reconciliation QS-2543</div>
@@ -1561,7 +1388,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="19">
+      <div class="item" draggable="true" data-si="8" data-ii="19">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Service Desks QS-2544</div>
@@ -1569,7 +1396,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="20">
+      <div class="item" draggable="true" data-si="8" data-ii="20">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Newborn waiting periods QS-2545</div>
@@ -1577,7 +1404,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="21">
+      <div class="item" draggable="true" data-si="8" data-ii="21">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Profitability Prediction QS-2515</div>
@@ -1585,7 +1412,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="22">
+      <div class="item" draggable="true" data-si="8" data-ii="22">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Payroll Groups Rate Rise - Linked Memberships QS-2514</div>
@@ -1593,7 +1420,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="23">
+      <div class="item" draggable="true" data-si="8" data-ii="23">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">LHC Movement App QS-2499</div>
@@ -1601,7 +1428,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="24">
+      <div class="item" draggable="true" data-si="8" data-ii="24">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental 2.0 (Oasis data - Live to 4th Nov 22) QS-2493</div>
@@ -1609,12 +1436,189 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="25">
+      <div class="item" draggable="true" data-si="8" data-ii="25">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Monitoring post claim QS-2488</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">archived</span>
+      </div>
+    </div>
+    </div><div class="block" id="block-geo" draggable="true" data-index="9" style="box-shadow: none;">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleBlock('geo')">
+        <div class="block-header-top">
+          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
+          <span class="block-icon">◈</span>
+          <span class="block-title">ABS GEO Mapping</span>
+          <span class="block-meta">1</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()">
+          <div class="group-dropdown-wrap">
+            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-geo',event)">
+              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
+            </button>
+            <div class="group-menu" id="gmenu-geo">
+              
+                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896671817')">
+                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896711532')">
+                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('geo','g-1775949260021')">
+                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953106667')">
+                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953122346')">
+                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
+                </div>
+              
+              <div class="group-menu-divider"></div>
+              <div class="group-menu-item" onclick="assignGroup('geo',null)" style="color:var(--muted)">✕ Remove group</div>
+              <div class="group-menu-divider"></div>
+              <div class="group-new-row">
+                <input class="group-new-input" id="gname-geo" placeholder="New group..." onclick="event.stopPropagation()">
+                <input type="color" class="group-color-input" id="gcolor-geo" value="#58a6ff" onclick="event.stopPropagation()">
+                <button class="group-new-add" onclick="createGroup('geo')">Add</button>
+              </div>
+            </div>
+          </div>
+          <button class="edit-btn" onclick="openEditBlock(9)">edit</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" draggable="true" data-si="9" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
+      </div>
+    </div>
+    </div><div class="block" id="block-sec-1775953297175" draggable="true" data-index="10" style="box-shadow: none;">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleBlock('sec-1775953297175')">
+        <div class="block-header-top">
+          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
+          <span class="block-icon">◈</span>
+          <span class="block-title">Snapshot Backup</span>
+          <span class="block-meta">1</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()">
+          <div class="group-dropdown-wrap">
+            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953297175',event)">
+              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
+            </button>
+            <div class="group-menu" id="gmenu-sec-1775953297175">
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896671817')">
+                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896711532')">
+                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775949260021')">
+                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953106667')">
+                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953122346')">
+                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
+                </div>
+              
+              <div class="group-menu-divider"></div>
+              <div class="group-menu-item" onclick="assignGroup('sec-1775953297175',null)" style="color:var(--muted)">✕ Remove group</div>
+              <div class="group-menu-divider"></div>
+              <div class="group-new-row">
+                <input class="group-new-input" id="gname-sec-1775953297175" placeholder="New group..." onclick="event.stopPropagation()">
+                <input type="color" class="group-color-input" id="gcolor-sec-1775953297175" value="#58a6ff" onclick="event.stopPropagation()">
+                <button class="group-new-add" onclick="createGroup('sec-1775953297175')">Add</button>
+              </div>
+            </div>
+          </div>
+          <button class="edit-btn" onclick="openEditBlock(10)">edit</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" draggable="true" data-si="10" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
+      </div>
+    </div>
+    </div><div class="block" id="block-sec-1775953242632" draggable="true" data-index="11" style="box-shadow: none;">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleBlock('sec-1775953242632')">
+        <div class="block-header-top">
+          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
+          <span class="block-icon">◈</span>
+          <span class="block-title">QVD Converter</span>
+          <span class="block-meta">1</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()">
+          <div class="group-dropdown-wrap">
+            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953242632',event)">
+              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
+            </button>
+            <div class="group-menu" id="gmenu-sec-1775953242632">
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896671817')">
+                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896711532')">
+                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775949260021')">
+                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953106667')">
+                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953122346')">
+                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
+                </div>
+              
+              <div class="group-menu-divider"></div>
+              <div class="group-menu-item" onclick="assignGroup('sec-1775953242632',null)" style="color:var(--muted)">✕ Remove group</div>
+              <div class="group-menu-divider"></div>
+              <div class="group-new-row">
+                <input class="group-new-input" id="gname-sec-1775953242632" placeholder="New group..." onclick="event.stopPropagation()">
+                <input type="color" class="group-color-input" id="gcolor-sec-1775953242632" value="#58a6ff" onclick="event.stopPropagation()">
+                <button class="group-new-add" onclick="createGroup('sec-1775953242632')">Add</button>
+              </div>
+            </div>
+          </div>
+          <button class="edit-btn" onclick="openEditBlock(11)">edit</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" draggable="true" data-si="11" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
       </div>
     </div>
     </div><div class="block" id="block-membership" draggable="true" data-index="12" style="box-shadow: none;">
@@ -1741,125 +1745,29 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Apps Migrated</span>
+      <span class="modal-title" id="modal-title">Edit — ABS GEO Mapping</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Apps Migrated"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="⬡" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="ABS GEO Mapping"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Claims App for Fund <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions. <span style="color:var(--muted2)">[FEB]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,0)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Claims Dashboard - HCS <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Retained Members <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Rebates <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,3)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:LHC Snapshot QVD Generator QS-2500 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,4)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Risk Equalisation Estimation SQ-2495 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,5)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Deceased Members on Active Memberships QS-2460 <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,6)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Arrears Report <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,7)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Eclipse Remittances <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,8)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Member &amp; Provider Correspondence <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,9)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,9)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Groups &amp; Contributions Receipts <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,10)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,10)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Declined HICAPS report <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,11)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,11)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Invoice Payment - Vendor Group <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(10,12)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(10,12)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(7,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(7,0)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(10)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(7)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(10)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(7)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2030,48 +1938,6 @@ const DEFAULT_DATA = [
       }
     ],
     "group": "g-1775896711532"
-  },
-  {
-    "id": "geo",
-    "icon": "◈",
-    "title": "ABS GEO Mapping",
-    "items": [
-      {
-        "text": "Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
-  },
-  {
-    "id": "sec-1775953297175",
-    "icon": "◈",
-    "title": "Snapshot Backup",
-    "items": [
-      {
-        "text": "Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
-  },
-  {
-    "id": "sec-1775953242632",
-    "icon": "◈",
-    "title": "QVD Converter",
-    "items": [
-      {
-        "text": "A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
   },
   {
     "id": "qtpm",
@@ -2322,6 +2188,48 @@ const DEFAULT_DATA = [
       }
     ],
     "group": "g-1775949260021"
+  },
+  {
+    "id": "geo",
+    "icon": "◈",
+    "title": "ABS GEO Mapping",
+    "items": [
+      {
+        "text": "Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.",
+        "month": "FEB",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
+  },
+  {
+    "id": "sec-1775953297175",
+    "icon": "◈",
+    "title": "Snapshot Backup",
+    "items": [
+      {
+        "text": "Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.",
+        "month": "FEB",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
+  },
+  {
+    "id": "sec-1775953242632",
+    "icon": "◈",
+    "title": "QVD Converter",
+    "items": [
+      {
+        "text": "A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.",
+        "month": "FEB",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
   },
   {
     "id": "membership",
@@ -2669,12 +2577,31 @@ function renderLegend() {
     return;
   }
   bar.innerHTML = usedGroups.map(g => `
-    <div class="legend-item" onclick="openGroupEdit('${g.id}', event)" title="Click to edit">
+    <div class="legend-item"
+         onclick="toggleGroupBlocks('${g.id}', event)"
+         ondblclick="openGroupEdit('${g.id}', event)"
+         title="Click to show/hide · Double-click to edit">
       <div class="legend-dot" style="background:${g.color}"></div>
       ${g.name}
       <span class="legend-edit-hint">✎</span>
     </div>
   `).join('');
+}
+
+function toggleGroupBlocks(groupId, event) {
+  event.stopPropagation();
+  closeGroupEdit();
+  const blocksInGroup = state.filter(s => s.group === groupId);
+  const allVisible = blocksInGroup.every(s => {
+    const el = document.getElementById('block-' + s.id);
+    return el && el.style.display !== 'none';
+  });
+  blocksInGroup.forEach(s => {
+    const el = document.getElementById('block-' + s.id);
+    if (!el) return;
+    el.style.display = allVisible ? 'none' : '';
+  });
+  renderLegend();
 }
 
 function openGroupEdit(groupId, event) {
