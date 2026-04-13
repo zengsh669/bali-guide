@@ -321,18 +321,30 @@ html, body {
 .block.open .item-list { display: block; }
 .item {
   display: grid;
-  grid-template-columns: 8px 1fr auto auto;
+  grid-template-columns: 12px 8px 1fr auto auto;
   align-items: start; gap: 8px;
   padding: 6px 12px;
   border-bottom: 0.5px solid var(--border);
   transition: background 0.1s;
   background: var(--bg2);
+  cursor: default;
 }
+.item-drag-handle {
+  font-size: 11px; color: var(--muted2);
+  cursor: grab; margin-top: 3px; flex-shrink: 0;
+  user-select: none;
+}
+.item-drag-handle:active { cursor: grabbing; }
+.item-drag-handle:hover { color: var(--muted); }
+.item.item-dragging { opacity: 0.4; }
+.item.item-drag-over { border-top: 2px solid var(--blue); }
 .item-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
 .dot-g { background: var(--green); box-shadow: 0 0 4px rgba(63,185,80,0.5); }
 .dot-a { background: var(--amber); }
 .dot-b { background: var(--blue); }
 .dot-m { background: var(--muted2); }
+.dot-dark { background: #3a3a3a; border: 1px solid #555; }
+.dot-darkred { background: #7a1f1f; }
 .item-text { font-size: 11px; color: var(--text); line-height: 1.5; }
 .item-month { display: none; }
 .tag { font-size: 9px; padding: 2px 5px; border-radius: 4px; white-space: nowrap; font-weight: 500; }
@@ -340,6 +352,8 @@ html, body {
 .ta { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(210,153,34,0.2); }
 .tb { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(88,166,255,0.2); }
 .tm { background: var(--bg4); color: var(--muted); border: 1px solid var(--border); }
+.tn { background: #1a1a1a; color: #555; border: 1px solid #333; }
+.tr { background: rgba(100,20,20,0.3); color: #c05050; border: 1px solid rgba(150,40,40,0.4); }
 
 /* ── Modal ── */
 .modal-overlay {
@@ -519,79 +533,7 @@ html, body {
       <span class="legend-edit-hint">✎</span>
     </div>
   </div>
-  <div class="grid" id="grid"><div class="block" id="block-hcs" draggable="true" data-index="0" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleBlock('hcs')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">◈</span>
-          <span class="block-title">Claims Dashboard – HCS</span>
-          <span class="block-meta">3</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-hcs',event)">
-              <span class="group-dot" style="background:#9ea027"></span>PBI Report
-            </button>
-            <div class="group-menu" id="gmenu-hcs">
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('hcs',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-hcs" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-hcs" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('hcs')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(0)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item">
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">Mon to organise showcase with users</div>
-        <span class="tag tb">MAY</span>
-        <span class="tag ta">in progress</span>
-      </div>
-    
-      <div class="item">
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Data validation with Mon</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item">
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Redeveloped logic in SQL + Power BI</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-grossmargin" draggable="true" data-index="1" style="box-shadow: none;">
+  <div class="grid" id="grid"><div class="block" id="block-grossmargin" draggable="true" data-index="0" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#9ea027"></div>
       <div class="block-header" onclick="toggleBlock('grossmargin')">
         <div class="block-header-top">
@@ -638,27 +580,105 @@ html, body {
               </div>
             </div>
           </div>
-          <button class="edit-btn" onclick="openEditBlock(1)">edit</button>
+          <button class="edit-btn" onclick="openEditBlock(0)">edit</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="0" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Mario validating</div>
         <span class="tag tb">APR</span>
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="0" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Visualisation build</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="0" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Pending on Carolina to validate earned contribution script</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
+      </div>
+    </div>
+    </div><div class="block" id="block-hcs" draggable="true" data-index="1" style="box-shadow: none;">
+      <div class="group-top-bar" style="background:#9ea027"></div>
+      <div class="block-header" onclick="toggleBlock('hcs')">
+        <div class="block-header-top">
+          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
+          <span class="block-icon">◈</span>
+          <span class="block-title">Claims Dashboard – HCS</span>
+          <span class="block-meta">3</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()">
+          <div class="group-dropdown-wrap">
+            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-hcs',event)">
+              <span class="group-dot" style="background:#9ea027"></span>PBI Report
+            </button>
+            <div class="group-menu" id="gmenu-hcs">
+              
+                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896671817')">
+                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896711532')">
+                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775949260021')">
+                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953106667')">
+                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953122346')">
+                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
+                </div>
+              
+              <div class="group-menu-divider"></div>
+              <div class="group-menu-item" onclick="assignGroup('hcs',null)" style="color:var(--muted)">✕ Remove group</div>
+              <div class="group-menu-divider"></div>
+              <div class="group-new-row">
+                <input class="group-new-input" id="gname-hcs" placeholder="New group..." onclick="event.stopPropagation()">
+                <input type="color" class="group-color-input" id="gcolor-hcs" value="#58a6ff" onclick="event.stopPropagation()">
+                <button class="group-new-add" onclick="createGroup('hcs')">Add</button>
+              </div>
+            </div>
+          </div>
+          <button class="edit-btn" onclick="openEditBlock(1)">edit</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" draggable="true" data-si="1" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Mon to organise showcase with users</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag ta">in progress</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Data validation with Mon</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Redeveloped logic in SQL + Power BI</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
       </div>
@@ -714,14 +734,16 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="2" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Publish to live (Project Management Office)</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="2" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Built for Steve's team</div>
         <span class="tag tb">FEB</span>
@@ -779,7 +801,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="3" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Work with John to understand requirements</div>
         <span class="tag tb">APR</span>
@@ -837,7 +860,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="4" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Ad hoc request by Carolina/Mario, refresh 10am daily, WIP folder</div>
         <span class="tag tb">FEB</span>
@@ -895,28 +919,32 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="5" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Standardise SILVER.table naming</div>
         <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="5" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Bring in GOV.tables/views in SQL + add Glossary page on Membership Report</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="5" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">SANDBOX SILVER database + Purview data in PBI</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="5" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Created Confluence space for data governance documentations + Medallion lineage chart</div>
         <span class="tag tb">FEB</span>
@@ -974,21 +1002,24 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="6" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Bring in Enghouse_Reports</div>
         <span class="tag tb">APR</span>
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="6" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Bring in Vouchers</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="6" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Paragon &amp; WE2DAT in ODS</div>
         <span class="tag tb">FEB</span>
@@ -1046,7 +1077,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="7" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.</div>
         <span class="tag tb">FEB</span>
@@ -1104,7 +1136,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="8" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.</div>
         <span class="tag tb">FEB</span>
@@ -1162,7 +1195,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="9" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.</div>
         <span class="tag tb">FEB</span>
@@ -1176,7 +1210,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">⬡</span>
           <span class="block-title">Qlik → Power BI Migration — Apps Migrated</span>
-          <span class="block-meta">6</span>
+          <span class="block-meta">13</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1220,46 +1254,108 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="10" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Claims App for Fund</div>
         <span class="tag tb">MAY</span>
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Retained Members</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">done</span>
+      <div class="item" draggable="true" data-si="10" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Claims Dashboard - HCS</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="10" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Retained Members</div>
+        <span class="tag tb">APR</span>
+        <span class="tag ta">in progress</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Rebates</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-a"></div>
+      <div class="item" draggable="true" data-si="10" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
         <div class="item-text">LHC Snapshot QVD Generator QS-2500</div>
         <span class="tag tb">MAR</span>
-        <span class="tag ta">in review</span>
+        <span class="tag tr">paused</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="10" data-ii="5">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Risk Equalisation Estimation SQ-2495</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="10" data-ii="6">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Deceased Members on Active Memberships QS-2460</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="7">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Arrears Report</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="8">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Eclipse Remittances</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="9">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Member &amp; Provider Correspondence</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="10">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Groups &amp; Contributions Receipts</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="11">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Declined HICAPS report</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="12">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Invoice Payment - Vendor Group</div>
+        
+        <span class="tag tn">not started</span>
       </div>
     </div>
     </div><div class="block" id="block-archive" draggable="true" data-index="11" style="box-shadow: none;">
@@ -1313,182 +1409,208 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Churn-scikit-learn-Predict DEMO QS-2523</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Allianz Travel Insurance (Westfund Members) QS-2524</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental Debtors (from Oasis - Live to Nov '22) QS-2525</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Members Returning Duplicate Payment QS-2526</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Eye Care - Bill Template Description to Eye Talk Description Comparison QS-2527</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-a"></div>
+      <div class="item" draggable="true" data-si="11" data-ii="5">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
         <div class="item-text">Benefit Conditions (from DEV) QS-2528</div>
         <span class="tag tb">APR</span>
-        <span class="tag ta">in review</span>
+        <span class="tag tr">paused</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="6">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Care Calls QS-2529</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="7">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Product Market Comparison QS-2530</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="8">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">General Comparison QS-2531</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="9">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Jira Extractor QS-2532</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="10">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Hospital Comparison QS-2533</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="11">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Claims Transform QS-2534</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="12">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Google Analytics Extract QS-2535</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="13">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Manual Snapshot QVD Create QS-2536</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="14">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Reporting QS-2537</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-a"></div>
+      <div class="item" draggable="true" data-si="11" data-ii="15">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
         <div class="item-text">Exit Survey App QS-2540</div>
         <span class="tag tb">APR</span>
-        <span class="tag ta">in review</span>
+        <span class="tag tr">paused</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="16">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Verified Claims (Optical Westfund Providers) QS-2541</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="17">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">MindStep QS-2542</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-a"></div>
+      <div class="item" draggable="true" data-si="11" data-ii="18">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
         <div class="item-text">HICAPS &amp; IBA Reconciliation QS-2543</div>
         <span class="tag tb">APR</span>
-        <span class="tag ta">in review</span>
+        <span class="tag tr">paused</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="19">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Service Desks QS-2544</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="20">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Newborn waiting periods QS-2545</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="21">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Profitability Prediction QS-2515</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="22">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Payroll Groups Rate Rise - Linked Memberships QS-2514</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
-        <div class="item-dot dot-a"></div>
+      <div class="item" draggable="true" data-si="11" data-ii="23">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
         <div class="item-text">LHC Movement App QS-2499</div>
         <span class="tag tb">MAR</span>
-        <span class="tag ta">in review</span>
+        <span class="tag tr">paused</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="24">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental 2.0 (Oasis data - Live to 4th Nov 22) QS-2493</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item">
+      <div class="item" draggable="true" data-si="11" data-ii="25">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Monitoring post claim QS-2488</div>
         <span class="tag tb">FEB</span>
@@ -1546,7 +1668,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="12" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Exclude OVHC products</div>
         <span class="tag tb">MAR</span>
@@ -1604,7 +1727,8 @@ html, body {
         </div>
       </div>
       <div class="item-list">
-      <div class="item">
+      <div class="item" draggable="true" data-si="13" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Worked with Kane and provided slide deck</div>
         <span class="tag tb">FEB</span>
@@ -1617,29 +1741,125 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — ABS GEO Mapping</span>
+      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Apps Migrated</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="ABS GEO Mapping"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Apps Migrated"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="⬡" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions. <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">feat:Claims App for Fund <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(7,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(7,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(10,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,0)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Claims Dashboard - HCS <span style="color:var(--muted2)">[MAY]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,1)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Retained Members <span style="color:var(--muted2)">[APR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,2)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Rebates <span style="color:var(--muted2)">[APR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,3)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:LHC Snapshot QVD Generator QS-2500 <span style="color:var(--muted2)">[MAR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Risk Equalisation Estimation SQ-2495 <span style="color:var(--muted2)">[MAR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,5)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Deceased Members on Active Memberships QS-2460 <span style="color:var(--muted2)">[FEB]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,6)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,6)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Arrears Report <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,7)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,7)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Eclipse Remittances <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,8)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,8)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Member &amp; Provider Correspondence <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,9)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,9)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Groups &amp; Contributions Receipts <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,10)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,10)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Declined HICAPS report <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,11)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,11)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Invoice Payment - Vendor Group <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(10,12)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(10,12)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(7)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(10)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(7)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(10)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1653,32 +1873,6 @@ html, body {
 
 <script>
 const DEFAULT_DATA = [
-  {
-    "id": "hcs",
-    "icon": "◈",
-    "title": "Claims Dashboard – HCS",
-    "items": [
-      {
-        "text": "Mon to organise showcase with users",
-        "month": "MAY",
-        "status": "in progress",
-        "prefix": "wip: "
-      },
-      {
-        "text": "Data validation with Mon",
-        "month": "MAR",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Redeveloped logic in SQL + Power BI",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775896671817"
-  },
   {
     "id": "grossmargin",
     "icon": "◈",
@@ -1698,6 +1892,32 @@ const DEFAULT_DATA = [
       },
       {
         "text": "Pending on Carolina to validate earned contribution script",
+        "month": "FEB",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775896671817"
+  },
+  {
+    "id": "hcs",
+    "icon": "◈",
+    "title": "Claims Dashboard – HCS",
+    "items": [
+      {
+        "text": "Mon to organise showcase with users",
+        "month": "MAY",
+        "status": "in progress",
+        "prefix": "wip: "
+      },
+      {
+        "text": "Data validation with Mon",
+        "month": "MAR",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Redeveloped logic in SQL + Power BI",
         "month": "FEB",
         "status": "done",
         "prefix": "feat:"
@@ -1865,9 +2085,15 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
+        "text": "Claims Dashboard - HCS",
+        "month": "MAY",
+        "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
         "text": "Retained Members",
         "month": "APR",
-        "status": "done",
+        "status": "in progress",
         "prefix": "feat:"
       },
       {
@@ -1879,7 +2105,7 @@ const DEFAULT_DATA = [
       {
         "text": "LHC Snapshot QVD Generator QS-2500",
         "month": "MAR",
-        "status": "in review",
+        "status": "paused",
         "prefix": "feat:"
       },
       {
@@ -1892,6 +2118,42 @@ const DEFAULT_DATA = [
         "text": "Deceased Members on Active Memberships QS-2460",
         "month": "FEB",
         "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Arrears Report",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Eclipse Remittances",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Member & Provider Correspondence",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Groups & Contributions Receipts",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Declined HICAPS report",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Invoice Payment - Vendor Group",
+        "month": "",
+        "status": "not started",
         "prefix": "feat:"
       }
     ],
@@ -1935,7 +2197,7 @@ const DEFAULT_DATA = [
       {
         "text": "Benefit Conditions (from DEV) QS-2528",
         "month": "APR",
-        "status": "in review",
+        "status": "paused",
         "prefix": "arch:"
       },
       {
@@ -1995,7 +2257,7 @@ const DEFAULT_DATA = [
       {
         "text": "Exit Survey App QS-2540",
         "month": "APR",
-        "status": "in review",
+        "status": "paused",
         "prefix": "arch:"
       },
       {
@@ -2013,7 +2275,7 @@ const DEFAULT_DATA = [
       {
         "text": "HICAPS & IBA Reconciliation QS-2543",
         "month": "APR",
-        "status": "in review",
+        "status": "paused",
         "prefix": "arch:"
       },
       {
@@ -2043,7 +2305,7 @@ const DEFAULT_DATA = [
       {
         "text": "LHC Movement App QS-2499",
         "month": "MAR",
-        "status": "in review",
+        "status": "paused",
         "prefix": "arch:"
       },
       {
@@ -2208,6 +2470,50 @@ function addStat() {
 }
 
 // ── Drag & Drop ──
+// ── Item-level drag & drop ──
+let itemDragSrc = null;
+
+function onItemDragStart(e) {
+  e.stopPropagation();
+  const el = e.currentTarget;
+  itemDragSrc = { si: parseInt(el.dataset.si), ii: parseInt(el.dataset.ii) };
+  el.classList.add('item-dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function onItemDragOver(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  e.currentTarget.classList.add('item-drag-over');
+}
+function onItemDragLeave(e) {
+  e.currentTarget.classList.remove('item-drag-over');
+}
+function onItemDrop(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const el = e.currentTarget;
+  el.classList.remove('item-drag-over');
+  if (!itemDragSrc) return;
+  const dropSi = parseInt(el.dataset.si);
+  const dropIi = parseInt(el.dataset.ii);
+  if (itemDragSrc.si !== dropSi) return;
+  if (itemDragSrc.ii === dropIi) return;
+  const items = state[dropSi].items;
+  const moved = items.splice(itemDragSrc.ii, 1)[0];
+  items.splice(dropIi, 0, moved);
+  const sectionId = state[dropSi].id;
+  render();
+  setTimeout(() => {
+    const block = document.getElementById('block-' + sectionId);
+    if (block) block.classList.add('open');
+  }, 10);
+}
+function onItemDragEnd(e) {
+  e.currentTarget.classList.remove('item-dragging');
+  document.querySelectorAll('.item').forEach(el => el.classList.remove('item-drag-over'));
+  itemDragSrc = null;
+}
+
 let dragSrcIndex = null;
 
 function onDragStart(e) {
@@ -2336,12 +2642,16 @@ function dotClass(s) {
   if (s === 'done' || s === 'archived') return 'dot-g';
   if (s === 'in review' || s === 'in progress') return 'dot-a';
   if (s === 'ongoing') return 'dot-b';
+  if (s === 'not started') return 'dot-dark';
+  if (s === 'paused') return 'dot-darkred';
   return 'dot-m';
 }
 function tagClass(s) {
   if (s === 'done' || s === 'archived') return 'tg';
   if (s === 'in review' || s === 'in progress') return 'ta';
   if (s === 'ongoing') return 'tb';
+  if (s === 'not started') return 'tn';
+  if (s === 'paused') return 'tr';
   return 'tm';
 }
 
@@ -2439,10 +2749,11 @@ function render() {
     }
 
     const itemsHtml = section.items.map((item, ii) => `
-      <div class="item">
+      <div class="item" draggable="true" data-si="${si}" data-ii="${ii}">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot ${dotClass(item.status)}"></div>
         <div class="item-text">${item.text}</div>
-        <span class="tag ${monthTagClass(item.month)}">${item.month}</span>
+        ${item.month ? `<span class="tag ${monthTagClass(item.month)}">${item.month}</span>` : ''}
         <span class="tag ${tagClass(item.status)}">${item.status}</span>
       </div>
     `).join('');
@@ -2495,6 +2806,15 @@ function render() {
     block.addEventListener('drop', onDrop);
     block.addEventListener('dragend', onDragEnd);
     grid.appendChild(block);
+
+    // Item-level drag events
+    block.querySelectorAll('.item').forEach(itemEl => {
+      itemEl.addEventListener('dragstart', onItemDragStart);
+      itemEl.addEventListener('dragover', onItemDragOver);
+      itemEl.addEventListener('dragleave', onItemDragLeave);
+      itemEl.addEventListener('drop', onItemDrop);
+      itemEl.addEventListener('dragend', onItemDragEnd);
+    });
   });
   renderLegend();
   persistData();
@@ -2656,8 +2976,8 @@ function deleteItem(si, ii) {
 }
 
 function itemForm(item) {
-  const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-  const statuses = ['done','in review','in progress','ongoing','archived'];
+  const months = ['','JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const statuses = ['done','in review','in progress','ongoing','not started','paused','archived'];
   const prefixes = [['feat:','feat:'],['wip: ','wip:'],['arch:','arch:'],['fix: ','fix:']];
   return `
     <div class="field">
@@ -2673,7 +2993,7 @@ function itemForm(item) {
     <div class="field">
       <label>Month</label>
       <select id="item-month">
-        ${months.map(m => `<option ${(item.month||'APR')===m?'selected':''}>${m}</option>`).join('')}
+        ${months.map(m => `<option value="${m}" ${(item.month||'')=== m?'selected':''}>${m === '' ? '— no month —' : m}</option>`).join('')}
       </select>
     </div>
     <div class="field">
