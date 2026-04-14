@@ -808,7 +808,7 @@ html, body {
       <div class="item" draggable="true" data-si="3" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Work with John to understand requirements</div>
+        <div class="item-text">Automate excel analysis for monthly pack</div>
         <span class="tag tb">APR</span>
         <span class="tag ta">in progress</span>
       </div>
@@ -1745,29 +1745,29 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — ABS GEO Mapping</span>
+      <span class="modal-title" id="modal-title">Edit — Monthly Digital Reporting Automation</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="ABS GEO Mapping"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Monthly Digital Reporting Automation"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions. <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">wip: Automate excel analysis for monthly pack <span style="color:var(--muted2)">[APR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(7,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(7,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(7)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(7)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1859,7 +1859,7 @@ const DEFAULT_DATA = [
     "title": "Monthly Digital Reporting Automation",
     "items": [
       {
-        "text": "Work with John to understand requirements",
+        "text": "Automate excel analysis for monthly pack",
         "month": "APR",
         "status": "in progress",
         "prefix": "wip: "
