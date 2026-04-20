@@ -819,7 +819,7 @@ html, body {
         <div class="block-header-top">
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">OVHC Dashboard</span>
+          <span class="block-title">Product Comparison Tool</span>
           <span class="block-meta">1</span>
           <span class="chevron">▼</span>
         </div>
@@ -867,9 +867,9 @@ html, body {
       <div class="item" draggable="true" data-si="4" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Ad hoc request by Carolina/Mario, refresh 10am daily, WIP folder</div>
+        <div class="item-text">Walkthrough session with Rachel on 23/04</div>
         <span class="tag tb">FEB</span>
-        <span class="tag ta">in review</span>
+        <span class="tag ta">in progress</span>
       </div>
     </div>
     </div><div class="block open" id="block-governance" draggable="true" data-index="5" style="box-shadow: none;">
@@ -1628,7 +1628,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Membership Report Enhancement</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">2</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1673,6 +1673,14 @@ html, body {
       </div>
       <div class="item-list">
       <div class="item" draggable="true" data-si="12" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">FY27 Budget Mapping (fix bugs eg joins budget not in state lv)</div>
+        <span class="tag tb">JUL</span>
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="12" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Exclude OVHC products</div>
@@ -1745,37 +1753,37 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Portfolio Dashboard (Acuity)</span>
+      <span class="modal-title" id="modal-title">Edit — Membership Report Enhancement</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Portfolio Dashboard (Acuity)"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Membership Report Enhancement"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Publish to Project Management Office <span style="color:var(--muted2)">[APR]</span></span>
+            <span class="edit-item-text">feat:Exclude OVHC products <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(12,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(12,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Built for Steve's team <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">feat:FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(12,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(12,1)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(12)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(12)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1878,12 +1886,12 @@ const DEFAULT_DATA = [
   {
     "id": "ovhc",
     "icon": "◈",
-    "title": "OVHC Dashboard",
+    "title": "Product Comparison Tool",
     "items": [
       {
-        "text": "Ad hoc request by Carolina/Mario, refresh 10am daily, WIP folder",
+        "text": "Walkthrough session with Rachel on 23/04",
         "month": "FEB",
-        "status": "in review",
+        "status": "in progress",
         "prefix": "wip: "
       }
     ],
@@ -2244,6 +2252,12 @@ const DEFAULT_DATA = [
     "icon": "◈",
     "title": "Membership Report Enhancement",
     "items": [
+      {
+        "text": "FY27 Budget Mapping (fix bugs eg joins budget not in state lv)",
+        "month": "JUL",
+        "status": "not started",
+        "prefix": "feat:"
+      },
       {
         "text": "Exclude OVHC products",
         "month": "MAR",
