@@ -1451,7 +1451,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">ABS GEO Mapping</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1498,8 +1498,32 @@ html, body {
       <div class="item" draggable="true" data-si="9" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.</div>
-        <span class="tag tb">FEB</span>
+        <div class="item-text">Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="9" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="9" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="9" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Point-in-polygon matching enables accurate classification even where postcodes span multiple regions</div>
+        
         <span class="tag tg">done</span>
       </div>
     </div>
@@ -1510,7 +1534,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Snapshot Backup</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1557,8 +1581,32 @@ html, body {
       <div class="item" draggable="true" data-si="10" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.</div>
-        <span class="tag tb">FEB</span>
+        <div class="item-text">Consolidates daily SQL Server snapshot tables into single Parquet files per table</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Eliminates table bloat from ~30 snapshots/month accumulation per tracked table</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="10" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Snapshot date preserved as column — supports point-in-time queries without SQL restore</div>
+        
         <span class="tag tg">done</span>
       </div>
     </div>
@@ -1569,7 +1617,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">QVD Converter</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1616,8 +1664,32 @@ html, body {
       <div class="item" draggable="true" data-si="11" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.</div>
-        <span class="tag tb">FEB</span>
+        <div class="item-text">Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="11" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">No Qlik license or environment required</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="11" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Output compatible with Excel, Power BI, and Python</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="11" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Preserves institutional legacy data assets beyond the Qlik ecosystem</div>
+        
         <span class="tag tg">done</span>
       </div>
     </div>
@@ -1753,29 +1825,53 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Product Comparison Tool</span>
+      <span class="modal-title" id="modal-title">Edit — QVD Converter</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Product Comparison Tool"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="QVD Converter"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">wip: Walkthrough session with Rachel on 23/04 <span style="color:var(--muted2)">[APR]</span></span>
+            <span class="edit-item-text">feat:Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(11,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(11,0)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:No Qlik license or environment required <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(11,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(11,1)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Output compatible with Excel, Power BI, and Python <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(11,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(11,2)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Preserves institutional legacy data assets beyond the Qlik ecosystem <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(11,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(11,3)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(11)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(11)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2203,8 +2299,26 @@ const DEFAULT_DATA = [
     "title": "ABS GEO Mapping",
     "items": [
       {
-        "text": "Extends membership geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name by enriching member addresses with precise coordinates via G-NAF Core — Australia's national authoritative address database maintained by PSMA — then performing a spatial join against ABS boundary shapefiles (SA1–SA4). Unlike a conventional table lookup, this uses point-in-polygon matching via GeoPandas (sjoin) — each member's coordinate is tested against the geometric boundaries defined in the ABS shapefile to determine which statistical area it falls within. This approach is fundamentally spatial rather than textual, enabling accurate classification even where postcodes span multiple regions.",
-        "month": "FEB",
+        "text": "Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Point-in-polygon matching enables accurate classification even where postcodes span multiple regions",
+        "month": "",
         "status": "done",
         "prefix": "feat:"
       }
@@ -2217,8 +2331,26 @@ const DEFAULT_DATA = [
     "title": "Snapshot Backup",
     "items": [
       {
-        "text": "Addresses the proliferation of daily snapshot tables in SQL Server — where each tracked table accumulates ~30 snapshots per month, creating bloat and degrading query performance over time. This notebook consolidates a configurable date range of snapshots across multiple tables into single Parquet files per table, enabling safe deletion of the source SQL snapshots. Parquet is chosen for its columnar compression, efficient storage, and native compatibility with Power BI, Python, and cloud platforms — making it a more appropriate format for archival than row-based SQL tables. Snapshot date is preserved as a column, allowing point-in-time queries against the archived file without needing to restore anything to SQL Server.",
-        "month": "FEB",
+        "text": "Consolidates daily SQL Server snapshot tables into single Parquet files per table",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Eliminates table bloat from ~30 snapshots/month accumulation per tracked table",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Snapshot date preserved as column — supports point-in-time queries without SQL restore",
+        "month": "",
         "status": "done",
         "prefix": "feat:"
       }
@@ -2231,8 +2363,26 @@ const DEFAULT_DATA = [
     "title": "QVD Converter",
     "items": [
       {
-        "text": "A lightweight Python utility that decodes proprietary Qlik QVD binary files into standard structured formats (e.g. CSV, Parquet, JSON), making legacy data accessible to any downstream tool or platform — such as Excel, Power BI, or Python — without requiring a Qlik license or environment. Removes a longstanding data access bottleneck and preserves institutional data assets beyond the Qlik ecosystem.",
-        "month": "FEB",
+        "text": "Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "No Qlik license or environment required",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Output compatible with Excel, Power BI, and Python",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Preserves institutional legacy data assets beyond the Qlik ecosystem",
+        "month": "",
         "status": "done",
         "prefix": "feat:"
       }
