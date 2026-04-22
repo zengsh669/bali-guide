@@ -866,10 +866,10 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="4" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">Design prototype</div>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Demo - pulling data from compare policies</div>
         <span class="tag tb">JUN</span>
-        <span class="tag ta">in progress</span>
+        <span class="tag tn">not started</span>
       </div>
     
       <div class="item" draggable="true" data-si="4" data-ii="1">
@@ -1841,53 +1841,37 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Database Transition from Qlik to ODS</span>
+      <span class="modal-title" id="modal-title">Edit — Product Comparison Tool</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Database Transition from Qlik to ODS"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="▶" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Product Comparison Tool"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">wip: Bring in Enghouse_Reports; Membership_Reporting; telrex35; WestfundRPA <span style="color:var(--muted2)">[APR]</span></span>
+            <span class="edit-item-text">feat:Demo - pulling data from compare policies <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(6,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(6,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Bring in Vouchers <span style="color:var(--muted2)">[MAR]</span></span>
+            <span class="edit-item-text">wip: Walkthrough session with Rachel on 23/04 <span style="color:var(--muted2)">[APR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(6,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(6,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Paragon &amp; WE2DAT in ODS <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(6,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(6,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Qualtrics; D4W database (ASA db) <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(6,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(6,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(6)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(6)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1993,9 +1977,9 @@ const DEFAULT_DATA = [
     "title": "Product Comparison Tool",
     "items": [
       {
-        "text": "Design prototype",
+        "text": "Demo - pulling data from compare policies",
         "month": "JUN",
-        "status": "in progress",
+        "status": "not started",
         "prefix": "feat:"
       },
       {
