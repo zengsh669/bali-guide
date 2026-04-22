@@ -970,7 +970,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">▶</span>
           <span class="block-title">Database Transition from Qlik to ODS</span>
-          <span class="block-meta">3</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1036,6 +1036,14 @@ html, body {
         <div class="item-text">Paragon &amp; WE2DAT in ODS</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="6" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Qualtrics; D4W database (ASA db)</div>
+        
+        <span class="tag tn">not started</span>
       </div>
     </div>
     </div><div class="block open" id="block-qtpm" draggable="true" data-index="7" style="box-shadow: none;">
@@ -1867,6 +1875,14 @@ html, body {
             </div>
           </div>
         
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Qualtrics; D4W database (ASA db) <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(6,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(6,3)">✕</button>
+            </div>
+          </div>
+        
       </div>
       <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(6)">+ Add item</button>
     </div>
@@ -2044,6 +2060,12 @@ const DEFAULT_DATA = [
         "text": "Paragon & WE2DAT in ODS",
         "month": "FEB",
         "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Qualtrics; D4W database (ASA db)",
+        "month": "",
+        "status": "not started",
         "prefix": "feat:"
       }
     ],
