@@ -807,10 +807,10 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="3" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
+        <div class="item-dot dot-g"></div>
         <div class="item-text">Automate excel analysis</div>
         <span class="tag tb">APR</span>
-        <span class="tag ta">in progress</span>
+        <span class="tag tg">done</span>
       </div>
     </div>
     </div><div class="block open" id="block-ovhc" draggable="true" data-index="4" style="box-shadow: none;">
@@ -1016,10 +1016,10 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="6" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">Bring in Enghouse_Reports; Membership_Reporting; telrex35; WestfundRPA</div>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Bring in Membership_Reporting; telrex35; WestfundRPA</div>
         <span class="tag tb">MAY</span>
-        <span class="tag ta">in progress</span>
+        <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="6" data-ii="1">
@@ -1041,7 +1041,7 @@ html, body {
       <div class="item" draggable="true" data-si="6" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Qualtrics; D4W database (ASA db)</div>
+        <div class="item-text">Qualtrics; D4W database (ASA db); Enghouse_Reports</div>
         
         <span class="tag tn">not started</span>
       </div>
@@ -1115,10 +1115,10 @@ html, body {
     
       <div class="item" draggable="true" data-si="7" data-ii="2">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
+        <div class="item-dot dot-g"></div>
         <div class="item-text">Retained Members QS-2587</div>
         <span class="tag tb">APR</span>
-        <span class="tag ta">in progress</span>
+        <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="7" data-ii="3">
@@ -1841,37 +1841,29 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Product Comparison Tool</span>
+      <span class="modal-title" id="modal-title">Edit — Monthly Digital Reporting Automation</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Product Comparison Tool"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Monthly Digital Reporting Automation"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Demo - pull data from compare policies <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">wip: Automate excel analysis <span style="color:var(--muted2)">[APR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">wip: Walkthrough session with Rachel on 23/04 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1965,7 +1957,7 @@ const DEFAULT_DATA = [
       {
         "text": "Automate excel analysis",
         "month": "APR",
-        "status": "in progress",
+        "status": "done",
         "prefix": "wip: "
       }
     ],
@@ -2029,9 +2021,9 @@ const DEFAULT_DATA = [
     "title": "Database Transition from Qlik to ODS",
     "items": [
       {
-        "text": "Bring in Enghouse_Reports; Membership_Reporting; telrex35; WestfundRPA",
+        "text": "Bring in Membership_Reporting; telrex35; WestfundRPA",
         "month": "MAY",
-        "status": "in progress",
+        "status": "done",
         "prefix": "wip: "
       },
       {
@@ -2047,7 +2039,7 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
-        "text": "Qualtrics; D4W database (ASA db)",
+        "text": "Qualtrics; D4W database (ASA db); Enghouse_Reports",
         "month": "",
         "status": "not started",
         "prefix": "feat:"
@@ -2075,7 +2067,7 @@ const DEFAULT_DATA = [
       {
         "text": "Retained Members QS-2587",
         "month": "APR",
-        "status": "in progress",
+        "status": "done",
         "prefix": "feat:"
       },
       {
