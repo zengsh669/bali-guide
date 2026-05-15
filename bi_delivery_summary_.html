@@ -724,10 +724,10 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="2" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Live at Finance -&gt; Financial Planning and Analysis folder</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">done</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Live at Finance folder - Demo to Finance Team</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag ta">in progress</span>
       </div>
     
       <div class="item" draggable="true" data-si="2" data-ii="1">
@@ -1184,7 +1184,7 @@ html, body {
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Declined HICAPS report QS-2672</div>
-        
+        <span class="tag tb">JUN</span>
         <span class="tag ta">in progress</span>
       </div>
     
@@ -1972,29 +1972,53 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — QMS Reporting</span>
+      <span class="modal-title" id="modal-title">Edit — Gross Margin</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="QMS Reporting"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Gross Margin"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:reporting templates review <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Live at Finance folder - Demo to Finance Team <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">wip: Apply manual adjustment factors <span style="color:var(--muted2)">[MAY]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Visualisation build <span style="color:var(--muted2)">[MAR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(2,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(2,2)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Pending on Carolina to validate earned contribution script <span style="color:var(--muted2)">[FEB]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(2,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(2,3)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2054,9 +2078,9 @@ const DEFAULT_DATA = [
     "title": "Gross Margin",
     "items": [
       {
-        "text": "Live at Finance -> Financial Planning and Analysis folder",
-        "month": "JUN",
-        "status": "done",
+        "text": "Live at Finance folder - Demo to Finance Team",
+        "month": "MAY",
+        "status": "in progress",
         "prefix": "feat:"
       },
       {
@@ -2217,7 +2241,7 @@ const DEFAULT_DATA = [
     "items": [
       {
         "text": "Declined HICAPS report QS-2672",
-        "month": "",
+        "month": "JUN",
         "status": "in progress",
         "prefix": "feat:"
       },
