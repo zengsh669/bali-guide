@@ -544,7 +544,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Marketing Copilot Agent</span>
-          <span class="block-meta">4</span>
+          <span class="block-meta">6</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -607,7 +607,7 @@ html, body {
       <div class="item" draggable="true" data-si="0" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Test - copilot agent query from sql server</div>
+        <div class="item-text">Collaborating with Trev and Minta to deliver a Copilot Agent POC</div>
         <span class="tag tb">MAY</span>
         <span class="tag ta">in progress</span>
       </div>
@@ -615,8 +615,25 @@ html, body {
       <div class="item" draggable="true" data-si="0" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Walkthrough session with Rachel on 23/04</div>
-        <span class="tag tb">APR</span>
+        <div class="item-text">Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="0" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Authored and maintained the Copilot Agent Knowledge Base documentation
+</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="0" data-ii="5">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Facilitated technical discussions and drove consensus on the schema approach</div>
+        <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
     </div>
@@ -1980,53 +1997,70 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Gross Margin</span>
+      <span class="modal-title" id="modal-title">Edit — Marketing Copilot Agent</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Gross Margin"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Marketing Copilot Agent"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Live at Finance folder - Demo to Finance Team <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Demo - pull data from compare policies <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">wip: Apply manual adjustment factors <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Google Looker Studio datapoints <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Visualisation build <span style="color:var(--muted2)">[MAR]</span></span>
+            <span class="edit-item-text">feat:Collaborating with Trev and Minta to deliver a Copilot Agent POC <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Pending on Carolina to validate earned contribution script <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">feat:Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,3)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Authored and maintained the Copilot Agent Knowledge Base documentation
+ <span style="color:var(--muted2)">[MAY]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Facilitated technical discussions and drove consensus on the schema approach <span style="color:var(--muted2)">[MAY]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,5)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(0)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(0)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2058,16 +2092,28 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
-        "text": "Test - copilot agent query from sql server",
+        "text": "Collaborating with Trev and Minta to deliver a Copilot Agent POC",
         "month": "MAY",
         "status": "in progress",
         "prefix": "feat:"
       },
       {
-        "text": "Walkthrough session with Rachel on 23/04",
-        "month": "APR",
+        "text": "Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping",
+        "month": "MAY",
         "status": "done",
-        "prefix": "wip: "
+        "prefix": "feat:"
+      },
+      {
+        "text": "Authored and maintained the Copilot Agent Knowledge Base documentation\n",
+        "month": "MAY",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Facilitated technical discussions and drove consensus on the schema approach",
+        "month": "MAY",
+        "status": "done",
+        "prefix": "feat:"
       }
     ],
     "group": "g-1775953106667"
