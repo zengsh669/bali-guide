@@ -643,8 +643,8 @@ html, body {
         <div class="block-header-top">
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">QMS Reporting</span>
-          <span class="block-meta">1</span>
+          <span class="block-title">Telephone System Reporting</span>
+          <span class="block-meta">2</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -690,10 +690,18 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="1" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">reporting templates review</div>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Touchpoint Dashboard - Camila</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">reporting templates review - QMS templates not relevant</div>
         <span class="tag tb">MAY</span>
-        <span class="tag ta">in progress</span>
+        <span class="tag tr">paused</span>
       </div>
     </div>
     </div><div class="block open" id="block-grossmargin" draggable="true" data-index="2" style="box-shadow: none;">
@@ -1997,70 +2005,37 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Marketing Copilot Agent</span>
+      <span class="modal-title" id="modal-title">Edit — Telephone System Reporting</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Marketing Copilot Agent"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Telephone System Reporting"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Demo - pull data from compare policies <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:reporting templates review - QMS templates not relevant <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Google Looker Studio datapoints <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Touchpoint Dashboard - Camila <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Collaborating with Trev and Minta to deliver a Copilot Agent POC <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,3)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Authored and maintained the Copilot Agent Knowledge Base documentation
- <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,4)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Facilitated technical discussions and drove consensus on the schema approach <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,5)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,1)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(0)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(0)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2121,12 +2096,18 @@ const DEFAULT_DATA = [
   {
     "id": "sec-1778800177808",
     "icon": "◈",
-    "title": "QMS Reporting",
+    "title": "Telephone System Reporting",
     "items": [
       {
-        "text": "reporting templates review",
+        "text": "Touchpoint Dashboard - Camila",
+        "month": "JUN",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "reporting templates review - QMS templates not relevant",
         "month": "MAY",
-        "status": "in progress",
+        "status": "paused",
         "prefix": "feat:"
       }
     ],
