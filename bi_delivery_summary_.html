@@ -434,6 +434,78 @@ html, body {
   .block { break-inside: avoid; }
   .block.open .item-list { display: block !important; }
 }
+
+/* ── Completed zone ── */
+.completed-wrap {
+  padding: 0 16px 40px;
+  background: var(--bg);
+  min-height: 60px;
+}
+.completed-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; cursor: pointer; user-select: none;
+}
+.completed-divider-line {
+  flex: 1; height: 1px; background: var(--border);
+}
+.completed-divider-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  letter-spacing: 0.08em; white-space: nowrap;
+  padding: 4px 10px; border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  transition: border-color 0.15s, color 0.15s;
+}
+.completed-divider:hover .completed-divider-label {
+  color: var(--text); border-color: var(--border2);
+}
+.completed-divider-chevron {
+  font-size: 9px; color: var(--muted);
+  transition: transform 0.2s ease;
+}
+.completed-divider-chevron.collapsed { transform: rotate(-90deg); }
+.completed-count {
+  background: var(--green-bg); color: var(--green);
+  border: 1px solid rgba(63,185,80,0.2);
+  border-radius: 10px; font-size: 10px;
+  padding: 1px 7px; font-weight: 700;
+}
+.completed-drop-hint {
+  display: none;
+  align-items: center; justify-content: center;
+  border: 2px dashed var(--border2);
+  border-radius: 8px; padding: 28px;
+  color: var(--muted2); font-size: 11px;
+  margin-bottom: 10px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.completed-drop-hint.visible { display: flex; }
+.completed-drop-hint.drag-active {
+  border-color: var(--green); color: var(--green);
+}
+.completed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.completed-grid-content {
+  transition: none;
+}
+.completed-grid-content.hidden { display: none; }
+.block.completed-card {
+  opacity: 0.82;
+}
+.block.completed-card .block-header {
+  background: var(--bg3);
+}
+.block.completed-card .block-header:hover { background: var(--bg4); }
+.completed-zone-target {
+  min-height: 4px;
+}
+.completed-zone-target.drag-over-zone {
+  border-color: var(--green) !important;
+}
 </style>
 </head>
 <body>
@@ -1189,7 +1261,7 @@ html, body {
             <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1781499185734',event)">
               <span class="group-dot" style="background:#9ea027"></span>PBI Report
             </button>
-            <div class="group-menu" id="gmenu-sec-1781499185734" style="top: 332.359px; left: 366px;">
+            <div class="group-menu" id="gmenu-sec-1781499185734">
               
                 <div class="group-menu-item" onclick="assignGroup('sec-1781499185734','g-1775896671817')">
                   <div class="gm-dot" style="background:#9ea027"></div>PBI Report
@@ -1325,922 +1397,607 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     </div>
-    </div><div class="block" id="block-sec-1780366917357" draggable="true" data-index="9" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('sec-1780366917357')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">◈</span>
-          <span class="block-title">DWH Lineage Visual Map</span>
-          <span class="block-meta">1</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1780366917357',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-sec-1780366917357">
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1780366917357','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1780366917357','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1780366917357','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1780366917357','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1780366917357','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('sec-1780366917357',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-sec-1780366917357" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-sec-1780366917357" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('sec-1780366917357')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(9)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="9" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">Tracks and visualises data lineage across a three-layer Medallion architecture (Bronze → Silver → Gold). Automatically generates flow diagrams and dependency tables showing how raw source data moves through stored procedures and transformed tables before reaching final reporting views. Keeps both diagrams in sync whenever objects are added, removed, or updated.</div>
-        
-        <span class="tag ta">in progress</span>
-      </div>
+    </div></div>
+</div>
+
+<div class="completed-wrap" id="completed-wrap" ondragover="onCompletedZoneDragOver(event)" ondragleave="onCompletedZoneDragLeave(event)" ondrop="onCompletedZoneDrop(event)">
+  <div class="completed-divider" onclick="toggleCompleted()">
+    <div class="completed-divider-line"></div>
+    <div class="completed-divider-label">
+      ✓ Completed
+      <span class="completed-count" id="completed-count">9</span>
+      <span class="completed-divider-chevron" id="completed-chevron">▼</span>
     </div>
-    </div><div class="block" id="block-portfolio" draggable="true" data-index="10" style="box-shadow: none;">
+    <div class="completed-divider-line"></div>
+  </div>
+  <div class="completed-grid-content" id="completed-grid-content">
+    <div class="completed-drop-hint" id="completed-drop-hint">
+      drag a card here to mark it as completed
+    </div>
+    <div class="completed-grid" id="completed-grid"><div class="block completed-card" id="completed-block-portfolio" draggable="true" data-completed-index="0">
       <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleBlock('portfolio')">
+      <div class="block-header" onclick="toggleCompletedBlock('portfolio')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Portfolio Dashboard (Acuity)</span>
+          <span class="block-title" style="color:var(--muted)">Portfolio Dashboard (Acuity)</span>
           <span class="block-meta">3</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-portfolio',event)">
-              <span class="group-dot" style="background:#9ea027"></span>PBI Report
-            </button>
-            <div class="group-menu" id="gmenu-portfolio">
-              
-                <div class="group-menu-item" onclick="assignGroup('portfolio','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('portfolio','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('portfolio','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('portfolio','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('portfolio','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('portfolio',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-portfolio" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-portfolio" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('portfolio')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(10)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(0)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="10" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="0" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">finalise layout and metrics for board reporting</div>
         <span class="tag tb">JUN</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="0" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Publish to Project Management Office</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="10" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="0" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Built for Steve's team</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-hcs" draggable="true" data-index="11" style="box-shadow: none;">
+    </div><div class="block completed-card" id="completed-block-hcs" draggable="true" data-completed-index="1">
       <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleBlock('hcs')">
+      <div class="block-header" onclick="toggleCompletedBlock('hcs')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Claims Dashboard – HCS</span>
+          <span class="block-title" style="color:var(--muted)">Claims Dashboard – HCS</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-hcs',event)">
-              <span class="group-dot" style="background:#9ea027"></span>PBI Report
-            </button>
-            <div class="group-menu" id="gmenu-hcs">
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('hcs','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('hcs',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-hcs" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-hcs" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('hcs')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(11)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(1)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="11" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="1" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Live at HCS folder</div>
         <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="1" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">User showcase</div>
         <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="1" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Data validation with Mon</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="11" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="1" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Redeveloped logic in SQL + Power BI</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-automation" draggable="true" data-index="12" style="box-shadow: none;">
+    </div><div class="block completed-card" id="completed-block-automation" draggable="true" data-completed-index="2">
       <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleBlock('automation')">
+      <div class="block-header" onclick="toggleCompletedBlock('automation')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Monthly Digital Reporting Automation</span>
+          <span class="block-title" style="color:var(--muted)">Monthly Digital Reporting Automation</span>
           <span class="block-meta">1</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-automation',event)">
-              <span class="group-dot" style="background:#9ea027"></span>PBI Report
-            </button>
-            <div class="group-menu" id="gmenu-automation">
-              
-                <div class="group-menu-item" onclick="assignGroup('automation','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('automation','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('automation','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('automation','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('automation','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('automation',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-automation" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-automation" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('automation')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(12)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(2)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="12" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="2" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Automate excel analysis</div>
         <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-governance" draggable="true" data-index="13" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#313cdd"></div>
-      <div class="block-header" onclick="toggleBlock('governance')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">✦</span>
-          <span class="block-title">Data Governance Work</span>
-          <span class="block-meta">4</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-governance',event)">
-              <span class="group-dot" style="background:#313cdd"></span>Data Engineering | Gov
-            </button>
-            <div class="group-menu" id="gmenu-governance">
-              
-                <div class="group-menu-item" onclick="assignGroup('governance','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('governance','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('governance','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('governance','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('governance','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('governance',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-governance" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-governance" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('governance')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(13)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="13" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Standardise SILVER.table naming</div>
-        <span class="tag tb">MAY</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="13" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Bring in GOV.tables/views in SQL + add Glossary page on Membership Report</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="13" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">SANDBOX SILVER database + Purview data in PBI</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="13" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Created Confluence space for data governance documentations + Medallion lineage chart</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-archive" draggable="true" data-index="14" style="box-shadow: none;">
-      <div class="group-top-bar" style="background:#8e32b8"></div>
-      <div class="block-header" onclick="toggleBlock('archive')">
-        <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
-          <span class="block-icon">⊘</span>
-          <span class="block-title">Qlik → Power BI Migration — Redundant Apps Archived</span>
-          <span class="block-meta">32</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-archive',event)">
-              <span class="group-dot" style="background:#8e32b8"></span>Qlik Migration
-            </button>
-            <div class="group-menu" id="gmenu-archive">
-              
-                <div class="group-menu-item" onclick="assignGroup('archive','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('archive','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('archive','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('archive','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('archive','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('archive',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-archive" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-archive" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('archive')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(14)">edit</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" draggable="true" data-si="14" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Churn-scikit-learn-Predict DEMO QS-2523</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Allianz Travel Insurance (Westfund Members) QS-2524</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Dental Debtors (from Oasis - Live to Nov '22) QS-2525</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Members Returning Duplicate Payment QS-2526</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="4">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Eye Care - Bill Template Description to Eye Talk Description Comparison QS-2527</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="5">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">Benefit Conditions (from DEV) QS-2528</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tr">paused</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="6">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Member Care Calls QS-2529</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="7">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Product Market Comparison QS-2530</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="8">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">General Comparison QS-2531</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="9">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Jira Extractor QS-2532</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="10">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Hospital Comparison QS-2533</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="11">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Claims Transform QS-2534</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="12">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Google Analytics Extract QS-2535</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="13">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Manual Snapshot QVD Create QS-2536</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="14">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Membership Reporting QS-2537</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="15">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">Exit Survey App QS-2540</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tr">paused</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="16">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Verified Claims (Optical Westfund Providers) QS-2541</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="17">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">MindStep QS-2542</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="18">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">HICAPS &amp; IBA Reconciliation QS-2543</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tr">paused</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="19">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Service Desks QS-2544</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="20">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Newborn waiting periods QS-2545</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="21">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Membership Profitability Prediction QS-2515</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="22">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Payroll Groups Rate Rise - Linked Memberships QS-2514</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="23">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">LHC Movement App QS-2499</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tr">paused</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="24">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Dental 2.0 (Oasis data - Live to 4th Nov 22) QS-2493</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="25">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Member Monitoring post claim QS-2488</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="26">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Call Recordings QS-2662</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="27">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">Dental 2.0 MACKAY (Oasis data - Live to Feb 2019) QS-2663</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tr">paused</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="28">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Exit Survey App QS-2664</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="29">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Website Quotes QS-2665</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="30">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Broker Commission QS-2666</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">archived</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="14" data-ii="31">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">The Hive QS-2667</div>
-        <span class="tag tb">JUN</span>
-        <span class="tag tg">archived</span>
-      </div>
-    </div>
-    </div><div class="block" id="block-geo" draggable="true" data-index="15" style="box-shadow: none;">
+    </div><div class="block completed-card" id="completed-block-geo" draggable="true" data-completed-index="3">
       <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('geo')">
+      <div class="block-header" onclick="toggleCompletedBlock('geo')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">ABS GEO Mapping</span>
+          <span class="block-title" style="color:var(--muted)">ABS GEO Mapping</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-geo',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-geo">
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('geo','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('geo',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-geo" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-geo" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('geo')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(15)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(3)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="15" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="3" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="15" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="3" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="15" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="3" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="15" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="3" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Point-in-polygon matching enables accurate classification even where postcodes span multiple regions</div>
         
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-sec-1775953297175" draggable="true" data-index="16" style="box-shadow: none;">
+    </div><div class="block completed-card" id="completed-block-sec-1775953297175" draggable="true" data-completed-index="4">
       <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('sec-1775953297175')">
+      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953297175')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Snapshot Backup</span>
+          <span class="block-title" style="color:var(--muted)">Snapshot Backup</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953297175',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-sec-1775953297175">
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953297175','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('sec-1775953297175',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-sec-1775953297175" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-sec-1775953297175" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('sec-1775953297175')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(16)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(4)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="16" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="4" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Consolidates daily SQL Server snapshot tables into single Parquet files per table</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="16" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="4" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Eliminates table bloat from ~30 snapshots/month accumulation per tracked table</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="16" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="4" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="16" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="4" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Snapshot date preserved as column — supports point-in-time queries without SQL restore</div>
         
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block" id="block-sec-1775953242632" draggable="true" data-index="17" style="box-shadow: none;">
+    </div><div class="block completed-card" id="completed-block-sec-1775953242632" draggable="true" data-completed-index="5">
       <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleBlock('sec-1775953242632')">
+      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953242632')">
         <div class="block-header-top">
-          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">QVD Converter</span>
+          <span class="block-title" style="color:var(--muted)">QVD Converter</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()">
-          <div class="group-dropdown-wrap">
-            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-sec-1775953242632',event)">
-              <span class="group-dot" style="background:#34cb3e"></span>Python | Automation
-            </button>
-            <div class="group-menu" id="gmenu-sec-1775953242632">
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896671817')">
-                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775896711532')">
-                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775949260021')">
-                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953106667')">
-                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
-                </div>
-              
-                <div class="group-menu-item" onclick="assignGroup('sec-1775953242632','g-1775953122346')">
-                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
-                </div>
-              
-              <div class="group-menu-divider"></div>
-              <div class="group-menu-item" onclick="assignGroup('sec-1775953242632',null)" style="color:var(--muted)">✕ Remove group</div>
-              <div class="group-menu-divider"></div>
-              <div class="group-new-row">
-                <input class="group-new-input" id="gname-sec-1775953242632" placeholder="New group..." onclick="event.stopPropagation()">
-                <input type="color" class="group-color-input" id="gcolor-sec-1775953242632" value="#58a6ff" onclick="event.stopPropagation()">
-                <button class="group-new-add" onclick="createGroup('sec-1775953242632')">Add</button>
-              </div>
-            </div>
-          </div>
-          <button class="edit-btn" onclick="openEditBlock(17)">edit</button>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(5)">↑ move to active</button>
         </div>
       </div>
       <div class="item-list">
-      <div class="item" draggable="true" data-si="17" data-ii="0">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="5" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="17" data-ii="1">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="5" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">No Qlik license or environment required</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="17" data-ii="2">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="5" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Output compatible with Excel, Power BI, and Python</div>
         
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="17" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
+      <div class="item" data-si="5" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Preserves institutional legacy data assets beyond the Qlik ecosystem</div>
         
         <span class="tag tg">done</span>
       </div>
     </div>
+    </div><div class="block completed-card" id="completed-block-governance" draggable="true" data-completed-index="6">
+      <div class="group-top-bar" style="background:#313cdd"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('governance')">
+        <div class="block-header-top">
+          <span class="block-icon">✦</span>
+          <span class="block-title" style="color:var(--muted)">Data Governance Work</span>
+          <span class="block-meta">4</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(6)">↑ move to active</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" data-si="6" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Standardise SILVER.table naming</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="6" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Bring in GOV.tables/views in SQL + add Glossary page on Membership Report</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="6" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">SANDBOX SILVER database + Purview data in PBI</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="6" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Created Confluence space for data governance documentations + Medallion lineage chart</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
+      </div>
+    </div>
+    </div><div class="block completed-card" id="completed-block-archive" draggable="true" data-completed-index="7">
+      <div class="group-top-bar" style="background:#8e32b8"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('archive')">
+        <div class="block-header-top">
+          <span class="block-icon">⊘</span>
+          <span class="block-title" style="color:var(--muted)">Qlik → Power BI Migration — Redundant Apps Archived</span>
+          <span class="block-meta">32</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(7)">↑ move to active</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" data-si="7" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Churn-scikit-learn-Predict DEMO QS-2523</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Allianz Travel Insurance (Westfund Members) QS-2524</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Dental Debtors (from Oasis - Live to Nov '22) QS-2525</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Members Returning Duplicate Payment QS-2526</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="4">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Eye Care - Bill Template Description to Eye Talk Description Comparison QS-2527</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="5">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">Benefit Conditions (from DEV) QS-2528</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tr">paused</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="6">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Member Care Calls QS-2529</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="7">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Product Market Comparison QS-2530</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="8">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">General Comparison QS-2531</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="9">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Jira Extractor QS-2532</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="10">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Hospital Comparison QS-2533</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="11">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Claims Transform QS-2534</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="12">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Google Analytics Extract QS-2535</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="13">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Manual Snapshot QVD Create QS-2536</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="14">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Membership Reporting QS-2537</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="15">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">Exit Survey App QS-2540</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tr">paused</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="16">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Verified Claims (Optical Westfund Providers) QS-2541</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="17">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">MindStep QS-2542</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="18">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">HICAPS &amp; IBA Reconciliation QS-2543</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tr">paused</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="19">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Service Desks QS-2544</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="20">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Newborn waiting periods QS-2545</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="21">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Membership Profitability Prediction QS-2515</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="22">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Payroll Groups Rate Rise - Linked Memberships QS-2514</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="23">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">LHC Movement App QS-2499</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tr">paused</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="24">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Dental 2.0 (Oasis data - Live to 4th Nov 22) QS-2493</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="25">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Member Monitoring post claim QS-2488</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="26">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Call Recordings QS-2662</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="27">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-darkred"></div>
+        <div class="item-text">Dental 2.0 MACKAY (Oasis data - Live to Feb 2019) QS-2663</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tr">paused</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="28">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Exit Survey App QS-2664</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="29">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Website Quotes QS-2665</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="30">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Broker Commission QS-2666</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tg">archived</span>
+      </div>
+    
+      <div class="item" data-si="7" data-ii="31">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">The Hive QS-2667</div>
+        <span class="tag tb">JUN</span>
+        <span class="tag tg">archived</span>
+      </div>
+    </div>
+    </div><div class="block completed-card" id="completed-block-sec-1780366917357" draggable="true" data-completed-index="8">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('sec-1780366917357')">
+        <div class="block-header-top">
+          <span class="block-icon">◈</span>
+          <span class="block-title" style="color:var(--muted)">DWH Lineage Visual Map</span>
+          <span class="block-meta">1</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(8)">↑ move to active</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" data-si="8" data-ii="0">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Tracks and visualises data lineage across a three-layer Medallion architecture (Bronze → Silver → Gold). Automatically generates flow diagrams and dependency tables showing how raw source data moves through stored procedures and transformed tables before reaching final reporting views. Keeps both diagrams in sync whenever objects are added, removed, or updated.</div>
+        
+        <span class="tag ta">in progress</span>
+      </div>
+    </div>
     </div></div>
+  </div>
 </div>
 
 <div class="modal-overlay" id="modal">
@@ -2580,21 +2337,301 @@ const DEFAULT_DATA = [
       }
     ],
     "group": "g-1775953106667"
+  }
+];
+
+// ── Stats CRUD ──
+const DEFAULT_STATS = [
+  {
+    "id": "s1",
+    "val": "6",
+    "label": "reports delivered"
   },
   {
-    "id": "sec-1780366917357",
-    "icon": "◈",
-    "title": "DWH Lineage Visual Map",
-    "items": [
-      {
-        "text": "Tracks and visualises data lineage across a three-layer Medallion architecture (Bronze → Silver → Gold). Automatically generates flow diagrams and dependency tables showing how raw source data moves through stored procedures and transformed tables before reaching final reporting views. Keeps both diagrams in sync whenever objects are added, removed, or updated.",
-        "month": "",
-        "status": "in progress",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
+    "id": "s2",
+    "val": "6",
+    "label": "apps migrated"
   },
+  {
+    "id": "s3",
+    "val": "22",
+    "label": "apps archived"
+  },
+  {
+    "id": "s4",
+    "val": "99",
+    "label": "silver tables normalised"
+  },
+  {
+    "id": "s5",
+    "val": "5",
+    "label": "Apps Migrated"
+  },
+  {
+    "id": "s1775885218640",
+    "val": "22",
+    "label": "Apps Archived"
+  }
+];
+
+function loadStats() {
+  const saved = localStorage.getItem('bi-stats-v3');
+  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
+  return JSON.parse(JSON.stringify(DEFAULT_STATS));
+}
+function saveStats(stats) {
+  localStorage.setItem('bi-stats-v3', JSON.stringify(stats));
+}
+
+let stats = loadStats();
+
+function renderStats() {
+  const body = document.getElementById('t-body');
+  body.innerHTML = '';
+  stats.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 't-stat';
+    div.innerHTML = `
+      <div class="t-stat-actions">
+        <button class="t-act" onclick="editStatInline(${i})">✎</button>
+        <button class="t-act del" onclick="deleteStat(${i})">✕</button>
+      </div>
+      <div class="t-stat-val">${s.val}</div>
+      <div class="t-stat-label">${s.label}</div>
+    `;
+    body.appendChild(div);
+  });
+  // Add button
+  const addBtn = document.createElement('div');
+  addBtn.className = 't-add-stat';
+  addBtn.title = 'Add stat';
+  addBtn.innerHTML = '+';
+  addBtn.onclick = addStat;
+  body.appendChild(addBtn);
+}
+
+function editStatInline(i) {
+  const statEls = document.querySelectorAll('.t-stat');
+  const el = statEls[i];
+  const valEl = el.querySelector('.t-stat-val');
+  const labelEl = el.querySelector('.t-stat-label');
+  const actEl = el.querySelector('.t-stat-actions');
+
+  const valInput = document.createElement('input');
+  valInput.className = 't-stat-edit-val';
+  valInput.value = stats[i].val;
+
+  const labelInput = document.createElement('input');
+  labelInput.className = 't-stat-edit-label';
+  labelInput.value = stats[i].label;
+
+  valEl.replaceWith(valInput);
+  labelEl.replaceWith(labelInput);
+  actEl.style.opacity = '0';
+  actEl.style.pointerEvents = 'none';
+  valInput.focus(); valInput.select();
+
+  function commit() {
+    stats[i].val = valInput.value.trim() || stats[i].val;
+    stats[i].label = labelInput.value.trim() || stats[i].label;
+    saveStats(stats);
+    renderStats();
+  }
+  valInput.addEventListener('keydown', e => { if (e.key === 'Enter') labelInput.focus(); if (e.key === 'Escape') renderStats(); });
+  labelInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } if (e.key === 'Escape') renderStats(); });
+  labelInput.addEventListener('blur', () => setTimeout(commit, 150));
+}
+
+function deleteStat(i) {
+  stats.splice(i, 1);
+  saveStats(stats);
+  renderStats();
+}
+
+function addStat() {
+  stats.push({ id: 's' + Date.now(), val: '0', label: 'new metric' });
+  saveStats(stats);
+  renderStats();
+  // Auto-open edit on the new stat
+  setTimeout(() => editStatInline(stats.length - 1), 50);
+}
+
+// ── Drag & Drop ──
+// ── Item-level drag & drop ──
+let itemDragSrc = null;
+
+function onItemDragStart(e) {
+  e.stopPropagation();
+  const el = e.currentTarget;
+  itemDragSrc = { si: parseInt(el.dataset.si), ii: parseInt(el.dataset.ii) };
+  el.classList.add('item-dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function onItemDragOver(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  e.currentTarget.classList.add('item-drag-over');
+}
+function onItemDragLeave(e) {
+  e.currentTarget.classList.remove('item-drag-over');
+}
+function onItemDrop(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const el = e.currentTarget;
+  el.classList.remove('item-drag-over');
+  if (!itemDragSrc) return;
+  const dropSi = parseInt(el.dataset.si);
+  const dropIi = parseInt(el.dataset.ii);
+  if (itemDragSrc.si !== dropSi) return;
+  if (itemDragSrc.ii === dropIi) return;
+  const items = state[dropSi].items;
+  const moved = items.splice(itemDragSrc.ii, 1)[0];
+  items.splice(dropIi, 0, moved);
+  const sectionId = state[dropSi].id;
+  render();
+  setTimeout(() => {
+    const block = document.getElementById('block-' + sectionId);
+    if (block) block.classList.add('open');
+  }, 10);
+}
+function onItemDragEnd(e) {
+  e.currentTarget.classList.remove('item-dragging');
+  document.querySelectorAll('.item').forEach(el => el.classList.remove('item-drag-over'));
+  itemDragSrc = null;
+}
+
+let dragSrcIndex = null;
+let isDroppingToCompleted = false;
+
+function onDragStart(e) {
+  dragSrcIndex = parseInt(e.currentTarget.dataset.index);
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('source', 'active');
+}
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  e.currentTarget.classList.add('drag-over');
+}
+function onDragLeave(e) {
+  e.currentTarget.classList.remove('drag-over');
+}
+function onDrop(e) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  if (isDroppingToCompleted) return; // handed off to completed zone
+  const dropIndex = parseInt(e.currentTarget.dataset.index);
+  if (dragSrcIndex === null || dragSrcIndex === dropIndex) return;
+  const moved = state.splice(dragSrcIndex, 1)[0];
+  state.splice(dropIndex, 0, moved);
+  render();
+}
+function onDragEnd(e) {
+  e.currentTarget.classList.remove('dragging');
+  document.querySelectorAll('.block').forEach(b => b.classList.remove('drag-over'));
+  isDroppingToCompleted = false;
+  dragSrcIndex = null;
+}
+
+
+function loadData() {
+  const saved = localStorage.getItem('bi-delivery-v2');
+  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+// ── Groups ──
+const SAVED_GROUPS = [
+  {
+    "id": "g-1775896671817",
+    "name": "PBI Report",
+    "color": "#9ea027"
+  },
+  {
+    "id": "g-1775896711532",
+    "name": "Data Engineering | Gov",
+    "color": "#313cdd"
+  },
+  {
+    "id": "g-1775949260021",
+    "name": "Qlik Migration",
+    "color": "#8e32b8"
+  },
+  {
+    "id": "g-1775953106667",
+    "name": "Python | Automation",
+    "color": "#34cb3e"
+  },
+  {
+    "id": "g-1775953122346",
+    "name": "Other | BAU",
+    "color": "#b9babb"
+  }
+];
+function loadGroups() {
+  if (typeof SAVED_GROUPS !== 'undefined' && SAVED_GROUPS.length) return JSON.parse(JSON.stringify(SAVED_GROUPS));
+  const saved = localStorage.getItem('bi-groups-v1');
+  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
+  return [];
+}
+function saveGroups() {
+  localStorage.setItem('bi-groups-v1', JSON.stringify(groups));
+}
+let groups = loadGroups();
+
+function toggleGroupMenu(menuId, event) {
+  event.stopPropagation();
+  const menu = document.getElementById(menuId);
+  const isOpen = menu.classList.contains('open');
+  document.querySelectorAll('.group-menu').forEach(m => m.classList.remove('open'));
+  if (!isOpen) {
+    const btn = event.currentTarget;
+    const rect = btn.getBoundingClientRect();
+    menu.style.top = (rect.bottom + 4) + 'px';
+    menu.style.left = rect.left + 'px';
+    menu.classList.add('open');
+  }
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.group-dropdown-wrap')) {
+    document.querySelectorAll('.group-menu').forEach(m => m.classList.remove('open'));
+  }
+});
+
+function assignGroup(sectionId, groupId) {
+  const section = state.find(s => s.id === sectionId);
+  if (section) section.group = groupId;
+  render();
+}
+
+function createGroup(sectionId) {
+  const nameEl = document.getElementById('gname-' + sectionId);
+  const colorEl = document.getElementById('gcolor-' + sectionId);
+  const name = nameEl ? nameEl.value.trim() : '';
+  const color = colorEl ? colorEl.value : '#58a6ff';
+  if (!name) return;
+  const newGroup = { id: 'g-' + Date.now(), name, color };
+  groups.push(newGroup);
+  saveGroups();
+  // Auto-assign to this section
+  const section = state.find(s => s.id === sectionId);
+  if (section) section.group = newGroup.id;
+  render();
+}
+
+function persistData() {
+  localStorage.setItem('bi-delivery-v2', JSON.stringify(state));
+}
+
+localStorage.removeItem('bi-delivery-v2');
+localStorage.removeItem('bi-groups-v1');
+localStorage.removeItem('bi-completed-v1');
+let state = loadData();
+
+// ── Completed zone state ──
+const DEFAULT_COMPLETED = [
   {
     "id": "portfolio",
     "icon": "◈",
@@ -2666,6 +2703,102 @@ const DEFAULT_DATA = [
       }
     ],
     "group": "g-1775896671817"
+  },
+  {
+    "id": "geo",
+    "icon": "◈",
+    "title": "ABS GEO Mapping",
+    "items": [
+      {
+        "text": "Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Point-in-polygon matching enables accurate classification even where postcodes span multiple regions",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
+  },
+  {
+    "id": "sec-1775953297175",
+    "icon": "◈",
+    "title": "Snapshot Backup",
+    "items": [
+      {
+        "text": "Consolidates daily SQL Server snapshot tables into single Parquet files per table",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Eliminates table bloat from ~30 snapshots/month accumulation per tracked table",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Snapshot date preserved as column — supports point-in-time queries without SQL restore",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
+  },
+  {
+    "id": "sec-1775953242632",
+    "icon": "◈",
+    "title": "QVD Converter",
+    "items": [
+      {
+        "text": "Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "No Qlik license or environment required",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Output compatible with Excel, Power BI, and Python",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Preserves institutional legacy data assets beyond the Qlik ecosystem",
+        "month": "",
+        "status": "done",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953106667"
   },
   {
     "id": "governance",
@@ -2900,96 +3033,14 @@ const DEFAULT_DATA = [
     "group": "g-1775949260021"
   },
   {
-    "id": "geo",
+    "id": "sec-1780366917357",
     "icon": "◈",
-    "title": "ABS GEO Mapping",
+    "title": "DWH Lineage Visual Map",
     "items": [
       {
-        "text": "Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name",
+        "text": "Tracks and visualises data lineage across a three-layer Medallion architecture (Bronze → Silver → Gold). Automatically generates flow diagrams and dependency tables showing how raw source data moves through stored procedures and transformed tables before reaching final reporting views. Keeps both diagrams in sync whenever objects are added, removed, or updated.",
         "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Point-in-polygon matching enables accurate classification even where postcodes span multiple regions",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
-  },
-  {
-    "id": "sec-1775953297175",
-    "icon": "◈",
-    "title": "Snapshot Backup",
-    "items": [
-      {
-        "text": "Consolidates daily SQL Server snapshot tables into single Parquet files per table",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Eliminates table bloat from ~30 snapshots/month accumulation per tracked table",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Snapshot date preserved as column — supports point-in-time queries without SQL restore",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953106667"
-  },
-  {
-    "id": "sec-1775953242632",
-    "icon": "◈",
-    "title": "QVD Converter",
-    "items": [
-      {
-        "text": "Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "No Qlik license or environment required",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Output compatible with Excel, Power BI, and Python",
-        "month": "",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Preserves institutional legacy data assets beyond the Qlik ecosystem",
-        "month": "",
-        "status": "done",
+        "status": "in progress",
         "prefix": "feat:"
       }
     ],
@@ -2997,290 +3048,187 @@ const DEFAULT_DATA = [
   }
 ];
 
-// ── Stats CRUD ──
-const DEFAULT_STATS = [
-  {
-    "id": "s1",
-    "val": "6",
-    "label": "reports delivered"
-  },
-  {
-    "id": "s2",
-    "val": "6",
-    "label": "apps migrated"
-  },
-  {
-    "id": "s3",
-    "val": "22",
-    "label": "apps archived"
-  },
-  {
-    "id": "s4",
-    "val": "99",
-    "label": "silver tables normalised"
-  },
-  {
-    "id": "s5",
-    "val": "5",
-    "label": "Apps Migrated"
-  },
-  {
-    "id": "s1775885218640",
-    "val": "22",
-    "label": "Apps Archived"
-  }
-];
-
-function loadStats() {
-  const saved = localStorage.getItem('bi-stats-v3');
+function loadCompleted() {
+  const saved = localStorage.getItem('bi-completed-v1');
   if (saved) { try { return JSON.parse(saved); } catch(e) {} }
-  return JSON.parse(JSON.stringify(DEFAULT_STATS));
+  return JSON.parse(JSON.stringify(DEFAULT_COMPLETED));
 }
-function saveStats(stats) {
-  localStorage.setItem('bi-stats-v3', JSON.stringify(stats));
+function saveCompleted() {
+  localStorage.setItem('bi-completed-v1', JSON.stringify(completedState));
 }
+let completedState = loadCompleted();
+let completedExpanded = false;
 
-let stats = loadStats();
-
-function renderStats() {
-  const body = document.getElementById('t-body');
-  body.innerHTML = '';
-  stats.forEach((s, i) => {
-    const div = document.createElement('div');
-    div.className = 't-stat';
-    div.innerHTML = `
-      <div class="t-stat-actions">
-        <button class="t-act" onclick="editStatInline(${i})">✎</button>
-        <button class="t-act del" onclick="deleteStat(${i})">✕</button>
-      </div>
-      <div class="t-stat-val">${s.val}</div>
-      <div class="t-stat-label">${s.label}</div>
-    `;
-    body.appendChild(div);
-  });
-  // Add button
-  const addBtn = document.createElement('div');
-  addBtn.className = 't-add-stat';
-  addBtn.title = 'Add stat';
-  addBtn.innerHTML = '+';
-  addBtn.onclick = addStat;
-  body.appendChild(addBtn);
+function toggleCompleted() {
+  completedExpanded = !completedExpanded;
+  const content = document.getElementById('completed-grid-content');
+  const chevron = document.getElementById('completed-chevron');
+  content.classList.toggle('hidden', !completedExpanded);
+  chevron.classList.toggle('collapsed', !completedExpanded);
 }
 
-function editStatInline(i) {
-  const statEls = document.querySelectorAll('.t-stat');
-  const el = statEls[i];
-  const valEl = el.querySelector('.t-stat-val');
-  const labelEl = el.querySelector('.t-stat-label');
-  const actEl = el.querySelector('.t-stat-actions');
+function renderCompleted() {
+  const grid = document.getElementById('completed-grid');
+  const hint = document.getElementById('completed-drop-hint');
+  const count = document.getElementById('completed-count');
+  grid.innerHTML = '';
+  count.textContent = completedState.length;
 
-  const valInput = document.createElement('input');
-  valInput.className = 't-stat-edit-val';
-  valInput.value = stats[i].val;
-
-  const labelInput = document.createElement('input');
-  labelInput.className = 't-stat-edit-label';
-  labelInput.value = stats[i].label;
-
-  valEl.replaceWith(valInput);
-  labelEl.replaceWith(labelInput);
-  actEl.style.opacity = '0';
-  actEl.style.pointerEvents = 'none';
-  valInput.focus(); valInput.select();
-
-  function commit() {
-    stats[i].val = valInput.value.trim() || stats[i].val;
-    stats[i].label = labelInput.value.trim() || stats[i].label;
-    saveStats(stats);
-    renderStats();
+  if (completedState.length === 0) {
+    hint.classList.add('visible');
+  } else {
+    hint.classList.remove('visible');
   }
-  valInput.addEventListener('keydown', e => { if (e.key === 'Enter') labelInput.focus(); if (e.key === 'Escape') renderStats(); });
-  labelInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } if (e.key === 'Escape') renderStats(); });
-  labelInput.addEventListener('blur', () => setTimeout(commit, 150));
+
+  completedState.forEach((section, si) => {
+    const block = document.createElement('div');
+    block.className = 'block completed-card';
+    block.id = 'completed-block-' + section.id;
+    block.draggable = true;
+    block.dataset.completedIndex = si;
+
+    const grp = section.group ? groups.find(g => g.id === section.group) : null;
+    const grpLabel = grp ? `<div class="group-top-bar" style="background:${grp.color}"></div>` : '';
+
+    const itemsHtml = section.items.map((item, ii) => `
+      <div class="item" data-si="${si}" data-ii="${ii}">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot ${dotClass(item.status)}"></div>
+        <div class="item-text">${item.text}</div>
+        ${item.month ? `<span class="tag tb">${item.month}</span>` : ''}
+        <span class="tag ${tagClass(item.status)}">${item.status}</span>
+      </div>
+    `).join('');
+
+    block.innerHTML = `
+      ${grpLabel}
+      <div class="block-header" onclick="toggleCompletedBlock('${section.id}')">
+        <div class="block-header-top">
+          <span class="block-icon">${section.icon}</span>
+          <span class="block-title" style="color:var(--muted)">${section.title}</span>
+          <span class="block-meta">${section.items.length}</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
+          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)"
+            onclick="moveToActive(${si})">↑ move to active</button>
+        </div>
+      </div>
+      <div class="item-list">${itemsHtml}</div>
+    `;
+
+    block.addEventListener('dragstart', onCompletedDragStart);
+    block.addEventListener('dragover', onCompletedCardDragOver);
+    block.addEventListener('dragleave', onCompletedCardDragLeave);
+    block.addEventListener('drop', onCompletedCardDrop);
+    block.addEventListener('dragend', onCompletedDragEnd);
+    grid.appendChild(block);
+  });
+  saveCompleted();
 }
 
-function deleteStat(i) {
-  stats.splice(i, 1);
-  saveStats(stats);
-  renderStats();
+function toggleCompletedBlock(id) {
+  document.getElementById('completed-block-' + id).classList.toggle('open');
 }
 
-function addStat() {
-  stats.push({ id: 's' + Date.now(), val: '0', label: 'new metric' });
-  saveStats(stats);
-  renderStats();
-  // Auto-open edit on the new stat
-  setTimeout(() => editStatInline(stats.length - 1), 50);
-}
-
-// ── Drag & Drop ──
-// ── Item-level drag & drop ──
-let itemDragSrc = null;
-
-function onItemDragStart(e) {
-  e.stopPropagation();
-  const el = e.currentTarget;
-  itemDragSrc = { si: parseInt(el.dataset.si), ii: parseInt(el.dataset.ii) };
-  el.classList.add('item-dragging');
-  e.dataTransfer.effectAllowed = 'move';
-}
-function onItemDragOver(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  e.currentTarget.classList.add('item-drag-over');
-}
-function onItemDragLeave(e) {
-  e.currentTarget.classList.remove('item-drag-over');
-}
-function onItemDrop(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  const el = e.currentTarget;
-  el.classList.remove('item-drag-over');
-  if (!itemDragSrc) return;
-  const dropSi = parseInt(el.dataset.si);
-  const dropIi = parseInt(el.dataset.ii);
-  if (itemDragSrc.si !== dropSi) return;
-  if (itemDragSrc.ii === dropIi) return;
-  const items = state[dropSi].items;
-  const moved = items.splice(itemDragSrc.ii, 1)[0];
-  items.splice(dropIi, 0, moved);
-  const sectionId = state[dropSi].id;
+function moveToActive(ci) {
+  const section = completedState.splice(ci, 1)[0];
+  state.push(section);
   render();
-  setTimeout(() => {
-    const block = document.getElementById('block-' + sectionId);
-    if (block) block.classList.add('open');
-  }, 10);
-}
-function onItemDragEnd(e) {
-  e.currentTarget.classList.remove('item-dragging');
-  document.querySelectorAll('.item').forEach(el => el.classList.remove('item-drag-over'));
-  itemDragSrc = null;
+  renderCompleted();
 }
 
-let dragSrcIndex = null;
+// ── Completed zone drag: receive blocks from active grid ──
+let completedDragSrc = null;
 
-function onDragStart(e) {
-  dragSrcIndex = parseInt(e.currentTarget.dataset.index);
+function onCompletedDragStart(e) {
+  completedDragSrc = parseInt(e.currentTarget.dataset.completedIndex);
   e.currentTarget.classList.add('dragging');
   e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('source', 'completed');
+  e.stopPropagation();
 }
-function onDragOver(e) {
-  e.preventDefault();
-  e.dataTransfer.dropEffect = 'move';
-  e.currentTarget.classList.add('drag-over');
-}
-function onDragLeave(e) {
-  e.currentTarget.classList.remove('drag-over');
-}
-function onDrop(e) {
-  e.preventDefault();
-  e.currentTarget.classList.remove('drag-over');
-  const dropIndex = parseInt(e.currentTarget.dataset.index);
-  if (dragSrcIndex === null || dragSrcIndex === dropIndex) return;
-  const moved = state.splice(dragSrcIndex, 1)[0];
-  state.splice(dropIndex, 0, moved);
-  render();
-}
-function onDragEnd(e) {
+
+function onCompletedDragEnd(e) {
   e.currentTarget.classList.remove('dragging');
   document.querySelectorAll('.block').forEach(b => b.classList.remove('drag-over'));
+  completedDragSrc = null;
+}
+
+function onCompletedCardDragOver(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  e.dataTransfer.dropEffect = 'move';
+  isDroppingToCompleted = true;
+  e.currentTarget.classList.add('drag-over');
+}
+
+function onCompletedCardDragLeave(e) {
+  e.currentTarget.classList.remove('drag-over');
+}
+
+function onCompletedCardDrop(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  isDroppingToCompleted = false;
+  e.currentTarget.classList.remove('drag-over');
+  const source = e.dataTransfer.getData('source');
+
+  // Reorder within completed
+  if (source === 'completed') {
+    const dropIndex = parseInt(e.currentTarget.dataset.completedIndex);
+    if (completedDragSrc === null || completedDragSrc === dropIndex) return;
+    const moved = completedState.splice(completedDragSrc, 1)[0];
+    completedState.splice(dropIndex, 0, moved);
+    renderCompleted();
+    return;
+  }
+
+  // Active card dropped onto a completed card — insert at that position
+  if (dragSrcIndex === null) return;
+  const dropIndex = parseInt(e.currentTarget.dataset.completedIndex);
+  const section = state.splice(dragSrcIndex, 1)[0];
+  completedState.splice(dropIndex, 0, section);
+  if (!completedExpanded) toggleCompleted();
   dragSrcIndex = null;
-}
-
-
-function loadData() {
-  const saved = localStorage.getItem('bi-delivery-v2');
-  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
-  return JSON.parse(JSON.stringify(DEFAULT_DATA));
-}
-// ── Groups ──
-const SAVED_GROUPS = [
-  {
-    "id": "g-1775896671817",
-    "name": "PBI Report",
-    "color": "#9ea027"
-  },
-  {
-    "id": "g-1775896711532",
-    "name": "Data Engineering | Gov",
-    "color": "#313cdd"
-  },
-  {
-    "id": "g-1775949260021",
-    "name": "Qlik Migration",
-    "color": "#8e32b8"
-  },
-  {
-    "id": "g-1775953106667",
-    "name": "Python | Automation",
-    "color": "#34cb3e"
-  },
-  {
-    "id": "g-1775953122346",
-    "name": "Other | BAU",
-    "color": "#b9babb"
-  }
-];
-function loadGroups() {
-  if (typeof SAVED_GROUPS !== 'undefined' && SAVED_GROUPS.length) return JSON.parse(JSON.stringify(SAVED_GROUPS));
-  const saved = localStorage.getItem('bi-groups-v1');
-  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
-  return [];
-}
-function saveGroups() {
-  localStorage.setItem('bi-groups-v1', JSON.stringify(groups));
-}
-let groups = loadGroups();
-
-function toggleGroupMenu(menuId, event) {
-  event.stopPropagation();
-  const menu = document.getElementById(menuId);
-  const isOpen = menu.classList.contains('open');
-  document.querySelectorAll('.group-menu').forEach(m => m.classList.remove('open'));
-  if (!isOpen) {
-    const btn = event.currentTarget;
-    const rect = btn.getBoundingClientRect();
-    menu.style.top = (rect.bottom + 4) + 'px';
-    menu.style.left = rect.left + 'px';
-    menu.classList.add('open');
-  }
-}
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.group-dropdown-wrap')) {
-    document.querySelectorAll('.group-menu').forEach(m => m.classList.remove('open'));
-  }
-});
-
-function assignGroup(sectionId, groupId) {
-  const section = state.find(s => s.id === sectionId);
-  if (section) section.group = groupId;
   render();
+  renderCompleted();
 }
 
-function createGroup(sectionId) {
-  const nameEl = document.getElementById('gname-' + sectionId);
-  const colorEl = document.getElementById('gcolor-' + sectionId);
-  const name = nameEl ? nameEl.value.trim() : '';
-  const color = colorEl ? colorEl.value : '#58a6ff';
-  if (!name) return;
-  const newGroup = { id: 'g-' + Date.now(), name, color };
-  groups.push(newGroup);
-  saveGroups();
-  // Auto-assign to this section
-  const section = state.find(s => s.id === sectionId);
-  if (section) section.group = newGroup.id;
+function onCompletedZoneDragOver(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  e.dataTransfer.dropEffect = 'move';
+  isDroppingToCompleted = true;
+  document.getElementById('completed-drop-hint').classList.add('drag-active');
+}
+
+function onCompletedZoneDragLeave(e) {
+  if (!e.currentTarget.contains(e.relatedTarget)) {
+    isDroppingToCompleted = false;
+    document.getElementById('completed-drop-hint').classList.remove('drag-active');
+  }
+}
+
+function onCompletedZoneDrop(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  isDroppingToCompleted = false;
+  document.getElementById('completed-drop-hint').classList.remove('drag-active');
+  const source = e.dataTransfer.getData('source');
+  if (source === 'completed') return;
+
+  if (dragSrcIndex === null) return;
+  const section = state.splice(dragSrcIndex, 1)[0];
+  completedState.push(section);
+
+  if (!completedExpanded) toggleCompleted();
+
+  dragSrcIndex = null;
   render();
+  renderCompleted();
 }
 
-function persistData() {
-  localStorage.setItem('bi-delivery-v2', JSON.stringify(state));
-}
-
-localStorage.removeItem('bi-delivery-v2');
-localStorage.removeItem('bi-groups-v1');
-let state = loadData();
 
 function dotClass(s) {
   if (s === 'done' || s === 'archived') return 'dot-g';
@@ -3481,6 +3429,7 @@ function render() {
   });
   renderLegend();
   persistData();
+  renderCompleted();
 }
 
 function toggleSummary() {
@@ -3506,6 +3455,7 @@ function saveAsHTML() {
   const dataJson = JSON.stringify(state, null, 2);
   const statsJson = JSON.stringify(stats, null, 2);
   const groupsJson = JSON.stringify(groups, null, 2);
+  const completedJson = JSON.stringify(completedState, null, 2);
   let src = document.documentElement.outerHTML;
   src = src.replace(
     /const DEFAULT_DATA = \[[\s\S]*?\];/,
@@ -3514,6 +3464,10 @@ function saveAsHTML() {
   src = src.replace(
     /const DEFAULT_STATS = \[[\s\S]*?\];/,
     'const DEFAULT_STATS = ' + statsJson + ';'
+  );
+  src = src.replace(
+    /const DEFAULT_COMPLETED = \[[\s\S]*?\];/,
+    'const DEFAULT_COMPLETED = ' + completedJson + ';'
   );
   // Handle both first save (no SAVED_GROUPS yet) and subsequent saves
   if (/const SAVED_GROUPS = \[[\s\S]*?\];/.test(src)) {
@@ -3680,6 +3634,7 @@ function openAddBlock() {
 
 render();
 renderStats();
+renderCompleted();
 </script>
 
 
