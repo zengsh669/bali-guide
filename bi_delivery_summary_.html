@@ -969,7 +969,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">BAU</span>
-          <span class="block-meta">4</span>
+          <span class="block-meta">5</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1038,6 +1038,14 @@ html, body {
       </div>
     
       <div class="item" draggable="true" data-si="3" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Implement Report Level Access (Cross-Functional folder)</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="3" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Review existing PBI DimDate</div>
@@ -1960,141 +1968,61 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Apps Migrated</span>
+      <span class="modal-title" id="modal-title">Edit — BAU</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Apps Migrated"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="⬡" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="BAU"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:BOT Dashboard QS-2722 <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Corporate Agreements QS-2740 <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Exclude OVHC products Memship rpt <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Declined HICAPS report QS-2672 <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Worked with Kane and provided slide deck (Pulse PBI announcement) <span style="color:var(--muted2)">[FEB]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Compensation Claims (from Claims App for Fund) QS-2622 <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Review existing PBI DimDate <span style="color:var(--muted2)">[DEC]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Claims Dashboard - HCS QS-2743 <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Implement Report Level Access (Cross-Functional folder) <span style="color:var(--muted2)">[SEP]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,4)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Retained Members QS-2587 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,5)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Rebates QS-2635 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,6)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:LHC Snapshot QVD Generator QS-2500 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,7)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Risk Equalisation Estimation QS-2495 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,8)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Deceased Members on Active Memberships QS-2460 <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,9)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,9)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Arrears Report <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,10)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,10)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Eclipse Remittances <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,11)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,11)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Member &amp; Provider Correspondence <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,12)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,12)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Groups &amp; Contributions Receipts <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,13)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,13)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Invoice Payment - Vendor Group <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,14)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,14)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,4)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2303,6 +2231,12 @@ const DEFAULT_DATA = [
         "text": "Worked with Kane and provided slide deck (Pulse PBI announcement)",
         "month": "FEB",
         "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Implement Report Level Access (Cross-Functional folder)",
+        "month": "SEP",
+        "status": "not started",
         "prefix": "feat:"
       },
       {
