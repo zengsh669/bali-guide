@@ -1060,7 +1060,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Gross Margin</span>
-          <span class="block-meta">5</span>
+          <span class="block-meta">6</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1107,7 +1107,7 @@ html, body {
       <div class="item" draggable="true" data-si="4" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Include Home page || product team demo</div>
+        <div class="item-text">Cross-Functional folder || Report level access</div>
         <span class="tag tb">JUN</span>
         <span class="tag ta">in progress</span>
       </div>
@@ -1115,15 +1115,15 @@ html, body {
       <div class="item" draggable="true" data-si="4" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Live at Finance folder - Demo to Finance Team</div>
-        <span class="tag tb">MAY</span>
+        <div class="item-text">Include Home page || product team demo</div>
+        <span class="tag tb">JUN</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="4" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Apply manual adjustment factors</div>
+        <div class="item-text">Live at Finance folder - Demo to Finance Team</div>
         <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
@@ -1131,12 +1131,20 @@ html, body {
       <div class="item" draggable="true" data-si="4" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
+        <div class="item-text">Apply manual adjustment factors</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
         <div class="item-text">Visualisation build</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="4" data-ii="4">
+      <div class="item" draggable="true" data-si="4" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Pending on Carolina to validate earned contribution script</div>
@@ -1268,7 +1276,7 @@ html, body {
         <div class="block-header-top">
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Marketing Copilot Agent</span>
+          <span class="block-title">Copilot Agent</span>
           <span class="block-meta">6</span>
           <span class="chevron">▼</span>
         </div>
@@ -1968,61 +1976,69 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — BAU</span>
+      <span class="modal-title" id="modal-title">Edit — Gross Margin</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="BAU"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Gross Margin"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Cross-Functional folder || Report level access <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Exclude OVHC products Memship rpt <span style="color:var(--muted2)">[MAR]</span></span>
+            <span class="edit-item-text">feat:Include Home page || product team demo <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Worked with Kane and provided slide deck (Pulse PBI announcement) <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">feat:Live at Finance folder - Demo to Finance Team <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Review existing PBI DimDate <span style="color:var(--muted2)">[DEC]</span></span>
+            <span class="edit-item-text">wip: Apply manual adjustment factors <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Implement Report Level Access (Cross-Functional folder) <span style="color:var(--muted2)">[SEP]</span></span>
+            <span class="edit-item-text">feat:Visualisation build <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Pending on Carolina to validate earned contribution script <span style="color:var(--muted2)">[FEB]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(4,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,5)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2254,9 +2270,15 @@ const DEFAULT_DATA = [
     "title": "Gross Margin",
     "items": [
       {
-        "text": "Include Home page || product team demo",
+        "text": "Cross-Functional folder || Report level access",
         "month": "JUN",
         "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Include Home page || product team demo",
+        "month": "JUN",
+        "status": "done",
         "prefix": "feat:"
       },
       {
@@ -2317,7 +2339,7 @@ const DEFAULT_DATA = [
   {
     "id": "ovhc",
     "icon": "◈",
-    "title": "Marketing Copilot Agent",
+    "title": "Copilot Agent",
     "items": [
       {
         "text": "Demo - pull data from compare policies",
