@@ -969,7 +969,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">BAU</span>
-          <span class="block-meta">5</span>
+          <span class="block-meta">6</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1039,13 +1039,21 @@ html, body {
     
       <div class="item" draggable="true" data-si="3" data-ii="3">
         <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-b"></div>
+        <div class="item-text">Handle PBI-related Jira tickets</div>
+        
+        <span class="tag tb">ongoing</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="3" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Implement Report Level Access (Cross-Functional folder)</div>
         <span class="tag tb">SEP</span>
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="3" data-ii="4">
+      <div class="item" draggable="true" data-si="3" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Review existing PBI DimDate</div>
@@ -1880,29 +1888,31 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Audit Dashboard - Amanda</span>
+      <span class="modal-title" id="modal-title">Edit item</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Audit Dashboard - Amanda"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
-      <label>Items</label>
-      <div id="edit-items">
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Gus mentioned work with Trev to bring in database on June-02 <span style="color:var(--muted2)">[JUN]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
-            </div>
-          </div>
-        
-      </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <label>Prefix</label>
+      <select id="item-prefix">
+        <option value="feat:" selected="">feat:</option><option value="wip: ">wip:</option><option value="arch:">arch:</option><option value="fix: ">fix:</option>
+      </select>
     </div>
-    <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+    <div class="field">
+      <label>Description</label>
+      <textarea id="item-text">Handle PBI-related Jira tickets</textarea>
+    </div>
+    <div class="field">
+      <label>Month</label>
+      <select id="item-month">
+        <option value="" selected="">— no month —</option><option value="JAN">JAN</option><option value="FEB">FEB</option><option value="MAR">MAR</option><option value="APR">APR</option><option value="MAY">MAY</option><option value="JUN">JUN</option><option value="JUL">JUL</option><option value="AUG">AUG</option><option value="SEP">SEP</option><option value="OCT">OCT</option><option value="NOV">NOV</option><option value="DEC">DEC</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Status</label>
+      <select id="item-status">
+        <option>done</option><option>in review</option><option>in progress</option><option selected="">ongoing</option><option>not started</option><option>paused</option><option>archived</option>
+      </select>
     </div>
   </div>
     <div class="modal-foot">
@@ -2111,6 +2121,12 @@ const DEFAULT_DATA = [
         "text": "Worked with Kane and provided slide deck (Pulse PBI announcement)",
         "month": "FEB",
         "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Handle PBI-related Jira tickets",
+        "month": "",
+        "status": "ongoing",
         "prefix": "feat:"
       },
       {
