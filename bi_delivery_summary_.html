@@ -616,7 +616,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">▶</span>
           <span class="block-title">Data Engineering (Medallion, ADF)</span>
-          <span class="block-meta">7</span>
+          <span class="block-meta">8</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -663,7 +663,7 @@ html, body {
       <div class="item" draggable="true" data-si="0" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Qualtrics; D4W (Live)</div>
+        <div class="item-text">D4W(Live)</div>
         <span class="tag tb">JUL</span>
         <span class="tag ta">in progress</span>
       </div>
@@ -671,20 +671,40 @@ html, body {
       <div class="item" draggable="true" data-si="0" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Connx (Meridian), Touchpoint (QMSInsight)</div>
-        <span class="tag tb">JUN</span>
+        <div class="item-text">Qualtrics REST API
+      ↓ fetch + cleanse
+qualtrics_fetch.py (local development)
+      ↓ git push
+ADO Repo (DataEngineering)
+      ↓ CI auto-build
+Build Pipeline (Artifact: pythonapp)
+      ↓ manual Deploy trigger
+Release Pipeline (robocopy → C:\Python\)
+      ↓
+VM (PRDIRN01)
+      ↓ Task Scheduler (scheduled execution)
+BRONZE database (sql server)</div>
+        <span class="tag tb">JUL</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="0" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Bring in Membership_Reporting; telrex35; WestfundRPA</div>
-        <span class="tag tb">MAY</span>
+        <div class="item-text">Connx (Meridian), Touchpoint (QMSInsight)</div>
+        <span class="tag tb">JUN</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="0" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Membership_Reporting; telrex35; WestfundRPA</div>
+        <span class="tag tb">MAY</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="0" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Vouchers</div>
@@ -692,7 +712,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="4">
+      <div class="item" draggable="true" data-si="0" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Paragon ; WE2DAT</div>
@@ -700,7 +720,7 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="5">
+      <div class="item" draggable="true" data-si="0" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">SILVER Observability layer (volume &amp; schema drift monitoring)</div>
@@ -708,7 +728,7 @@ html, body {
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="6">
+      <div class="item" draggable="true" data-si="0" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">dim tables design</div>
@@ -781,7 +801,7 @@ html, body {
         <div class="block-header-top">
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
-          <span class="block-title">Telephone System Reporting</span>
+          <span class="block-title">Other Requests</span>
           <span class="block-meta">3</span>
           <span class="chevron">▼</span>
         </div>
@@ -829,7 +849,7 @@ html, body {
       <div class="item" draggable="true" data-si="2" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Report built in WIP folder</div>
+        <div class="item-text">Telephone System Reporting</div>
         <span class="tag tb">JUL</span>
         <span class="tag tg">done</span>
       </div>
@@ -837,17 +857,17 @@ html, body {
       <div class="item" draggable="true" data-si="2" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Touchpoint Dashboard walkthrough - Camila</div>
+        <div class="item-text">Portfolio Dashboard (Acuity)</div>
         <span class="tag tb">JUN</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" draggable="true" data-si="2" data-ii="2">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-darkred"></div>
-        <div class="item-text">reporting templates review - QMS templates not relevant</div>
-        <span class="tag tb">MAY</span>
-        <span class="tag tr">paused</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Monthly Digital Reporting Automation</div>
+        <span class="tag tb">APR</span>
+        <span class="tag tg">done</span>
       </div>
     </div>
     </div><div class="block open" id="block-pulse" draggable="true" data-index="3" style="box-shadow: none;">
@@ -928,7 +948,7 @@ html, body {
       <div class="item" draggable="true" data-si="3" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-b"></div>
-        <div class="item-text">Handle PBI-related Jira tickets</div>
+        <div class="item-text">Handle PBI-related Jira tickets (2762,2759,2770)</div>
         
         <span class="tag tb">ongoing</span>
       </div>
@@ -1236,7 +1256,7 @@ html, body {
     <div class="completed-divider-line"></div>
     <div class="completed-divider-label">
       ✓ Completed
-      <span class="completed-count" id="completed-count">10</span>
+      <span class="completed-count" id="completed-count">8</span>
       <span class="completed-divider-chevron" id="completed-chevron">▼</span>
     </div>
     <div class="completed-divider-line"></div>
@@ -1375,13 +1395,13 @@ html, body {
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-portfolio" draggable="true" data-completed-index="3">
-      <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('portfolio')">
+    </div><div class="block completed-card open" id="completed-block-geo" draggable="true" data-completed-index="3">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('geo')">
         <div class="block-header-top">
           <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">Portfolio Dashboard (Acuity)</span>
-          <span class="block-meta">3</span>
+          <span class="block-title" style="color:var(--muted)">ABS GEO Mapping</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
@@ -1392,34 +1412,42 @@ html, body {
       <div class="item" data-si="3" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">finalise layout and metrics for board reporting</div>
-        <span class="tag tb">JUN</span>
+        <div class="item-text">Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name</div>
+        
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" data-si="3" data-ii="1">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Publish to Project Management Office</div>
-        <span class="tag tb">APR</span>
+        <div class="item-text">Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)</div>
+        
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" data-si="3" data-ii="2">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Built for Steve's team</div>
-        <span class="tag tb">FEB</span>
+        <div class="item-text">Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="3" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Point-in-polygon matching enables accurate classification even where postcodes span multiple regions</div>
+        
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-automation" draggable="true" data-completed-index="4">
-      <div class="group-top-bar" style="background:#9ea027"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('automation')">
+    </div><div class="block completed-card open" id="completed-block-sec-1775953297175" draggable="true" data-completed-index="4">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953297175')">
         <div class="block-header-top">
           <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">Monthly Digital Reporting Automation</span>
-          <span class="block-meta">1</span>
+          <span class="block-title" style="color:var(--muted)">Snapshot Backup</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
@@ -1430,17 +1458,41 @@ html, body {
       <div class="item" data-si="4" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Automate excel analysis</div>
-        <span class="tag tb">APR</span>
+        <div class="item-text">Consolidates daily SQL Server snapshot tables into single Parquet files per table</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="4" data-ii="1">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Eliminates table bloat from ~30 snapshots/month accumulation per tracked table</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="4" data-ii="2">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms</div>
+        
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" data-si="4" data-ii="3">
+        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Snapshot date preserved as column — supports point-in-time queries without SQL restore</div>
+        
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-geo" draggable="true" data-completed-index="5">
+    </div><div class="block completed-card open" id="completed-block-sec-1775953242632" draggable="true" data-completed-index="5">
       <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('geo')">
+      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953242632')">
         <div class="block-header-top">
           <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">ABS GEO Mapping</span>
+          <span class="block-title" style="color:var(--muted)">QVD Converter</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
@@ -1452,7 +1504,7 @@ html, body {
       <div class="item" data-si="5" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Extends geographic analysis from postcode level down to State, Postcode, Suburb, and Street Name</div>
+        <div class="item-text">Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON</div>
         
         <span class="tag tg">done</span>
       </div>
@@ -1460,7 +1512,7 @@ html, body {
       <div class="item" data-si="5" data-ii="1">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Enriches member addresses with precise coordinates via G-NAF Core (Australia national address database)</div>
+        <div class="item-text">No Qlik license or environment required</div>
         
         <span class="tag tg">done</span>
       </div>
@@ -1468,7 +1520,7 @@ html, body {
       <div class="item" data-si="5" data-ii="2">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Spatial join against ABS boundary shapefiles (SA1-SA4) using GeoPandas sjoin</div>
+        <div class="item-text">Output compatible with Excel, Power BI, and Python</div>
         
         <span class="tag tg">done</span>
       </div>
@@ -1476,17 +1528,17 @@ html, body {
       <div class="item" data-si="5" data-ii="3">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Point-in-polygon matching enables accurate classification even where postcodes span multiple regions</div>
+        <div class="item-text">Preserves institutional legacy data assets beyond the Qlik ecosystem</div>
         
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-sec-1775953297175" draggable="true" data-completed-index="6">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953297175')">
+    </div><div class="block completed-card open" id="completed-block-governance" draggable="true" data-completed-index="6">
+      <div class="group-top-bar" style="background:#313cdd"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('governance')">
         <div class="block-header-top">
-          <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">Snapshot Backup</span>
+          <span class="block-icon">✦</span>
+          <span class="block-title" style="color:var(--muted)">Data Governance Work</span>
           <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
@@ -1498,42 +1550,42 @@ html, body {
       <div class="item" data-si="6" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Consolidates daily SQL Server snapshot tables into single Parquet files per table</div>
-        
+        <div class="item-text">Standardise SILVER.table naming</div>
+        <span class="tag tb">MAY</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" data-si="6" data-ii="1">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Eliminates table bloat from ~30 snapshots/month accumulation per tracked table</div>
-        
+        <div class="item-text">Bring in GOV.tables/views in SQL + add Glossary page on Membership Report</div>
+        <span class="tag tb">APR</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" data-si="6" data-ii="2">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Parquet format: columnar compression, compatible with Power BI, Python, and cloud platforms</div>
-        
+        <div class="item-text">SANDBOX SILVER database + Purview data in PBI</div>
+        <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
       <div class="item" data-si="6" data-ii="3">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Snapshot date preserved as column — supports point-in-time queries without SQL restore</div>
-        
+        <div class="item-text">Created Confluence space for data governance documentations + Medallion lineage chart</div>
+        <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-sec-1775953242632" draggable="true" data-completed-index="7">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('sec-1775953242632')">
+    </div><div class="block completed-card open" id="completed-block-archive" draggable="true" data-completed-index="7">
+      <div class="group-top-bar" style="background:#8e32b8"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('archive')">
         <div class="block-header-top">
-          <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">QVD Converter</span>
-          <span class="block-meta">4</span>
+          <span class="block-icon">⊘</span>
+          <span class="block-title" style="color:var(--muted)">Qlik → Power BI Migration — Redundant Apps Archived</span>
+          <span class="block-meta">33</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
@@ -1544,104 +1596,12 @@ html, body {
       <div class="item" data-si="7" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">Decodes proprietary Qlik QVD binary files into CSV, Parquet, or JSON</div>
-        
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="1">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">No Qlik license or environment required</div>
-        
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="2">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Output compatible with Excel, Power BI, and Python</div>
-        
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="3">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Preserves institutional legacy data assets beyond the Qlik ecosystem</div>
-        
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block completed-card open" id="completed-block-governance" draggable="true" data-completed-index="8">
-      <div class="group-top-bar" style="background:#313cdd"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('governance')">
-        <div class="block-header-top">
-          <span class="block-icon">✦</span>
-          <span class="block-title" style="color:var(--muted)">Data Governance Work</span>
-          <span class="block-meta">4</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
-          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(8)">↑ move to active</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" data-si="8" data-ii="0">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Standardise SILVER.table naming</div>
-        <span class="tag tb">MAY</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="8" data-ii="1">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Bring in GOV.tables/views in SQL + add Glossary page on Membership Report</div>
-        <span class="tag tb">APR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="8" data-ii="2">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">SANDBOX SILVER database + Purview data in PBI</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="8" data-ii="3">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Created Confluence space for data governance documentations + Medallion lineage chart</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    </div>
-    </div><div class="block completed-card open" id="completed-block-archive" draggable="true" data-completed-index="9">
-      <div class="group-top-bar" style="background:#8e32b8"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('archive')">
-        <div class="block-header-top">
-          <span class="block-icon">⊘</span>
-          <span class="block-title" style="color:var(--muted)">Qlik → Power BI Migration — Redundant Apps Archived</span>
-          <span class="block-meta">33</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
-          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(9)">↑ move to active</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" data-si="9" data-ii="0">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
         <div class="item-text">Profitability App QS-2776</div>
         <span class="tag tb">JUL</span>
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="1">
+      <div class="item" data-si="7" data-ii="1">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Churn-scikit-learn-Predict DEMO QS-2523</div>
@@ -1649,7 +1609,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="2">
+      <div class="item" data-si="7" data-ii="2">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Allianz Travel Insurance (Westfund Members) QS-2524</div>
@@ -1657,7 +1617,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="3">
+      <div class="item" data-si="7" data-ii="3">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental Debtors (from Oasis - Live to Nov '22) QS-2525</div>
@@ -1665,7 +1625,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="4">
+      <div class="item" data-si="7" data-ii="4">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Members Returning Duplicate Payment QS-2526</div>
@@ -1673,7 +1633,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="5">
+      <div class="item" data-si="7" data-ii="5">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Eye Care - Bill Template Description to Eye Talk Description Comparison QS-2527</div>
@@ -1681,7 +1641,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="6">
+      <div class="item" data-si="7" data-ii="6">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Benefit Conditions (from DEV) QS-2528</div>
@@ -1689,7 +1649,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="7">
+      <div class="item" data-si="7" data-ii="7">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Care Calls QS-2529</div>
@@ -1697,7 +1657,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="8">
+      <div class="item" data-si="7" data-ii="8">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Product Market Comparison QS-2530</div>
@@ -1705,7 +1665,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="9">
+      <div class="item" data-si="7" data-ii="9">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">General Comparison QS-2531</div>
@@ -1713,7 +1673,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="10">
+      <div class="item" data-si="7" data-ii="10">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Jira Extractor QS-2532</div>
@@ -1721,7 +1681,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="11">
+      <div class="item" data-si="7" data-ii="11">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Hospital Comparison QS-2533</div>
@@ -1729,7 +1689,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="12">
+      <div class="item" data-si="7" data-ii="12">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Claims Transform QS-2534</div>
@@ -1737,7 +1697,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="13">
+      <div class="item" data-si="7" data-ii="13">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Google Analytics Extract QS-2535</div>
@@ -1745,7 +1705,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="14">
+      <div class="item" data-si="7" data-ii="14">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Manual Snapshot QVD Create QS-2536</div>
@@ -1753,7 +1713,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="15">
+      <div class="item" data-si="7" data-ii="15">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Reporting QS-2537</div>
@@ -1761,7 +1721,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="16">
+      <div class="item" data-si="7" data-ii="16">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Exit Survey App QS-2540</div>
@@ -1769,7 +1729,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="17">
+      <div class="item" data-si="7" data-ii="17">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Verified Claims (Optical Westfund Providers) QS-2541</div>
@@ -1777,7 +1737,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="18">
+      <div class="item" data-si="7" data-ii="18">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">MindStep QS-2542</div>
@@ -1785,7 +1745,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="19">
+      <div class="item" data-si="7" data-ii="19">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">HICAPS &amp; IBA Reconciliation QS-2543</div>
@@ -1793,7 +1753,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="20">
+      <div class="item" data-si="7" data-ii="20">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Service Desks QS-2544</div>
@@ -1801,7 +1761,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="21">
+      <div class="item" data-si="7" data-ii="21">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Newborn waiting periods QS-2545</div>
@@ -1809,7 +1769,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="22">
+      <div class="item" data-si="7" data-ii="22">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership Profitability Prediction QS-2515</div>
@@ -1817,7 +1777,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="23">
+      <div class="item" data-si="7" data-ii="23">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Payroll Groups Rate Rise - Linked Memberships QS-2514</div>
@@ -1825,7 +1785,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="24">
+      <div class="item" data-si="7" data-ii="24">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">LHC Movement App QS-2499</div>
@@ -1833,7 +1793,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="25">
+      <div class="item" data-si="7" data-ii="25">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Dental 2.0 (Oasis data - Live to 4th Nov 22) QS-2493</div>
@@ -1841,7 +1801,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="26">
+      <div class="item" data-si="7" data-ii="26">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Member Monitoring post claim QS-2488</div>
@@ -1849,7 +1809,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="27">
+      <div class="item" data-si="7" data-ii="27">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Call Recordings QS-2662</div>
@@ -1857,7 +1817,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="28">
+      <div class="item" data-si="7" data-ii="28">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Dental 2.0 MACKAY (Oasis data - Live to Feb 2019) QS-2663</div>
@@ -1865,7 +1825,7 @@ html, body {
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="29">
+      <div class="item" data-si="7" data-ii="29">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Exit Survey App QS-2664</div>
@@ -1873,7 +1833,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="30">
+      <div class="item" data-si="7" data-ii="30">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Website Quotes QS-2665</div>
@@ -1881,7 +1841,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="31">
+      <div class="item" data-si="7" data-ii="31">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Broker Commission QS-2666</div>
@@ -1889,7 +1849,7 @@ html, body {
         <span class="tag tg">archived</span>
       </div>
     
-      <div class="item" data-si="9" data-ii="32">
+      <div class="item" data-si="7" data-ii="32">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">The Hive QS-2667</div>
@@ -1904,69 +1864,97 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — BAU</span>
+      <span class="modal-title" id="modal-title">Edit — Data Engineering (Medallion, ADF)</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="BAU"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Data Engineering (Medallion, ADF)"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="▶" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:D4W(Live) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Exclude OVHC products Memship rpt <span style="color:var(--muted2)">[MAR]</span></span>
+            <span class="edit-item-text">feat:Qualtrics REST API
+      ↓ fetch + cleanse
+qualtrics_fetch.py (local development)
+      ↓ git push
+ADO Repo (DataEngineering)
+      ↓ CI auto-build
+Build Pipeline (Artifact: pythonapp)
+      ↓ manual Deploy trigger
+Release Pipeline (robocopy → C:\Python\)
+      ↓
+VM (PRDIRN01)
+      ↓ Task Scheduler (scheduled execution)
+BRONZE database (sql server) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Worked with Kane and provided slide deck (Pulse PBI announcement) <span style="color:var(--muted2)">[FEB]</span></span>
+            <span class="edit-item-text">feat:Connx (Meridian), Touchpoint (QMSInsight) <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Handle PBI-related Jira tickets <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">wip: Membership_Reporting; telrex35; WestfundRPA <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Implement Report Level Access (Cross-Functional folder) <span style="color:var(--muted2)">[SEP]</span></span>
+            <span class="edit-item-text">feat:Vouchers <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,4)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Review existing PBI DimDate <span style="color:var(--muted2)">[DEC]</span></span>
+            <span class="edit-item-text">feat:Paragon ; WE2DAT <span style="color:var(--muted2)">[FEB]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,5)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,5)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:SILVER Observability layer (volume &amp; schema drift monitoring) <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,6)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,6)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:dim tables design <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,7)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,7)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(0)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(0)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1986,9 +1974,15 @@ const DEFAULT_DATA = [
     "title": "Data Engineering (Medallion, ADF)",
     "items": [
       {
-        "text": "Qualtrics; D4W (Live)",
+        "text": "D4W(Live)",
         "month": "JUL",
         "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Qualtrics REST API\n      ↓ fetch + cleanse\nqualtrics_fetch.py (local development)\n      ↓ git push\nADO Repo (DataEngineering)\n      ↓ CI auto-build\nBuild Pipeline (Artifact: pythonapp)\n      ↓ manual Deploy trigger\nRelease Pipeline (robocopy → C:\\Python\\)\n      ↓\nVM (PRDIRN01)\n      ↓ Task Scheduler (scheduled execution)\nBRONZE database (sql server)",
+        "month": "JUL",
+        "status": "done",
         "prefix": "feat:"
       },
       {
@@ -1998,7 +1992,7 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
-        "text": "Bring in Membership_Reporting; telrex35; WestfundRPA",
+        "text": "Membership_Reporting; telrex35; WestfundRPA",
         "month": "MAY",
         "status": "done",
         "prefix": "wip: "
@@ -2047,24 +2041,24 @@ const DEFAULT_DATA = [
   {
     "id": "sec-1778800177808",
     "icon": "◈",
-    "title": "Telephone System Reporting",
+    "title": "Other Requests",
     "items": [
       {
-        "text": "Report built in WIP folder",
+        "text": "Telephone System Reporting",
         "month": "JUL",
         "status": "done",
         "prefix": "feat:"
       },
       {
-        "text": "Touchpoint Dashboard walkthrough - Camila",
+        "text": "Portfolio Dashboard (Acuity)",
         "month": "JUN",
         "status": "done",
         "prefix": "feat:"
       },
       {
-        "text": "reporting templates review - QMS templates not relevant",
-        "month": "MAY",
-        "status": "paused",
+        "text": "Monthly Digital Reporting Automation",
+        "month": "APR",
+        "status": "done",
         "prefix": "feat:"
       }
     ],
@@ -2094,7 +2088,7 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
-        "text": "Handle PBI-related Jira tickets",
+        "text": "Handle PBI-related Jira tickets (2762,2759,2770)",
         "month": "",
         "status": "ongoing",
         "prefix": "feat:"
@@ -2676,46 +2670,6 @@ const DEFAULT_COMPLETED = [
         "month": "FEB",
         "status": "done",
         "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775896671817"
-  },
-  {
-    "id": "portfolio",
-    "icon": "◈",
-    "title": "Portfolio Dashboard (Acuity)",
-    "items": [
-      {
-        "text": "finalise layout and metrics for board reporting",
-        "month": "JUN",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Publish to Project Management Office",
-        "month": "APR",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Built for Steve's team",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775896671817"
-  },
-  {
-    "id": "automation",
-    "icon": "◈",
-    "title": "Monthly Digital Reporting Automation",
-    "items": [
-      {
-        "text": "Automate excel analysis",
-        "month": "APR",
-        "status": "done",
-        "prefix": "wip: "
       }
     ],
     "group": "g-1775896671817"
