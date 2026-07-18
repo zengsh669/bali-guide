@@ -743,7 +743,7 @@ BRONZE database (sql server)</div>
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Dental Centre Financial Dashboard (QS-2715)</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">2</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -789,9 +789,17 @@ BRONZE database (sql server)</div>
       <div class="item-list">
       <div class="item" draggable="true" data-si="1" data-ii="0">
         <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">complete build</div>
+        <span class="tag tb">AUG</span>
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Map in D4W (Live) + 5 Transformed QVDs logic</div>
-        <span class="tag tb">JUN</span>
+        <span class="tag tb">JUL</span>
         <span class="tag ta">in progress</span>
       </div>
     </div>
@@ -1024,11 +1032,19 @@ BRONZE database (sql server)</div>
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Agreements Renewals QS-2740</div>
-        <span class="tag tb">JUL</span>
+        <span class="tag tb">SEP</span>
         <span class="tag ta">in progress</span>
       </div>
     
       <div class="item" draggable="true" data-si="4" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">BOT Dashboard QS-2722</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag ta">in progress</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Qualtrics NPS Score</div>
@@ -1036,19 +1052,11 @@ BRONZE database (sql server)</div>
         <span class="tag tn">not started</span>
       </div>
     
-      <div class="item" draggable="true" data-si="4" data-ii="2">
+      <div class="item" draggable="true" data-si="4" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Arrears Report QS-2758</div>
         <span class="tag tb">AUG</span>
-        <span class="tag ta">in progress</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="4" data-ii="3">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-a"></div>
-        <div class="item-text">BOT Dashboard QS-2722</div>
-        <span class="tag tb">SEP</span>
         <span class="tag ta">in progress</span>
       </div>
     
@@ -1227,7 +1235,7 @@ BRONZE database (sql server)</div>
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
         <div class="item-text">Demo - pull data from compare policies</div>
-        <span class="tag tb">JUL</span>
+        
         <span class="tag tn">not started</span>
       </div>
     
@@ -1888,173 +1896,70 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Apps Migrated</span>
+      <span class="modal-title" id="modal-title">Edit — Copilot Agent</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Apps Migrated"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="⬡" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Copilot Agent"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Agreements Renewals QS-2740 <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Demo - pull data from compare policies <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Qualtrics NPS Score <span style="color:var(--muted2)">[AUG]</span></span>
+            <span class="edit-item-text">feat:Collaborating with Trev and Minta to deliver a Copilot Agent POC <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Arrears Report QS-2758 <span style="color:var(--muted2)">[AUG]</span></span>
+            <span class="edit-item-text">feat:Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:BOT Dashboard QS-2722 <span style="color:var(--muted2)">[SEP]</span></span>
+            <span class="edit-item-text">feat:Authored and maintained the Copilot Agent Knowledge Base documentation
+ <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Declined HICAPS report QS-2672 <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Facilitated technical discussions and drove consensus on the schema approach <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,4)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Compensation Claims (from Claims App for Fund) QS-2622 <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Google Looker Studio datapoints <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,5)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Claims Dashboard - HCS QS-2743 <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,6)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Retained Members QS-2587 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,7)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Rebates QS-2635 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,8)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:LHC Snapshot QVD Generator QS-2500 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,9)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,9)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Risk Equalisation Estimation QS-2495 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,10)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,10)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Deceased Members on Active Memberships QS-2460 <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,11)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,11)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Eclipse Remittances <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,12)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,12)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Member &amp; Provider Correspondence <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,13)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,13)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Groups &amp; Contributions Receipts <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,14)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,14)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Invoice Payment - Vendor Group <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,15)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,15)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:HR <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,16)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,16)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:HR Daily Movement <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,17)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,17)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Finance Dashboard <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,18)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,18)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(5,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(5,5)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(5)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(5)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2130,8 +2035,14 @@ const DEFAULT_DATA = [
     "title": "Dental Centre Financial Dashboard (QS-2715)",
     "items": [
       {
+        "text": "complete build",
+        "month": "AUG",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
         "text": "Map in D4W (Live) + 5 Transformed QVDs logic",
-        "month": "JUN",
+        "month": "JUL",
         "status": "in progress",
         "prefix": "feat:"
       }
@@ -2215,7 +2126,13 @@ const DEFAULT_DATA = [
     "items": [
       {
         "text": "Agreements Renewals QS-2740",
-        "month": "JUL",
+        "month": "SEP",
+        "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
+        "text": "BOT Dashboard QS-2722",
+        "month": "SEP",
         "status": "in progress",
         "prefix": "feat:"
       },
@@ -2228,12 +2145,6 @@ const DEFAULT_DATA = [
       {
         "text": "Arrears Report QS-2758",
         "month": "AUG",
-        "status": "in progress",
-        "prefix": "feat:"
-      },
-      {
-        "text": "BOT Dashboard QS-2722",
-        "month": "SEP",
         "status": "in progress",
         "prefix": "feat:"
       },
@@ -2337,7 +2248,7 @@ const DEFAULT_DATA = [
     "items": [
       {
         "text": "Demo - pull data from compare policies",
-        "month": "JUL",
+        "month": "",
         "status": "not started",
         "prefix": "feat:"
       },
