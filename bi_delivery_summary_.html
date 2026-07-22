@@ -810,7 +810,7 @@ BRONZE database (sql server)</div>
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Other Requests</span>
-          <span class="block-meta">3</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -856,21 +856,29 @@ BRONZE database (sql server)</div>
       <div class="item-list">
       <div class="item" draggable="true" data-si="2" data-ii="0">
         <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Exec Page</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="2" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Telephone System Reporting</div>
         <span class="tag tb">JUL</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="2" data-ii="1">
+      <div class="item" draggable="true" data-si="2" data-ii="2">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
+        <div class="item-dot dot-a"></div>
         <div class="item-text">Portfolio Dashboard (Acuity)</div>
         <span class="tag tb">JUN</span>
-        <span class="tag tg">done</span>
+        <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item" draggable="true" data-si="2" data-ii="2">
+      <div class="item" draggable="true" data-si="2" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Monthly Digital Reporting Automation</div>
@@ -1896,173 +1904,31 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Apps Migrated</span>
+      <span class="modal-title" id="modal-title">Edit item</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Apps Migrated"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="⬡" style="width:60px"></div>
     <div class="field">
-      <label>Items</label>
-      <div id="edit-items">
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Agreements Renewals QS-2740 <span style="color:var(--muted2)">[SEP]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:BOT Dashboard QS-2722 <span style="color:var(--muted2)">[SEP]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Qualtrics NPS Score QS-2801 <span style="color:var(--muted2)">[AUG]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Arrears Report QS-2758 <span style="color:var(--muted2)">[AUG]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,3)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Declined HICAPS report QS-2672 <span style="color:var(--muted2)">[JUN]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,4)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Compensation Claims (from Claims App for Fund) QS-2622 <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,5)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Claims Dashboard - HCS QS-2743 <span style="color:var(--muted2)">[MAY]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,6)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Retained Members QS-2587 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,7)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Rebates QS-2635 <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,8)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:LHC Snapshot QVD Generator QS-2500 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,9)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,9)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Risk Equalisation Estimation QS-2495 <span style="color:var(--muted2)">[MAR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,10)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,10)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Deceased Members on Active Memberships QS-2460 <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,11)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,11)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Eclipse Remittances <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,12)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,12)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Member &amp; Provider Correspondence <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,13)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,13)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Groups &amp; Contributions Receipts <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,14)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,14)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Invoice Payment - Vendor Group <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,15)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,15)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:HR <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,16)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,16)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:HR Daily Movement <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,17)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,17)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Finance Dashboard <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,18)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,18)">✕</button>
-            </div>
-          </div>
-        
-      </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <label>Prefix</label>
+      <select id="item-prefix">
+        <option value="feat:" selected="">feat:</option><option value="wip: ">wip:</option><option value="arch:">arch:</option><option value="fix: ">fix:</option>
+      </select>
     </div>
-    <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+    <div class="field">
+      <label>Description</label>
+      <textarea id="item-text">Telephone System Reporting</textarea>
+    </div>
+    <div class="field">
+      <label>Month</label>
+      <select id="item-month">
+        <option value="">— no month —</option><option value="JAN">JAN</option><option value="FEB">FEB</option><option value="MAR">MAR</option><option value="APR">APR</option><option value="MAY">MAY</option><option value="JUN">JUN</option><option value="JUL" selected="">JUL</option><option value="AUG">AUG</option><option value="SEP">SEP</option><option value="OCT">OCT</option><option value="NOV">NOV</option><option value="DEC">DEC</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Status</label>
+      <select id="item-status">
+        <option selected="">done</option><option>in review</option><option>in progress</option><option>ongoing</option><option>not started</option><option>paused</option><option>archived</option>
+      </select>
     </div>
   </div>
     <div class="modal-foot">
@@ -2158,6 +2024,12 @@ const DEFAULT_DATA = [
     "title": "Other Requests",
     "items": [
       {
+        "text": "Exec Page",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
         "text": "Telephone System Reporting",
         "month": "JUL",
         "status": "done",
@@ -2166,7 +2038,7 @@ const DEFAULT_DATA = [
       {
         "text": "Portfolio Dashboard (Acuity)",
         "month": "JUN",
-        "status": "done",
+        "status": "in progress",
         "prefix": "feat:"
       },
       {
