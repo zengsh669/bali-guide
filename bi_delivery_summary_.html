@@ -662,13 +662,29 @@ html, body {
       <div class="item-list">
       <div class="item" draggable="true" data-si="0" data-ii="0">
         <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Explore DBT</div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="0" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">SILVER Observability layer (volume &amp; schema drift monitoring)</div>
+        <span class="tag tb">AUG</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="0" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">D4W(Live)</div>
         <span class="tag tb">JUL</span>
         <span class="tag ta">in progress</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="1">
+      <div class="item" draggable="true" data-si="0" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Qualtrics REST API
@@ -688,7 +704,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="2">
+      <div class="item" draggable="true" data-si="0" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Connx (Meridian), Touchpoint (QMSInsight)</div>
@@ -696,7 +712,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="3">
+      <div class="item" draggable="true" data-si="0" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Membership_Reporting; telrex35; WestfundRPA</div>
@@ -704,7 +720,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="4">
+      <div class="item" draggable="true" data-si="0" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Vouchers</div>
@@ -712,28 +728,12 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="0" data-ii="5">
+      <div class="item" draggable="true" data-si="0" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Paragon ; WE2DAT</div>
         <span class="tag tb">FEB</span>
         <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="0" data-ii="6">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-dark"></div>
-        <div class="item-text">SILVER Observability layer (volume &amp; schema drift monitoring)</div>
-        
-        <span class="tag tn">not started</span>
-      </div>
-    
-      <div class="item" draggable="true" data-si="0" data-ii="7">
-        <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-dark"></div>
-        <div class="item-text">dim tables design</div>
-        
-        <span class="tag tn">not started</span>
       </div>
     </div>
     </div><div class="block open" id="block-sec-1780366131206" draggable="true" data-index="1" style="box-shadow: none;">
@@ -1928,61 +1928,97 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
+      <span class="modal-title" id="modal-title">Edit — Data Engineering (Medallion, ADF)</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Data Engineering (Medallion, ADF)"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="▶" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Exec Page <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">feat:D4W(Live) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Qualtrics REST API
+      ↓ fetch + cleanse
+qualtrics_fetch.py (local development)
+      ↓ git push
+ADO Repo (DataEngineering)
+      ↓ CI auto-build
+Build Pipeline (Artifact: pythonapp)
+      ↓ manual Deploy trigger
+Release Pipeline (robocopy → C:\Python\)
+      ↓
+VM (PRDIRN01)
+      ↓ Task Scheduler (scheduled execution)
+BRONZE database (sql server) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:GM report mixed category - Sarah <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Connx (Meridian), Touchpoint (QMSInsight) <span style="color:var(--muted2)">[JUN]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Portfolio Dashboard (Acuity) <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">wip: Membership_Reporting; telrex35; WestfundRPA <span style="color:var(--muted2)">[MAY]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Monthly Digital Reporting Automation <span style="color:var(--muted2)">[APR]</span></span>
+            <span class="edit-item-text">feat:Vouchers <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(0,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Paragon ; WE2DAT <span style="color:var(--muted2)">[FEB]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,5)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:SILVER Observability layer (volume &amp; schema drift monitoring) <span style="color:var(--muted2)">[AUG]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,6)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,6)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Explore DBT <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(0,7)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(0,7)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(0)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(0)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2001,6 +2037,18 @@ const DEFAULT_DATA = [
     "icon": "▶",
     "title": "Data Engineering (Medallion, ADF)",
     "items": [
+      {
+        "text": "Explore DBT",
+        "month": "",
+        "status": "not started",
+        "prefix": "feat:"
+      },
+      {
+        "text": "SILVER Observability layer (volume & schema drift monitoring)",
+        "month": "AUG",
+        "status": "done",
+        "prefix": "feat:"
+      },
       {
         "text": "D4W(Live)",
         "month": "JUL",
@@ -2035,18 +2083,6 @@ const DEFAULT_DATA = [
         "text": "Paragon ; WE2DAT",
         "month": "FEB",
         "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "SILVER Observability layer (volume & schema drift monitoring)",
-        "month": "",
-        "status": "not started",
-        "prefix": "feat:"
-      },
-      {
-        "text": "dim tables design",
-        "month": "",
-        "status": "not started",
         "prefix": "feat:"
       }
     ],
