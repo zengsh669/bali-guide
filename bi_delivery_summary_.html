@@ -988,7 +988,7 @@ BRONZE database (sql server)</div>
       <div class="item" draggable="true" data-si="3" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-b"></div>
-        <div class="item-text">Handle PBI-related Jira tickets (2762,2759,2770)</div>
+        <div class="item-text">Handle PBI-related Jira tickets (2762,2759,2770,2822)</div>
         
         <span class="tag tb">ongoing</span>
       </div>
@@ -1928,61 +1928,69 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
+      <span class="modal-title" id="modal-title">Edit — BAU</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="BAU"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Exec Page (app POC) <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">feat:Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:prep for preso Aug-04 <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:GM report mixed category - Sarah <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Exclude OVHC products Memship rpt <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Portfolio Dashboard (Acuity) <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Worked with Kane and provided slide deck (Pulse PBI announcement) <span style="color:var(--muted2)">[FEB]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Monthly Digital Reporting Automation <span style="color:var(--muted2)">[APR]</span></span>
+            <span class="edit-item-text">feat:Implement Report Level Access (Cross-Functional folder) <span style="color:var(--muted2)">[SEP]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(2,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(2,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Handle PBI-related Jira tickets (2762,2759,2770,2822) <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(3,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,5)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(2)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(2)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2146,7 +2154,7 @@ const DEFAULT_DATA = [
         "prefix": "feat:"
       },
       {
-        "text": "Handle PBI-related Jira tickets (2762,2759,2770)",
+        "text": "Handle PBI-related Jira tickets (2762,2759,2770,2822)",
         "month": "",
         "status": "ongoing",
         "prefix": "feat:"
