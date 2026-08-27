@@ -874,7 +874,7 @@ BRONZE database (sql server)</div>
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">BAU</span>
-          <span class="block-meta">6</span>
+          <span class="block-meta">7</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -920,16 +920,16 @@ BRONZE database (sql server)</div>
       <div class="item-list">
       <div class="item" draggable="true" data-si="2" data-ii="0">
         <span class="item-drag-handle">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)</div>
-        <span class="tag tb">JUL</span>
-        <span class="tag tg">done</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">HICAPS geo-tracking</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag ta">in progress</span>
       </div>
     
       <div class="item" draggable="true" data-si="2" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">prep for preso Aug-04</div>
+        <div class="item-text">Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)</div>
         <span class="tag tb">JUL</span>
         <span class="tag tg">done</span>
       </div>
@@ -937,12 +937,20 @@ BRONZE database (sql server)</div>
       <div class="item" draggable="true" data-si="2" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
+        <div class="item-text">prep for preso Aug-04</div>
+        <span class="tag tb">JUL</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="2" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
         <div class="item-text">Exclude OVHC products Memship rpt</div>
         <span class="tag tb">MAR</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="2" data-ii="3">
+      <div class="item" draggable="true" data-si="2" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Worked with Kane and provided slide deck (Pulse PBI announcement)</div>
@@ -950,7 +958,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="2" data-ii="4">
+      <div class="item" draggable="true" data-si="2" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Implement Report Level Access (Cross-Functional folder)</div>
@@ -958,7 +966,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="2" data-ii="5">
+      <div class="item" draggable="true" data-si="2" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-b"></div>
         <div class="item-text">Handle PBI-related Jira tickets (2762,2759,2770,2822)</div>
@@ -1901,93 +1909,31 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
+      <span class="modal-title" id="modal-title">Add item</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
-      <label>Items</label>
-      <div id="edit-items">
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Exec KPI Page (app POC) QS-2820 <span style="color:var(--muted2)">[AUG]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:WHS dashboard <span style="color:var(--muted2)">[SEP]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Explore Optomate: 3 metrics for Optical Dashboard QS-2840 <span style="color:var(--muted2)">[SEP]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Daily Sales / Daily Membership QS-2839 <span style="color:var(--muted2)">[NOV]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,3)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Confirm to start dev: Dental Centre Financial Dashboard (QS-2715) <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,4)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:GM report mixed category - Sarah <span style="color:var(--muted2)">[JUL]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,5)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Portfolio Dashboard (Acuity) <span style="color:var(--muted2)">[JUN]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,6)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Monthly Digital Reporting Automation <span style="color:var(--muted2)">[APR]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,7)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[JUL]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,8)">✕</button>
-            </div>
-          </div>
-        
-      </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
+      <label>Prefix</label>
+      <select id="item-prefix">
+        <option value="feat:" selected="">feat:</option><option value="wip: ">wip:</option><option value="arch:">arch:</option><option value="fix: ">fix:</option>
+      </select>
     </div>
-    <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
+    <div class="field">
+      <label>Description</label>
+      <textarea id="item-text"></textarea>
+    </div>
+    <div class="field">
+      <label>Month</label>
+      <select id="item-month">
+        <option value="" selected="">— no month —</option><option value="JAN">JAN</option><option value="FEB">FEB</option><option value="MAR">MAR</option><option value="APR">APR</option><option value="MAY">MAY</option><option value="JUN">JUN</option><option value="JUL">JUL</option><option value="AUG">AUG</option><option value="SEP">SEP</option><option value="OCT">OCT</option><option value="NOV">NOV</option><option value="DEC">DEC</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Status</label>
+      <select id="item-status">
+        <option>done</option><option>in review</option><option>in progress</option><option>ongoing</option><option>not started</option><option>paused</option><option>archived</option>
+      </select>
     </div>
   </div>
     <div class="modal-foot">
@@ -2130,6 +2076,12 @@ const DEFAULT_DATA = [
     "icon": "◈",
     "title": "BAU",
     "items": [
+      {
+        "text": "HICAPS geo-tracking",
+        "month": "SEP",
+        "status": "in progress",
+        "prefix": "feat:"
+      },
       {
         "text": "Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)",
         "month": "JUL",
