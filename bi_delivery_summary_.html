@@ -739,7 +739,7 @@ BRONZE database (sql server)</div>
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Other Requests</span>
-          <span class="block-meta">8</span>
+          <span class="block-meta">9</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -809,13 +809,21 @@ BRONZE database (sql server)</div>
     
       <div class="item" draggable="true" data-si="1" data-ii="3">
         <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Qlik stocktake</div>
+        <span class="tag tb">NOV</span>
+        <span class="tag tn">not started</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
         <div class="item-text">Confirm to start dev: Dental Centre Financial Dashboard (QS-2715)</div>
         
         <span class="tag tr">paused</span>
       </div>
     
-      <div class="item" draggable="true" data-si="1" data-ii="4">
+      <div class="item" draggable="true" data-si="1" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">GM report mixed category - Sarah</div>
@@ -823,7 +831,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="1" data-ii="5">
+      <div class="item" draggable="true" data-si="1" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Portfolio Dashboard (Acuity)</div>
@@ -831,7 +839,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="1" data-ii="6">
+      <div class="item" draggable="true" data-si="1" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Monthly Digital Reporting Automation</div>
@@ -839,7 +847,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" draggable="true" data-si="1" data-ii="7">
+      <div class="item" draggable="true" data-si="1" data-ii="8">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Telephone System Reporting QS-2816</div>
@@ -1844,54 +1852,93 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Copilot Agent</span>
+      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Copilot Agent"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
     <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Collaborating with Trev and Minta to deliver a Copilot Agent POC <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Exec KPI Page (app POC) QS-2820 <span style="color:var(--muted2)">[AUG]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Explore Optomate: 3 metrics for Optical Dashboard QS-2840 <span style="color:var(--muted2)">[OCT]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Authored and maintained the Copilot Agent Knowledge Base documentation
- <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Daily Sales / Daily Membership QS-2839 <span style="color:var(--muted2)">[NOV]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Facilitated technical discussions and drove consensus on the schema approach <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Confirm to start dev: Dental Centre Financial Dashboard (QS-2715) <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(4,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(4,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,3)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:GM report mixed category - Sarah <span style="color:var(--muted2)">[JUL]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,4)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Portfolio Dashboard (Acuity) <span style="color:var(--muted2)">[JUN]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,5)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Monthly Digital Reporting Automation <span style="color:var(--muted2)">[APR]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,6)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,6)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[JUL]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,7)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,7)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Qlik stocktake <span style="color:var(--muted2)">[NOV]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,8)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,8)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1988,6 +2035,12 @@ const DEFAULT_DATA = [
         "text": "Daily Sales / Daily Membership QS-2839",
         "month": "NOV",
         "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Qlik stocktake",
+        "month": "NOV",
+        "status": "not started",
         "prefix": "feat:"
       },
       {
