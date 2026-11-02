@@ -596,6 +596,12 @@ html, body {
       Qlik Migration
       <span class="legend-edit-hint">✎</span>
     </div>
+  
+    <div class="legend-item" onclick="toggleGroupBlocks('g-1775953122346', event)" ondblclick="openGroupEdit('g-1775953122346', event)" title="Click to show/hide · Double-click to edit">
+      <div class="legend-dot" style="background:#b9babb"></div>
+      Other | BAU
+      <span class="legend-edit-hint">✎</span>
+    </div>
   </div>
   <div class="grid" id="grid"><div class="block open" id="block-ods" draggable="true" data-index="0" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#313cdd"></div>
@@ -1429,6 +1435,129 @@ BRONZE database (sql server)</div>
         <span class="tag tg">archived</span>
       </div>
     </div>
+    </div><div class="block open" id="block-pulse" draggable="true" data-index="4" style="box-shadow: none;">
+      <div class="group-top-bar" style="background:#b9babb"></div>
+      <div class="block-header" onclick="toggleBlock('pulse')">
+        <div class="block-header-top">
+          <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
+          <span class="block-icon">◈</span>
+          <span class="block-title">BAU</span>
+          <span class="block-meta">9</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="block-header-bottom" onclick="event.stopPropagation()">
+          <div class="group-dropdown-wrap">
+            <button class="group-select-btn" onclick="toggleGroupMenu('gmenu-pulse',event)">
+              <span class="group-dot" style="background:#b9babb"></span>Other | BAU
+            </button>
+            <div class="group-menu" id="gmenu-pulse">
+              
+                <div class="group-menu-item" onclick="assignGroup('pulse','g-1775896671817')">
+                  <div class="gm-dot" style="background:#9ea027"></div>PBI Report
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('pulse','g-1775896711532')">
+                  <div class="gm-dot" style="background:#313cdd"></div>Data Engineering | Gov
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('pulse','g-1775949260021')">
+                  <div class="gm-dot" style="background:#8e32b8"></div>Qlik Migration
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('pulse','g-1775953106667')">
+                  <div class="gm-dot" style="background:#34cb3e"></div>Python | Automation
+                </div>
+              
+                <div class="group-menu-item" onclick="assignGroup('pulse','g-1775953122346')">
+                  <div class="gm-dot" style="background:#b9babb"></div>Other | BAU
+                </div>
+              
+              <div class="group-menu-divider"></div>
+              <div class="group-menu-item" onclick="assignGroup('pulse',null)" style="color:var(--muted)">✕ Remove group</div>
+              <div class="group-menu-divider"></div>
+              <div class="group-new-row">
+                <input class="group-new-input" id="gname-pulse" placeholder="New group..." onclick="event.stopPropagation()">
+                <input type="color" class="group-color-input" id="gcolor-pulse" value="#58a6ff" onclick="event.stopPropagation()">
+                <button class="group-new-add" onclick="createGroup('pulse')">Add</button>
+              </div>
+            </div>
+          </div>
+          <button class="edit-btn" onclick="openEditBlock(4)">edit</button>
+        </div>
+      </div>
+      <div class="item-list">
+      <div class="item" draggable="true" data-si="4" data-ii="0">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">NOC issue (QS-2928)</div>
+        <span class="tag tb">NOV</span>
+        <span class="tag ta">in progress</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">HICAPS geo-tracking (Paula)</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="2">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">daily paragon refresh impact QS-2849</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="3">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)</div>
+        <span class="tag tb">JUL</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">prep for preso Aug-04</div>
+        <span class="tag tb">JUL</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="5">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Exclude OVHC products Memship rpt</div>
+        <span class="tag tb">MAR</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="6">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Worked with Kane and provided slide deck (Pulse PBI announcement)</div>
+        <span class="tag tb">FEB</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="7">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-g"></div>
+        <div class="item-text">Implement Report Level Access (Cross-Functional folder)</div>
+        <span class="tag tb">SEP</span>
+        <span class="tag tg">done</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="4" data-ii="8">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-b"></div>
+        <div class="item-text">Jira tickets (2762,2759,2770,2822,2853,2849)</div>
+        
+        <span class="tag tb">ongoing</span>
+      </div>
+    </div>
     </div></div>
 </div>
 
@@ -1437,7 +1566,7 @@ BRONZE database (sql server)</div>
     <div class="completed-divider-line"></div>
     <div class="completed-divider-label">
       ✓ Completed
-      <span class="completed-count" id="completed-count">9</span>
+      <span class="completed-count" id="completed-count">8</span>
       <span class="completed-divider-chevron" id="completed-chevron">▼</span>
     </div>
     <div class="completed-divider-line"></div>
@@ -1760,13 +1889,13 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     </div>
-    </div><div class="block completed-card open" id="completed-block-pulse" draggable="true" data-completed-index="7">
-      <div class="group-top-bar" style="background:#b9babb"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('pulse')">
+    </div><div class="block completed-card open" id="completed-block-ovhc" draggable="true" data-completed-index="7">
+      <div class="group-top-bar" style="background:#34cb3e"></div>
+      <div class="block-header" onclick="toggleCompletedBlock('ovhc')">
         <div class="block-header-top">
           <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">BAU</span>
-          <span class="block-meta">8</span>
+          <span class="block-title" style="color:var(--muted)">Copilot Agent</span>
+          <span class="block-meta">4</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
@@ -1777,90 +1906,12 @@ BRONZE database (sql server)</div>
       <div class="item" data-si="7" data-ii="0">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
-        <div class="item-text">HICAPS geo-tracking (Paula)</div>
-        <span class="tag tb">SEP</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="1">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">daily paragon refresh impact QS-2849</div>
-        <span class="tag tb">SEP</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="2">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)</div>
-        <span class="tag tb">JUL</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="3">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">prep for preso Aug-04</div>
-        <span class="tag tb">JUL</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="4">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Exclude OVHC products Memship rpt</div>
-        <span class="tag tb">MAR</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="5">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Worked with Kane and provided slide deck (Pulse PBI announcement)</div>
-        <span class="tag tb">FEB</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="6">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
-        <div class="item-text">Implement Report Level Access (Cross-Functional folder)</div>
-        <span class="tag tb">SEP</span>
-        <span class="tag tg">done</span>
-      </div>
-    
-      <div class="item" data-si="7" data-ii="7">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-b"></div>
-        <div class="item-text">Jira tickets (2762,2759,2770,2822,2853,2849)</div>
-        
-        <span class="tag tb">ongoing</span>
-      </div>
-    </div>
-    </div><div class="block completed-card open" id="completed-block-ovhc" draggable="true" data-completed-index="8">
-      <div class="group-top-bar" style="background:#34cb3e"></div>
-      <div class="block-header" onclick="toggleCompletedBlock('ovhc')">
-        <div class="block-header-top">
-          <span class="block-icon">◈</span>
-          <span class="block-title" style="color:var(--muted)">Copilot Agent</span>
-          <span class="block-meta">4</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="block-header-bottom" onclick="event.stopPropagation()" style="padding-left:0">
-          <button class="edit-btn" style="color:var(--green);border-color:rgba(63,185,80,0.3)" onclick="moveToActive(8)">↑ move to active</button>
-        </div>
-      </div>
-      <div class="item-list">
-      <div class="item" data-si="8" data-ii="0">
-        <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
-        <div class="item-dot dot-g"></div>
         <div class="item-text">Collaborating with Trev and Minta to deliver a Copilot Agent POC</div>
         <span class="tag tb">JUN</span>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" data-si="8" data-ii="1">
+      <div class="item" data-si="7" data-ii="1">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Designed the copilot schema as an isolation layer within the GOLD database, including view development and security group/view mapping</div>
@@ -1868,7 +1919,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" data-si="8" data-ii="2">
+      <div class="item" data-si="7" data-ii="2">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Authored and maintained the Copilot Agent Knowledge Base documentation
@@ -1877,7 +1928,7 @@ BRONZE database (sql server)</div>
         <span class="tag tg">done</span>
       </div>
     
-      <div class="item" data-si="8" data-ii="3">
+      <div class="item" data-si="7" data-ii="3">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot dot-g"></div>
         <div class="item-text">Facilitated technical discussions and drove consensus on the schema approach</div>
@@ -1892,113 +1943,93 @@ BRONZE database (sql server)</div>
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Data Engineering (Medallion, ADF)</span>
+      <span class="modal-title" id="modal-title">Edit — BAU</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Data Engineering (Medallion, ADF)"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="▶" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="BAU"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Data Modelling (NIDS + DQ) <span style="color:var(--muted2)">[NOV]</span></span>
+            <span class="edit-item-text">feat:HICAPS geo-tracking (Paula) <span style="color:var(--muted2)">[SEP]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:DBT poc <span style="color:var(--muted2)">[OCT]</span></span>
+            <span class="edit-item-text">feat:daily paragon refresh impact QS-2849 <span style="color:var(--muted2)">[SEP]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,1)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,1)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:wfoptic; Optomate <span style="color:var(--muted2)">[AUG]</span></span>
+            <span class="edit-item-text">feat:Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv) <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,2)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,2)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:SILVER Observability layer (volume &amp; schema drift monitoring) <span style="color:var(--muted2)">[AUG]</span></span>
+            <span class="edit-item-text">feat:prep for preso Aug-04 <span style="color:var(--muted2)">[JUL]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,3)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,3)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:D4W(Live) <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Exclude OVHC products Memship rpt <span style="color:var(--muted2)">[MAR]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,4)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Qualtrics REST API
-      ↓ fetch + cleanse
-qualtrics_fetch.py (local development)
-      ↓ git push
-ADO Repo (DataEngineering)
-      ↓ CI auto-build
-Build Pipeline (Artifact: pythonapp)
-      ↓ manual Deploy trigger
-Release Pipeline (robocopy → C:\Python\)
-      ↓
-VM (PRDIRN01)
-      ↓ Task Scheduler (scheduled execution)
-BRONZE database (sql server) <span style="color:var(--muted2)">[JUL]</span></span>
+            <span class="edit-item-text">feat:Worked with Kane and provided slide deck (Pulse PBI announcement) <span style="color:var(--muted2)">[FEB]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,5)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,5)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,5)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,5)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Connx (Meridian), Touchpoint (QMSInsight) <span style="color:var(--muted2)">[JUN]</span></span>
+            <span class="edit-item-text">feat:Implement Report Level Access (Cross-Functional folder) <span style="color:var(--muted2)">[SEP]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,6)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,6)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,6)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,6)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">wip: Membership_Reporting; telrex35; WestfundRPA <span style="color:var(--muted2)">[MAY]</span></span>
+            <span class="edit-item-text">feat:Jira tickets (2762,2759,2770,2822,2853,2849) <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,7)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,7)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,7)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,7)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Vouchers <span style="color:var(--muted2)">[MAR]</span></span>
+            <span class="edit-item-text">feat:NOC issue (QS-2928) <span style="color:var(--muted2)">[NOV]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,8)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,8)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Paragon ; WE2DAT <span style="color:var(--muted2)">[FEB]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(0,9)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(0,9)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(4,8)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(4,8)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(0)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(4)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(0)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(4)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2505,6 +2536,68 @@ const DEFAULT_DATA = [
       }
     ],
     "group": "g-1775949260021"
+  },
+  {
+    "id": "pulse",
+    "icon": "◈",
+    "title": "BAU",
+    "items": [
+      {
+        "text": "NOC issue (QS-2928)",
+        "month": "NOV",
+        "status": "in progress",
+        "prefix": "feat:"
+      },
+      {
+        "text": "HICAPS geo-tracking (Paula)",
+        "month": "SEP",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "daily paragon refresh impact QS-2849",
+        "month": "SEP",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)",
+        "month": "JUL",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "prep for preso Aug-04",
+        "month": "JUL",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Exclude OVHC products Memship rpt",
+        "month": "MAR",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Worked with Kane and provided slide deck (Pulse PBI announcement)",
+        "month": "FEB",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Implement Report Level Access (Cross-Functional folder)",
+        "month": "SEP",
+        "status": "done",
+        "prefix": "feat:"
+      },
+      {
+        "text": "Jira tickets (2762,2759,2770,2822,2853,2849)",
+        "month": "",
+        "status": "ongoing",
+        "prefix": "feat:"
+      }
+    ],
+    "group": "g-1775953122346"
   }
 ];
 
@@ -3051,62 +3144,6 @@ const DEFAULT_COMPLETED = [
       }
     ],
     "group": "g-1775896711532"
-  },
-  {
-    "id": "pulse",
-    "icon": "◈",
-    "title": "BAU",
-    "items": [
-      {
-        "text": "HICAPS geo-tracking (Paula)",
-        "month": "SEP",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "daily paragon refresh impact QS-2849",
-        "month": "SEP",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Membership rpt - FY27 Budget Mapping (fix bugs eg joins budget not in state lv)",
-        "month": "JUL",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "prep for preso Aug-04",
-        "month": "JUL",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Exclude OVHC products Memship rpt",
-        "month": "MAR",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Worked with Kane and provided slide deck (Pulse PBI announcement)",
-        "month": "FEB",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Implement Report Level Access (Cross-Functional folder)",
-        "month": "SEP",
-        "status": "done",
-        "prefix": "feat:"
-      },
-      {
-        "text": "Jira tickets (2762,2759,2770,2822,2853,2849)",
-        "month": "",
-        "status": "ongoing",
-        "prefix": "feat:"
-      }
-    ],
-    "group": "g-1775953122346"
   },
   {
     "id": "ovhc",
