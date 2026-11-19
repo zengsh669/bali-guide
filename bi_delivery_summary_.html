@@ -702,7 +702,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">◈</span>
           <span class="block-title">Other Requests</span>
-          <span class="block-meta">4</span>
+          <span class="block-meta">5</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -774,6 +774,14 @@ html, body {
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
         <div class="item-text">Telephone System Reporting QS-2816</div>
+        
+        <span class="tag ta">in progress</span>
+      </div>
+    
+      <div class="item" draggable="true" data-si="1" data-ii="4">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-a"></div>
+        <div class="item-text">Actual vs Budget analysis</div>
         
         <span class="tag ta">in progress</span>
       </div>
@@ -1089,29 +1097,61 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Redundant Apps Archived</span>
+      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Redundant Apps Archived"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="⊘" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Profitability App QS-2776 <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">feat:Optical Dashboard QS-2840 <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Daily Sales / Daily Membership (phase 2) QS-2839  <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,1)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Confirm to start dev: Dental Centre Financial Dashboard (QS-2715) <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,2)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,2)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,3)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,3)">✕</button>
+            </div>
+          </div>
+        
+          <div class="edit-item-row">
+            <span class="edit-item-text">feat:Actual vs Budget analysis <span style="color:var(--muted2)">[]</span></span>
+            <div class="edit-item-actions">
+              <button class="icon-btn" onclick="openEditItem(1,4)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(1,4)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -2040,6 +2080,12 @@ html, body {
           },
           {
             "text": "Telephone System Reporting QS-2816",
+            "month": "",
+            "status": "in progress",
+            "prefix": "feat:"
+          },
+          {
+            "text": "Actual vs Budget analysis",
             "month": "",
             "status": "in progress",
             "prefix": "feat:"
