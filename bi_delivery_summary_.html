@@ -365,6 +365,46 @@ html, body {
 .dot-dark { background: #3a3a3a; border: 1px solid #555; }
 .dot-darkred { background: #7a1f1f; }
 .item-text { font-size: 11px; color: var(--text); line-height: 1.5; }
+.sub-badge {
+  display: inline-block; margin-left: 6px; padding: 0 5px;
+  font-size: 9px; line-height: 1.6; border-radius: 4px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--bg4); color: var(--muted);
+  vertical-align: middle; user-select: none;
+}
+.sub-badge:hover { color: var(--text); border-color: var(--border2); }
+.sub-badge.sub-done { color: var(--green); border-color: rgba(63,185,80,0.3); background: var(--green-bg); }
+.sub-badge.sub-empty { opacity: 0; transition: opacity 0.15s; }
+.item:hover .sub-badge.sub-empty { opacity: 1; }
+.sub-panel {
+  padding: 4px 12px 8px 40px; border-bottom: 0.5px solid var(--border);
+  background: var(--bg2);
+}
+.sub-row {
+  display: flex; align-items: center; gap: 8px; padding: 2px 0;
+  font-size: 11px; color: var(--text);
+}
+.sub-row input[type=checkbox] { accent-color: var(--green); cursor: pointer; margin: 0; }
+.sub-row .sub-text { flex: 1; cursor: text; line-height: 1.5; }
+.sub-row.done .sub-text { text-decoration: line-through; color: var(--muted); }
+.sub-row .sub-del {
+  background: none; border: none; color: var(--muted2); cursor: pointer;
+  font-size: 11px; padding: 0 4px; opacity: 0; transition: opacity 0.1s;
+}
+.sub-row:hover .sub-del { opacity: 1; }
+.sub-row .sub-del:hover { color: var(--red); }
+.sub-add {
+  width: 100%; margin-top: 4px; background: var(--bg3);
+  border: 1px solid var(--border); border-radius: 4px; color: var(--text);
+  font-family: var(--mono); font-size: 11px; padding: 3px 7px; outline: none;
+}
+.sub-add:focus { border-color: var(--blue); }
+.item-text.has-subs { cursor: pointer; }
+.item-text.has-subs:hover { color: var(--blue); }
+.sub-hide {
+  display: block; margin: 4px 0 0 auto; background: none; border: none;
+  color: var(--muted); font-family: var(--mono); font-size: 10px; cursor: pointer;
+}
+.sub-hide:hover { color: var(--text); }
 .item-month { display: none; }
 .tag { font-size: 9px; padding: 2px 5px; border-radius: 4px; white-space: nowrap; font-weight: 500; }
 .tg { background: var(--green-bg); color: var(--green); border: 1px solid rgba(63,185,80,0.2); }
@@ -535,7 +575,7 @@ html, body {
   </div>
   <div class="topbar-right">
     <button class="btn" onclick="expandAll()">↕ Expand all</button>
-    <button class="btn btn-save" onclick="saveAsHTML()">💾 Save</button>
+    <button class="btn btn-save" onclick="saveAsHTML()">💾 Save •</button>
     <button class="btn" onclick="window.print()">⬇ PDF</button>
     <button class="btn btn-green" onclick="openAddBlock()">+ Section</button>
   </div>
@@ -674,26 +714,39 @@ html, body {
       <div class="item" draggable="true" data-si="0" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">DBT Project</div>
+        <div class="item-text has-subs" onclick="toggleSubs(0,0)">DBT Project<span class="sub-badge" title="Hide sub-tasks" onclick="event.stopPropagation();toggleSubs(0,0)">▾ 0/2</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      <div class="sub-panel" draggable="false" ondragstart="event.stopPropagation();event.preventDefault();">
+    <div class="sub-row ">
+      <input type="checkbox" onchange="toggleSubDone(0,0,0)">
+      <span class="sub-text" ondblclick="renameSub(0,0,0)" title="Double-click to rename">replicate silver models</span>
+      <button class="sub-del" title="Delete" onclick="deleteSub(0,0,0)">✕</button>
+    </div>
+    <div class="sub-row ">
+      <input type="checkbox" onchange="toggleSubDone(0,0,1)">
+      <span class="sub-text" ondblclick="renameSub(0,0,1)" title="Double-click to rename">replicate gold models</span>
+      <button class="sub-del" title="Delete" onclick="deleteSub(0,0,1)">✕</button>
+    </div><input class="sub-add" id="subadd-0-0" placeholder="+ add sub-task, press Enter" onkeydown="if(event.key==='Enter'){event.preventDefault();addSub(0,0,this.value);}"><button class="sub-hide" onclick="toggleSubs(0,0)">▴ hide</button></div>
     
       <div class="item" draggable="true" data-si="0" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">D4W(Live)</div>
+        <div class="item-text">D4W(Live)<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(0,1)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="0" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Fabric Migration</div>
+        <div class="item-text">Fabric Migration<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(0,2)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     </div>
     </div><div class="block open" id="block-sec-1778800177808" draggable="true" data-index="1" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#9ea027"></div>
@@ -749,42 +802,47 @@ html, body {
       <div class="item" draggable="true" data-si="1" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Optical Dashboard QS-2840</div>
+        <div class="item-text">Optical Dashboard QS-2840<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(1,0)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="1" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Daily Sales / Daily Membership (phase 2) QS-2839 </div>
+        <div class="item-text">Daily Sales / Daily Membership (phase 2) QS-2839 <span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(1,1)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="1" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-darkred"></div>
-        <div class="item-text">Confirm to start dev: Dental Centre Financial Dashboard (QS-2715)</div>
+        <div class="item-text">Confirm to start dev: Dental Centre Financial Dashboard (QS-2715)<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(1,2)">☐ +</span></div>
         
         <span class="tag tr">paused</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="1" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Telephone System Reporting QS-2816</div>
+        <div class="item-text">Telephone System Reporting QS-2816<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(1,3)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="1" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Actual vs Budget analysis</div>
+        <div class="item-text has-subs" onclick="toggleSubs(1,4)">Actual vs Budget analysis<span class="sub-badge" title="Show sub-tasks" onclick="event.stopPropagation();toggleSubs(1,4)">▸ 0/1</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     </div>
     </div><div class="block open" id="block-qtpm" draggable="true" data-index="2" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#8e32b8"></div>
@@ -840,114 +898,128 @@ html, body {
       <div class="item" draggable="true" data-si="2" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">New Member Report QS-2876</div>
+        <div class="item-text">New Member Report QS-2876<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,0)">☐ +</span></div>
         <span class="tag tb">DEC</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="1">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">NDIS &amp; Medicare Reporting QS-2917</div>
+        <div class="item-text">NDIS &amp; Medicare Reporting QS-2917<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,1)">☐ +</span></div>
         <span class="tag tb">DEC</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="2">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Dental &amp; Eyewear Manual Claims (pbi training)</div>
+        <div class="item-text">Dental &amp; Eyewear Manual Claims (pbi training)<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,2)">☐ +</span></div>
         <span class="tag tb">NOV</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="3">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Quarterly Competitor Analysis - Eye Care and Dental QS-2909</div>
+        <div class="item-text">Quarterly Competitor Analysis - Eye Care and Dental QS-2909<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,3)">☐ +</span></div>
         <span class="tag tb">NOV</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="4">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Arrears Report QS-2758 | 2642</div>
+        <div class="item-text">Arrears Report QS-2758 | 2642<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,4)">☐ +</span></div>
         <span class="tag tb">DEC</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="5">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Qualtrics NPS Score QS-2801</div>
+        <div class="item-text">Qualtrics NPS Score QS-2801<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,5)">☐ +</span></div>
         <span class="tag tb">AUG</span>
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="6">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Payment Methods-Advance and Arrears QS-2758</div>
+        <div class="item-text">Payment Methods-Advance and Arrears QS-2758<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,6)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="7">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Eclipse Remittances</div>
+        <div class="item-text">Eclipse Remittances<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,7)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="8">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Member &amp; Provider Correspondence</div>
+        <div class="item-text">Member &amp; Provider Correspondence<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,8)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="9">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Groups &amp; Contributions Receipts</div>
+        <div class="item-text">Groups &amp; Contributions Receipts<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,9)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="10">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Invoice Payment - Vendor Group</div>
+        <div class="item-text">Invoice Payment - Vendor Group<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,10)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="11">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">HR</div>
+        <div class="item-text">HR<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,11)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="12">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">HR Daily Movement</div>
+        <div class="item-text">HR Daily Movement<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,12)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     
       <div class="item" draggable="true" data-si="2" data-ii="13">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-dark"></div>
-        <div class="item-text">Finance Dashboard</div>
+        <div class="item-text">Finance Dashboard<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(2,13)">☐ +</span></div>
         
         <span class="tag tn">not started</span>
       </div>
+      
     </div>
     </div><div class="block open" id="block-archive" draggable="true" data-index="3" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#8e32b8"></div>
@@ -956,7 +1028,7 @@ html, body {
           <span class="drag-handle" title="Drag to reorder" onclick="event.stopPropagation()">⠿</span>
           <span class="block-icon">⊘</span>
           <span class="block-title">Qlik → Power BI Migration — Redundant Apps Archived</span>
-          <span class="block-meta">1</span>
+          <span class="block-meta">2</span>
           <span class="chevron">▼</span>
         </div>
         <div class="block-header-bottom" onclick="event.stopPropagation()">
@@ -1003,10 +1075,20 @@ html, body {
       <div class="item" draggable="true" data-si="3" data-ii="0">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot dot-a"></div>
-        <div class="item-text">Profitability App QS-2776</div>
+        <div class="item-text">Profitability App QS-2776<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(3,0)">☐ +</span></div>
         
         <span class="tag ta">in progress</span>
       </div>
+      
+    
+      <div class="item" draggable="true" data-si="3" data-ii="1">
+        <span class="item-drag-handle">⠿</span>
+        <div class="item-dot dot-dark"></div>
+        <div class="item-text">Finance Dashboard<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();toggleSubs(3,1)">☐ +</span></div>
+        
+        <span class="tag tn">not started</span>
+      </div>
+      
     </div>
     </div><div class="block open" id="block-geo" draggable="true" data-index="4" style="box-shadow: none;">
       <div class="group-top-bar" style="background:#34cb3e"></div>
@@ -1097,61 +1179,37 @@ html, body {
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-head">
-      <span class="modal-title" id="modal-title">Edit — Other Requests</span>
+      <span class="modal-title" id="modal-title">Edit — Qlik → Power BI Migration — Redundant Apps Archived</span>
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body" id="modal-body">
-    <div class="field"><label>Section title</label><input id="edit-title" value="Other Requests"></div>
-    <div class="field"><label>Icon</label><input id="edit-icon" value="◈" style="width:60px"></div>
+    <div class="field"><label>Section title</label><input id="edit-title" value="Qlik → Power BI Migration — Redundant Apps Archived"></div>
+    <div class="field"><label>Icon</label><input id="edit-icon" value="⊘" style="width:60px"></div>
     <div class="field">
       <label>Items</label>
       <div id="edit-items">
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Optical Dashboard QS-2840 <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">feat:Profitability App QS-2776 <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,0)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,0)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,0)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,0)">✕</button>
             </div>
           </div>
         
           <div class="edit-item-row">
-            <span class="edit-item-text">feat:Daily Sales / Daily Membership (phase 2) QS-2839  <span style="color:var(--muted2)">[]</span></span>
+            <span class="edit-item-text">feat:Finance Dashboard <span style="color:var(--muted2)">[]</span></span>
             <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,1)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,1)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Confirm to start dev: Dental Centre Financial Dashboard (QS-2715) <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,2)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,2)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Telephone System Reporting QS-2816 <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,3)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,3)">✕</button>
-            </div>
-          </div>
-        
-          <div class="edit-item-row">
-            <span class="edit-item-text">feat:Actual vs Budget analysis <span style="color:var(--muted2)">[]</span></span>
-            <div class="edit-item-actions">
-              <button class="icon-btn" onclick="openEditItem(1,4)">✎</button>
-              <button class="icon-btn del" onclick="deleteItem(1,4)">✕</button>
+              <button class="icon-btn" onclick="openEditItem(3,1)">✎</button>
+              <button class="icon-btn del" onclick="deleteItem(3,1)">✕</button>
             </div>
           </div>
         
       </div>
-      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(1)">+ Add item</button>
+      <button class="btn" style="margin-top:10px;width:100%;justify-content:center" onclick="openAddItem(3)">+ Add item</button>
     </div>
     <div class="field" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
-      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(1)">Delete section</button>
+      <button class="btn" style="color:var(--red);border-color:rgba(248,81,73,0.3);width:100%;justify-content:center" onclick="deleteBlock(3)">Delete section</button>
     </div>
   </div>
     <div class="modal-foot">
@@ -1161,7 +1219,7 @@ html, body {
   </div>
 </div>
 
-<div class="toast" id="toast">✓ File downloaded — replace &amp; push to GitHub</div>
+<div class="toast" id="toast">✓ Saved — push to GitHub</div>
 
 <script>
 /*YEARS_DATA_START*/const YEARS_DATA = {
@@ -2038,7 +2096,17 @@ html, body {
             "text": "DBT Project",
             "month": "",
             "status": "in progress",
-            "prefix": "feat:"
+            "prefix": "feat:",
+            "subtasks": [
+              {
+                "text": "replicate silver models",
+                "done": false
+              },
+              {
+                "text": "replicate gold models",
+                "done": false
+              }
+            ]
           },
           {
             "text": "D4W(Live)",
@@ -2088,7 +2156,13 @@ html, body {
             "text": "Actual vs Budget analysis",
             "month": "",
             "status": "in progress",
-            "prefix": "feat:"
+            "prefix": "feat:",
+            "subtasks": [
+              {
+                "text": "bring financial dashboard app in DWH",
+                "done": false
+              }
+            ]
           }
         ],
         "group": "g-1775896671817"
@@ -2195,6 +2269,12 @@ html, body {
             "month": "",
             "status": "in progress",
             "prefix": "feat:"
+          },
+          {
+            "text": "Finance Dashboard",
+            "month": "",
+            "status": "not started",
+            "prefix": "feat:"
           }
         ],
         "group": "g-1775949260021"
@@ -2278,9 +2358,13 @@ function switchYear(y) {
   completedState = YEARS_DATA[y].completed;
   stats = YEARS_DATA[y].stats;
   populateYearSelect();
+  const wasDirty = isDirty;
+  trackingDirty = false;
   render();
   renderStats();
   renderCompleted();
+  trackingDirty = true;
+  if (!wasDirty) markClean();
 }
 
 function addYear() {
@@ -2295,7 +2379,7 @@ function addYear() {
 // ── Stats CRUD ──
 
 
-function saveStats() { /* kept in YEARS_DATA; written to file on Save */ }
+function saveStats() { markDirty(); }
 
 let stats = YEARS_DATA[currentYear].stats;
 
@@ -2518,7 +2602,7 @@ function loadGroups() {
   if (saved) { try { return JSON.parse(saved); } catch(e) {} }
   return [];
 }
-function saveGroups() { /* written to file on Save */ }
+function saveGroups() { markDirty(); }
 let groups = loadGroups();
 
 function toggleGroupMenu(menuId, event) {
@@ -2562,7 +2646,27 @@ function createGroup(sectionId) {
   render();
 }
 
-function persistData() { /* kept in YEARS_DATA; written to file on Save */ }
+function persistData() { markDirty(); }
+
+// ── Unsaved-changes tracking ──
+let isDirty = false;
+let trackingDirty = false;
+function markDirty() {
+  if (!trackingDirty) return;
+  isDirty = true;
+  const btn = document.querySelector('.btn-save');
+  if (btn) btn.textContent = '💾 Save •';
+}
+function markClean() {
+  isDirty = false;
+  const btn = document.querySelector('.btn-save');
+  if (btn) btn.textContent = '💾 Save';
+}
+window.addEventListener('beforeunload', e => {
+  if (!isDirty) return;
+  e.preventDefault();
+  e.returnValue = '';
+});
 
 try {
   localStorage.removeItem('bi-delivery-v2');
@@ -2575,7 +2679,7 @@ let state = YEARS_DATA[currentYear].data;
 // ── Completed zone state ──
 
 
-function saveCompleted() { /* kept in YEARS_DATA; written to file on Save */ }
+function saveCompleted() { markDirty(); }
 let completedState = YEARS_DATA[currentYear].completed;
 let completedExpanded = false;
 
@@ -2591,6 +2695,8 @@ function renderCompleted() {
   const grid = document.getElementById('completed-grid');
   const hint = document.getElementById('completed-drop-hint');
   const count = document.getElementById('completed-count');
+  const openCompletedIds = completedRenderedOnce ? [...grid.querySelectorAll('.block.open')].map(b => b.id) : [];
+  completedRenderedOnce = true;
   grid.innerHTML = '';
   count.textContent = completedState.length;
 
@@ -2614,10 +2720,11 @@ function renderCompleted() {
       <div class="item" data-si="${si}" data-ii="${ii}">
         <span class="item-drag-handle" style="cursor:default;opacity:0.4">⠿</span>
         <div class="item-dot ${dotClass(item.status)}"></div>
-        <div class="item-text">${item.text}</div>
+        <div class="item-text${(item.subtasks && item.subtasks.length) ? ' has-subs' : ''}" ${(item.subtasks && item.subtasks.length) ? `onclick="toggleCompletedSubs(${si},${ii})"` : ''}>${item.text}${(item.subtasks && item.subtasks.length) ? subBadge(item, `toggleCompletedSubs(${si},${ii})`) : ''}</div>
         ${item.month ? `<span class="tag tb">${item.month}</span>` : ''}
         <span class="tag ${tagClass(item.status)}">${item.status}</span>
       </div>
+      ${openSubs.has(item) ? subPanel(item, si, ii, true) : ''}
     `).join('');
 
     block.innerHTML = `
@@ -2644,6 +2751,7 @@ function renderCompleted() {
     block.addEventListener('dragend', onCompletedDragEnd);
     grid.appendChild(block);
   });
+  openCompletedIds.forEach(id => { const b = document.getElementById(id); if (b) b.classList.add('open'); });
   saveCompleted();
 }
 
@@ -2749,6 +2857,99 @@ function onCompletedZoneDrop(e) {
   renderCompleted();
 }
 
+
+// ── Sub-tasks (checklist under each item) ──
+const openSubs = new WeakSet();
+let renderedOnce = false, completedRenderedOnce = false;
+let pendingSubFocus = null;
+
+function escapeHtml(t) {
+  return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function subBadge(item, onclick) {
+  const subs = item.subtasks || [];
+  const done = subs.filter(x => x.done).length;
+  if (!subs.length) {
+    return `<span class="sub-badge sub-empty" title="Add sub-tasks" onclick="event.stopPropagation();${onclick}">☐ +</span>`;
+  }
+  const cls = done === subs.length ? 'sub-badge sub-done' : 'sub-badge';
+  const open = openSubs.has(item);
+  return `<span class="${cls}" title="${open ? 'Hide' : 'Show'} sub-tasks" onclick="event.stopPropagation();${onclick}">${open ? '▾' : '▸'} ${done}/${subs.length}</span>`;
+}
+
+function subPanel(item, si, ii, readOnly) {
+  const subs = item.subtasks || [];
+  const rows = subs.map((t, k) => `
+    <div class="sub-row ${t.done ? 'done' : ''}">
+      <input type="checkbox" ${t.done ? 'checked' : ''} ${readOnly ? 'disabled' : `onchange="toggleSubDone(${si},${ii},${k})"`}>
+      <span class="sub-text" ${readOnly ? '' : `ondblclick="renameSub(${si},${ii},${k})" title="Double-click to rename"`}>${escapeHtml(t.text)}</span>
+      ${readOnly ? '' : `<button class="sub-del" title="Delete" onclick="deleteSub(${si},${ii},${k})">✕</button>`}
+    </div>`).join('');
+  const add = readOnly ? '' : `<input class="sub-add" id="subadd-${si}-${ii}" placeholder="+ add sub-task, press Enter"
+      onkeydown="if(event.key==='Enter'){event.preventDefault();addSub(${si},${ii},this.value);}">`;
+  const hide = `<button class="sub-hide" onclick="${readOnly ? `toggleCompletedSubs(${si},${ii})` : `toggleSubs(${si},${ii})`}">▴ hide</button>`;
+  return `<div class="sub-panel" draggable="false" ondragstart="event.stopPropagation();event.preventDefault();">${rows}${add}${hide}</div>`;
+}
+
+function rerenderSubs() {
+  render();
+  if (pendingSubFocus) {
+    const el = document.getElementById(pendingSubFocus);
+    if (el) el.focus();
+    pendingSubFocus = null;
+  }
+}
+
+function quietly(fn) {
+  const was = trackingDirty; trackingDirty = false;
+  try { fn(); } finally { trackingDirty = was; }
+}
+
+function toggleSubs(si, ii) {
+  const item = state[si].items[ii];
+  if (openSubs.has(item)) openSubs.delete(item);
+  else { openSubs.add(item); pendingSubFocus = (item.subtasks && item.subtasks.length) ? null : `subadd-${si}-${ii}`; }
+  quietly(rerenderSubs);
+}
+
+function toggleCompletedSubs(si, ii) {
+  const item = completedState[si].items[ii];
+  if (openSubs.has(item)) openSubs.delete(item); else openSubs.add(item);
+  quietly(renderCompleted);
+}
+
+function addSub(si, ii, text) {
+  text = (text || '').trim();
+  if (!text) return;
+  const item = state[si].items[ii];
+  if (!item.subtasks) item.subtasks = [];
+  item.subtasks.push({ text, done: false });
+  openSubs.add(item);
+  pendingSubFocus = `subadd-${si}-${ii}`;
+  rerenderSubs();
+}
+
+function toggleSubDone(si, ii, k) {
+  const t = state[si].items[ii].subtasks[k];
+  t.done = !t.done;
+  rerenderSubs();
+}
+
+function renameSub(si, ii, k) {
+  const t = state[si].items[ii].subtasks[k];
+  const v = prompt('Rename sub-task', t.text);
+  if (v === null || !v.trim()) return;
+  t.text = v.trim();
+  rerenderSubs();
+}
+
+function deleteSub(si, ii, k) {
+  const item = state[si].items[ii];
+  item.subtasks.splice(k, 1);
+  if (!item.subtasks.length) delete item.subtasks;
+  rerenderSubs();
+}
 
 function dotClass(s) {
   if (s === 'done' || s === 'archived') return 'dot-g';
@@ -2864,6 +3065,8 @@ document.addEventListener('click', (e) => {
 
 function render() {
   const grid = document.getElementById('grid');
+  const openIds = renderedOnce ? [...grid.querySelectorAll('.block.open')].map(b => b.id) : [];
+  renderedOnce = true;
   grid.innerHTML = '';
   state.forEach((section, si) => {
     const block = document.createElement('div');
@@ -2883,10 +3086,11 @@ function render() {
       <div class="item" draggable="true" data-si="${si}" data-ii="${ii}">
         <span class="item-drag-handle">⠿</span>
         <div class="item-dot ${dotClass(item.status)}"></div>
-        <div class="item-text">${item.text}</div>
+        <div class="item-text${(item.subtasks && item.subtasks.length) ? ' has-subs' : ''}" ${(item.subtasks && item.subtasks.length) ? `onclick="toggleSubs(${si},${ii})"` : ''}>${item.text}${subBadge(item, `toggleSubs(${si},${ii})`)}</div>
         ${item.month ? `<span class="tag ${monthTagClass(item.month)}">${item.month}</span>` : ''}
         <span class="tag ${tagClass(item.status)}">${item.status}</span>
       </div>
+      ${openSubs.has(item) ? subPanel(item, si, ii, false) : ''}
     `).join('');
 
     // Group top banner
@@ -2947,6 +3151,7 @@ function render() {
       itemEl.addEventListener('dragend', onItemDragEnd);
     });
   });
+  openIds.forEach(id => { const b = document.getElementById(id); if (b) b.classList.add('open'); });
   renderLegend();
   persistData();
   renderCompleted();
@@ -2994,6 +3199,7 @@ async function saveFile(src) {
       const writable = await handle.createWritable();
       await writable.write(blob);
       await writable.close();
+      markClean();
       showToast('✓ Saved — push to GitHub');
       return;
     } catch (e) {
@@ -3009,6 +3215,7 @@ async function saveFile(src) {
   document.body.appendChild(a);
   a.click();
   setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 10000);
+  markClean();
   showToast('✓ Download started — check Ctrl+J if you can\'t find it');
 }
 
@@ -3159,6 +3366,8 @@ populateYearSelect();
 render();
 renderStats();
 renderCompleted();
+trackingDirty = true;
+markClean();
 </script>
 
 
